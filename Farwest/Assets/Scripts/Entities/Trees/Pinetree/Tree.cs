@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PineTree : MonoBehaviour
+public class Tree : MonoBehaviour
 {
 
     private GameObject self;
@@ -15,7 +15,7 @@ public class PineTree : MonoBehaviour
         self = gameObject;
     }
 
-   
+
     void Update()
     {
         

@@ -17,10 +17,10 @@ public class LogicTasks : MonoBehaviour
 
     private Anim anim;
 
-    private string logicWork;
-    private string logicTask;
 
     private bool hasReachedTaskObject;
+    private bool isChopping;
+
 
 
     void Awake()
@@ -31,12 +31,12 @@ public class LogicTasks : MonoBehaviour
         logic = GetComponent<Logic>();
         anim = GetComponent<Anim>();
         navigation = GetComponent<Nav>();
-
-       
-
-        logicWork = logic.Work;
-        logicTask = logic.Task;
+        isChopping = false;
+      
     }
+
+
+
 
 
     // Lumberjack methods:
@@ -61,32 +61,47 @@ public class LogicTasks : MonoBehaviour
     GameObject FindTree()
     {
       
-        GameObject[] pinetrees = GameObject.FindGameObjectsWithTag("pinetree");
-        if (pinetrees != null)
+        GameObject[] trees = GameObject.FindGameObjectsWithTag("tree");
+        if (trees != null)
         {
-            float[] pinetreesDistances = new float[pinetrees.Length];
+            float[] treesDistances = new float[trees.Length];
             int index = 0;
-            foreach (GameObject tree in pinetrees)
+            foreach (GameObject tree in trees)
             {
-                pinetreesDistances[index] = Vector3.Distance(self.transform.position, tree.transform.position);
+                treesDistances[index] = Vector3.Distance(self.transform.position, tree.transform.position);
                 index++;
             }
 
-            int indexFound = 0;
-            foreach (float distance in pinetreesDistances)
+            bool treeHasntBeenFound = true;
+            int indexToUse = -1;
+            while (treeHasntBeenFound)
             {
-                if (distance == Mathf.Min(pinetreesDistances))
+                int indexFound = 0;
+                foreach (float distance in treesDistances)
                 {
-                    if (pinetrees[indexFound].GetComponent<PineTree>().IsOccupied)
+                    if (distance == Mathf.Min(treesDistances))
                     {
-                        break;
+                        if (!trees[indexFound].GetComponent<Tree>().IsOccupied)
+                        {
+                            trees[indexFound].GetComponent<Tree>().IsOccupied = true;
+                            indexToUse = indexFound;
+                            treeHasntBeenFound = false;
+                            break;
+                        }
+                        else
+                        {
+                            trees[indexFound] = null;
+                            treesDistances[indexFound] = 99999999;
+                            break;
+                        }
                     }
-                }
-                indexFound++;
-            }
-          
-            return pinetrees[indexFound];
 
+                    indexFound++;
+                }
+            }
+            
+                return trees[indexToUse];
+           
         }
         else
         {
@@ -95,34 +110,64 @@ public class LogicTasks : MonoBehaviour
     }
 
 
-    // New work here:
+    void BeginChopping()
+    {
+        if (!isChopping)
+        {
+            self.transform.LookAt(taskObject.transform);
+            anim.PlayAnimation("hacking_horizontal_start", 1f);
+            anim.PlayAnimation("hacking_horizontal", 1.8f);
+            float timerForHack = 0;
+            isChopping = true;
+        }
+
+
+
+    }
+
+
+
+
+    // New work here etc.
 
 
 
     // Update method for all jobs/tasks
     private void Update()
     {
-        switch(logicWork)
+        switch(logic.Work)
         {
+
+
             // -- Lumberjack job --
             case "lumberjack":
                 // Collecting wood
+               
                 if (logic.Task == "collect")
                 {
-                    float distance = Vector3.Distance(self.transform.position, taskObject.transform.position);
-                    if (distance <= 6 && distance >= 4.5)
+                    if (!hasReachedTaskObject) // If settler hasn't reached the tree
                     {
-                        navigation.WalkToDestination(Vector3.Lerp(self.transform.position, taskObject.transform.position, 0.5f));
-                        
+                        float distance = Vector3.Distance(self.transform.position, taskObject.transform.position);
+                        if (distance <= 6 && distance >= 4.5)
+                        {
+                            navigation.WalkToDestination(Vector3.Lerp(self.transform.position, taskObject.transform.position, 0.5f));
+                        }
+                        if (distance <= 4.5 && !hasReachedTaskObject)
+                        {
+                            hasReachedTaskObject = true;
+                            BeginChopping();
+                        }
                     }
-                    if(distance <= 4.5 && !hasReachedTaskObject)
+                    else // When the settler has reached a tree
                     {
-                        self.transform.LookAt(taskObject.transform);
-                        anim.PlayAnimation("hacking_horizontal_start", 1f);
-                        anim.PlayAnimation("hacking_horizontal", 1.8f);
-                        hasReachedTaskObject = true;
+
                     }
                 }
+                break;
+
+
+            // -- Next Job here --
+            case "nextjobhere":
             break;
                 
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3941850454767032023}
   - component: {fileID: 1247694267859149341}
   - component: {fileID: 473202260492649189}
-  - component: {fileID: 2254629373477626156}
+  - component: {fileID: 7664662381259282356}
   m_Layer: 0
   m_Name: pinetree
   m_TagString: pinetree
@@ -100,7 +100,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05414471, y: 0.05880679, z: 0.027643468}
   m_Center: {x: -0.00032955268, y: -0.0011557114, z: 0.003003365}
---- !u!114 &2254629373477626156
+--- !u!114 &7664662381259282356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ca5b76343d1484593787d84ec06d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsOccupied: 0

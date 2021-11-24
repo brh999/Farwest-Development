@@ -21,6 +21,7 @@ public class LogicTasks : MonoBehaviour
     private bool hasReachedTaskObject;
     private bool isChopping;
 
+    private float timerForHack = 0f;
 
 
     void Awake()
@@ -58,7 +59,7 @@ public class LogicTasks : MonoBehaviour
         }
     }
 
-    GameObject FindTree()
+    private GameObject FindTree()
     {
       
         GameObject[] trees = GameObject.FindGameObjectsWithTag("tree");
@@ -110,19 +111,15 @@ public class LogicTasks : MonoBehaviour
     }
 
 
-    void BeginChopping()
+    private void BeginChopping()
     {
         if (!isChopping)
         {
             self.transform.LookAt(taskObject.transform);
             anim.PlayAnimation("hacking_horizontal_start", 1f);
             anim.PlayAnimation("hacking_horizontal", 1.8f);
-            float timerForHack = 0;
             isChopping = true;
         }
-
-
-
     }
 
 
@@ -160,7 +157,13 @@ public class LogicTasks : MonoBehaviour
                     }
                     else // When the settler has reached a tree
                     {
+                        if(isChopping)
+                        {
+                            if(timerForHack >= 1f)
+                            {
 
+                            }
+                        }
                     }
                 }
                 break;

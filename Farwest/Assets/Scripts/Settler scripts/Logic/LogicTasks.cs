@@ -17,22 +17,27 @@ public class LogicTasks : MonoBehaviour
 
     private Anim anim;
 
+    private Sound sound;
+
 
     private bool hasReachedTaskObject;
-    private bool isChopping;
+    private bool isChopping = false;
+    private bool skipChop = false;
 
-    private float timerForHack = 0f;
+    private float timerForChopping = 0f;
+    private float timerForChoppingInterval = 0.6f; // The interval in seconds when our settler chops a tree with an axe
 
 
     void Awake()
     {
+
         self = gameObject;
 
         selfAgent = GetComponent<NavMeshAgent>();
         logic = GetComponent<Logic>();
         anim = GetComponent<Anim>();
         navigation = GetComponent<Nav>();
-        isChopping = false;
+        sound = GetComponent<Sound>();
       
     }
 
@@ -118,7 +123,18 @@ public class LogicTasks : MonoBehaviour
             self.transform.LookAt(taskObject.transform);
             anim.PlayAnimation("hacking_horizontal_start", 1f);
             anim.PlayAnimation("hacking_horizontal", 1.8f);
-            isChopping = true;
+            IEnumerator Countdown()
+            {
+                while (true)
+                {
+                    yield return new WaitForSeconds(1.8f); 
+                    isChopping = true;
+                    timerForChopping = timerForChoppingInterval;
+                    StopCoroutine(Countdown());
+                }
+            }
+            StartCoroutine(Countdown());
+            
         }
     }
 
@@ -157,11 +173,25 @@ public class LogicTasks : MonoBehaviour
                     }
                     else // When the settler has reached a tree
                     {
-                        if(isChopping)
+                        if(isChopping) // Make our code run each time our settler hit the tree with an axe
                         {
-                            if(timerForHack >= 1f)
+                            if(timerForChopping >= 0f)
                             {
-
+                                timerForChopping -= Time.deltaTime;
+                            }
+                            else
+                            {
+                                if (!skipChop)
+                                {
+                                    timerForChopping = timerForChoppingInterval;
+                                    sound.PlaySound("axechop", 0.1f, 1, 0);
+                                    skipChop = true;
+                                }
+                                else
+                                {
+                                    timerForChopping = timerForChoppingInterval;
+                                    skipChop = false;
+                                }
                             }
                         }
                     }

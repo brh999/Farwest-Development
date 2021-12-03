@@ -13,6 +13,7 @@ public class Logic : MonoBehaviour
 
     public bool HasDestination = false;
 
+    public GameObject CurrentTool;
 
     private void Awake()
     {

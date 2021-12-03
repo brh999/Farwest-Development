@@ -13,7 +13,6 @@ public class Axe : MonoBehaviour
 
     private BoxCollider owner_Collider;
 
-    private bool hasHit = false;
 
 
     void Awake()
@@ -25,6 +24,8 @@ public class Axe : MonoBehaviour
             owner = currentParent.transform.parent.gameObject;
             currentParent = owner;
         }
+
+        owner.GetComponent<Logic>().CurrentTool = gameObject;
 
         owner_LogicTasks = owner.GetComponent<LogicTasks>();
         owner_Sound = owner.GetComponent<Sound>();
@@ -45,6 +46,7 @@ public class Axe : MonoBehaviour
                 {
                     owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
                     treeScript.firstStage_hacks -= 1;
+                    treeScript.WoodFlakeSequence();
                 }
             }
         }

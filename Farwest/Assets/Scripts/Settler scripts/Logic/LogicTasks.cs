@@ -51,6 +51,7 @@ public class LogicTasks : MonoBehaviour
             GameObject treeobject = FindTree();
             if(treeobject != null)
             {
+                treeobject.GetComponent<Tree>().OccupiedOwner = gameObject;
                 navigation.WalkToDestination(treeobject.transform.position);
                 anim.PlayAnimation("walk_m", 0);
                 taskObject = treeobject;

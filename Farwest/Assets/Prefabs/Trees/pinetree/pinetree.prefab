@@ -103,6 +103,11 @@ MonoBehaviour:
   firstStage_hacks: 10
   IsOccupied: 0
   FirstStageDone: 0
+  RootStump: {fileID: 0}
+  UpperPart: {fileID: 0}
+  Woodflake1: {fileID: 919132149155446097, guid: 6143b4cb93f197f4b983dd86c1f6ed84, type: 3}
+  Woodflake2: {fileID: 919132149155446097, guid: d5097fe8a7fb7ac4c83e34b23b29392b, type: 3}
+  Woodflake3: {fileID: 919132149155446097, guid: b114169c73ccd6e4aba00d20fc7994f2, type: 3}
 --- !u!136 &7408500482343346672
 CapsuleCollider:
   m_ObjectHideFlags: 0

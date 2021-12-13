@@ -149,11 +149,11 @@ public class LogicTasks : MonoBehaviour
                     if (!hasReachedTaskObject) // If settler hasn't reached the tree
                     {
                         float distance = Vector3.Distance(self.transform.position, taskObject.transform.position);
-                        if (distance <= 6 && distance >= 4.5)
+                        if (distance <= 4.5 && distance >= 3)
                         {
                             navigation.WalkToDestination(Vector3.Lerp(self.transform.position, taskObject.transform.position, 0.5f));
                         }
-                        if (distance <= 4.5 && !hasReachedTaskObject)
+                        if (distance <= 3 && !hasReachedTaskObject)
                         {
                             hasReachedTaskObject = true;
                             BeginChopping();

@@ -15,11 +15,11 @@ C:/Users/dkste/Desktop/Spil/Farwest Project/Farwest-Development/Farwest-Developm
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52923
+51475
 Successfully changed project path to: C:/Users/dkste/Desktop/Spil/Farwest Project/Farwest-Development/Farwest-Development/Farwest
 C:/Users/dkste/Desktop/Spil/Farwest Project/Farwest-Development/Farwest-Development/Farwest
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 41.76 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 40.98 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.12f1 (b3b2c6512326)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/UnitySubsystems
@@ -35,37 +35,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56152
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56772
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003236 seconds.
+Registered in 0.003825 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 39.40 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 39.66 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.474 seconds
+- Completed reload, in  1.375 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007013 seconds.
+Registered in 0.006417 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.388 seconds
+- Completed reload, in  1.136 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1394 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 66.6 MB.
-System memory in use after: 66.6 MB.
+System memory in use before: 66.7 MB.
+System memory in use after: 66.8 MB.
 
 Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1831.
-Total: 3.019700 ms (FindLiveObjects: 0.129000 ms CreateObjectMapping: 0.087900 ms MarkObjects: 2.669700 ms  DeleteObjects: 0.131600 ms)
+Total: 1.899900 ms (FindLiveObjects: 0.146400 ms CreateObjectMapping: 0.044900 ms MarkObjects: 1.623100 ms  DeleteObjects: 0.084300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -79,417 +79,753 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(748a5fac0bacccc4d9feac994897653f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(748a5fac0bacccc4d9feac994897653f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4780d66c743e3b17744ba66a1abe9249') in 0.098932 seconds 
-  Import took 0.101775 seconds .
+  path: Assets/Prefabs/Trees/pinetree/pinetree.prefab
+  artifactKey: Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Trees/pinetree/pinetree.prefab using Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52c6861fcfbde4890d3427e46c5b53ae') in 0.172356 seconds 
+  Import took 0.174997 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000322 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx
-  artifactKey: Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx using Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc8892dac953c0beebca09c17001e937') in 0.127529 seconds 
-  Import took 0.131196 seconds .
+  Time since last request: 112.548191 seconds.
+  path: Assets/Prefabs/Trees/pinetree/pinetree.prefab
+  artifactKey: Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Trees/pinetree/pinetree.prefab using Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9246a1b527199587776586832e2463ec') in 0.036426 seconds 
+  Import took 0.040837 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006055 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.513 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.8 MB.
+System memory in use after: 69.8 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1841.
+Total: 1.854400 ms (FindLiveObjects: 0.138000 ms CreateObjectMapping: 0.044000 ms MarkObjects: 1.619200 ms  DeleteObjects: 0.052100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006365 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.119 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.8 MB.
+System memory in use after: 69.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1844.
+Total: 3.347800 ms (FindLiveObjects: 0.127400 ms CreateObjectMapping: 0.037900 ms MarkObjects: 3.043700 ms  DeleteObjects: 0.137500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006643 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.95 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.471 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.92 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.8 MB.
+System memory in use after: 69.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1847.
+Total: 2.373700 ms (FindLiveObjects: 0.150200 ms CreateObjectMapping: 0.048200 ms MarkObjects: 2.096100 ms  DeleteObjects: 0.077800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006057 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.295 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.8 MB.
+System memory in use after: 69.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1850.
+Total: 2.123300 ms (FindLiveObjects: 0.189000 ms CreateObjectMapping: 0.060800 ms MarkObjects: 1.814200 ms  DeleteObjects: 0.058000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 393.767970 seconds.
+  path: Assets/Prefabs/Trees/pinetree/pinetree.prefab
+  artifactKey: Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Trees/pinetree/pinetree.prefab using Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b89c7b73d3092dbd8875e68d3dbaf385') in 0.091601 seconds 
+  Import took 0.095505 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000355 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark_basecolor.png
-  artifactKey: Guid(df5d4622e42577041bd180104207f703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark_basecolor.png using Guid(df5d4622e42577041bd180104207f703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8849aae740cd6b2c50b1eef463a9860d') in 0.010177 seconds 
-  Import took 0.013731 seconds .
+  Time since last request: 8.689511 seconds.
+  path: Assets/Prefabs/Trees/pinetree/pinetree.prefab
+  artifactKey: Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Trees/pinetree/pinetree.prefab using Guid(708363e88e290ed45b6e78d172b7c124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddb1006c72471295aa30e99bb34226d2') in 0.025566 seconds 
+  Import took 0.030277 seconds .
 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.001077 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png
-  artifactKey: Guid(e8602b7d68120fc4fb4cf6687c2c014f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png using Guid(e8602b7d68120fc4fb4cf6687c2c014f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aece0fd133230697b50f82f2bd1be91d') in 0.009387 seconds 
-  Import took 0.013560 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007367 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.178 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.8 MB.
+System memory in use after: 69.9 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1854.
+Total: 2.102100 ms (FindLiveObjects: 0.137500 ms CreateObjectMapping: 0.044300 ms MarkObjects: 1.824500 ms  DeleteObjects: 0.094800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 103.847400 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/PineBranch3.png
-  artifactKey: Guid(c7a6b391c52f587479b7ee92367c12b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/PineBranch3.png using Guid(c7a6b391c52f587479b7ee92367c12b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3219083f21948fa0f09ccf91b7498e82') in 0.009612 seconds 
-  Import took 0.019868 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009910 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.173 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.8 MB.
+System memory in use after: 69.9 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1857.
+Total: 2.726200 ms (FindLiveObjects: 0.270900 ms CreateObjectMapping: 0.048900 ms MarkObjects: 2.304300 ms  DeleteObjects: 0.100900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 20.939304 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/Materials/BranchesFreshSheet2_opacity.mat
-  artifactKey: Guid(df8453330d10c714c8db5ee4c08c872a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/Materials/BranchesFreshSheet2_opacity.mat using Guid(df8453330d10c714c8db5ee4c08c872a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '307d055d50bd2d2ca318b3330ff476e2') in 0.041179 seconds 
-  Import took 0.045657 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007117 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.087 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 69.9 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1860.
+Total: 2.360200 ms (FindLiveObjects: 0.188800 ms CreateObjectMapping: 0.079500 ms MarkObjects: 1.999300 ms  DeleteObjects: 0.091300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000390 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/Materials/PineBranch3.mat
-  artifactKey: Guid(58978fc2373ba314f820845f2ad2f762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/Materials/PineBranch3.mat using Guid(58978fc2373ba314f820845f2ad2f762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dbcdef00db5cfc4e2a80016b9c80d83') in 0.010641 seconds 
-  Import took 0.014647 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005923 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.155 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 69.9 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1863.
+Total: 2.178700 ms (FindLiveObjects: 0.153000 ms CreateObjectMapping: 0.047300 ms MarkObjects: 1.908900 ms  DeleteObjects: 0.068100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.001131 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/Materials/BranchesFreshSheet2_opacity.mat
-  artifactKey: Guid(df8453330d10c714c8db5ee4c08c872a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/Materials/BranchesFreshSheet2_opacity.mat using Guid(df8453330d10c714c8db5ee4c08c872a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '307d055d50bd2d2ca318b3330ff476e2') in 0.010882 seconds 
-  Import took 0.015015 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005868 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.200 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 69.9 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1866.
+Total: 1.937700 ms (FindLiveObjects: 0.236900 ms CreateObjectMapping: 0.067600 ms MarkObjects: 1.567500 ms  DeleteObjects: 0.064600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000301 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/Materials/PineBranch3.mat
-  artifactKey: Guid(58978fc2373ba314f820845f2ad2f762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/Materials/PineBranch3.mat using Guid(58978fc2373ba314f820845f2ad2f762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dbcdef00db5cfc4e2a80016b9c80d83') in 0.010258 seconds 
-  Import took 0.013203 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006775 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.130 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 69.9 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1869.
+Total: 1.961500 ms (FindLiveObjects: 0.141400 ms CreateObjectMapping: 0.045600 ms MarkObjects: 1.719100 ms  DeleteObjects: 0.054000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 2632.345793 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx
-  artifactKey: Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx using Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd38bf82bd48ac10ba789272e1ee7a656') in 0.038194 seconds 
-  Import took 0.041187 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009348 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.121 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 69.9 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1872.
+Total: 2.417300 ms (FindLiveObjects: 0.153700 ms CreateObjectMapping: 0.060200 ms MarkObjects: 2.114700 ms  DeleteObjects: 0.087400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 55.296499 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark_basecolor.png
-  artifactKey: Guid(0c3f49d673282f349b91dcc274c91305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark_basecolor.png using Guid(0c3f49d673282f349b91dcc274c91305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '185de104febe7c692ec26d7deab9ae3d') in 0.012192 seconds 
-  Import took 0.016721 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007019 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.113 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1875.
+Total: 1.776700 ms (FindLiveObjects: 0.145100 ms CreateObjectMapping: 0.045800 ms MarkObjects: 1.530600 ms  DeleteObjects: 0.054400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000279 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0df87b4969f7011fbbee81714be069e') in 0.017882 seconds 
-  Import took 0.021567 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006199 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.116 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1878.
+Total: 1.815400 ms (FindLiveObjects: 0.149200 ms CreateObjectMapping: 0.041200 ms MarkObjects: 1.557400 ms  DeleteObjects: 0.066600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000284 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx
-  artifactKey: Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx using Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c03df70cf71f78187ced2337e43d302') in 0.041517 seconds 
-  Import took 0.044892 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007892 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.120 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1881.
+Total: 1.894100 ms (FindLiveObjects: 0.145500 ms CreateObjectMapping: 0.048900 ms MarkObjects: 1.565500 ms  DeleteObjects: 0.133100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000327 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png
-  artifactKey: Guid(9324c096ceeb7994498bf4b8a56edf47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png using Guid(9324c096ceeb7994498bf4b8a56edf47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cdcc2c28d46fe551355db3f990295a0') in 0.007728 seconds 
-  Import took 0.011828 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006669 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.124 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1884.
+Total: 2.019200 ms (FindLiveObjects: 0.139600 ms CreateObjectMapping: 0.043800 ms MarkObjects: 1.737700 ms  DeleteObjects: 0.096900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 13.391999 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/Leafs.mat
-  artifactKey: Guid(2a3c8b83b0490b14787f9c209ecbee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/Leafs.mat using Guid(2a3c8b83b0490b14787f9c209ecbee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45ea619f36235a349561dfdb43055572') in 0.013510 seconds 
-  Import took 0.016328 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006309 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.101 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1887.
+Total: 1.845400 ms (FindLiveObjects: 0.149500 ms CreateObjectMapping: 0.048300 ms MarkObjects: 1.575000 ms  DeleteObjects: 0.071500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 113.273136 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark.mat
-  artifactKey: Guid(c261277cfc856284c83db8cdd6d05951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark.mat using Guid(c261277cfc856284c83db8cdd6d05951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4efb429f9266efc61938a95d5d66903f') in 0.016183 seconds 
-  Import took 0.020476 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007164 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.100 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1890.
+Total: 1.959100 ms (FindLiveObjects: 0.206800 ms CreateObjectMapping: 0.047400 ms MarkObjects: 1.594200 ms  DeleteObjects: 0.109600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000524 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx
-  artifactKey: Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx using Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6d4781887c02864bd8ac69701b38ebc') in 0.038186 seconds 
-  Import took 0.042313 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006527 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.567 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1893.
+Total: 2.529800 ms (FindLiveObjects: 0.174200 ms CreateObjectMapping: 0.063000 ms MarkObjects: 2.236300 ms  DeleteObjects: 0.054900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000616 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark.mat
-  artifactKey: Guid(c261277cfc856284c83db8cdd6d05951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark.mat using Guid(c261277cfc856284c83db8cdd6d05951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4efb429f9266efc61938a95d5d66903f') in 0.012844 seconds 
-  Import took 0.016110 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006313 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.137 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1896.
+Total: 2.124800 ms (FindLiveObjects: 0.152400 ms CreateObjectMapping: 0.102900 ms MarkObjects: 1.786900 ms  DeleteObjects: 0.081600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 264.599838 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11f161dafc52f7671c0b57da5f70b77f') in 0.020542 seconds 
-  Import took 0.023276 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007029 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.192 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1899.
+Total: 2.771100 ms (FindLiveObjects: 0.151200 ms CreateObjectMapping: 0.049900 ms MarkObjects: 2.496100 ms  DeleteObjects: 0.072600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 13.620974 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35b7ebee0f727bee181cfe2e3f390728') in 0.020745 seconds 
-  Import took 0.024260 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006652 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.321 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1902.
+Total: 1.967100 ms (FindLiveObjects: 0.156300 ms CreateObjectMapping: 0.046400 ms MarkObjects: 1.671300 ms  DeleteObjects: 0.092200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 2.215478 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6473bae85a901080c1687961d2edb772') in 0.018908 seconds 
-  Import took 0.021617 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006246 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.106 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1905.
+Total: 2.069200 ms (FindLiveObjects: 0.140200 ms CreateObjectMapping: 0.044000 ms MarkObjects: 1.818400 ms  DeleteObjects: 0.065200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 8.757026 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15cfe79d8ec7dff3e97e5272bd5d624a') in 0.019908 seconds 
-  Import took 0.022512 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006262 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.590 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1908.
+Total: 2.251700 ms (FindLiveObjects: 0.209200 ms CreateObjectMapping: 0.074700 ms MarkObjects: 1.913200 ms  DeleteObjects: 0.053400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 20.809528 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b643855efa034f7b68454b78b9ead148') in 0.021885 seconds 
-  Import took 0.024722 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005968 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.108 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1389 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.9 MB.
+System memory in use after: 70.0 MB.
 
-========================================================================
-Received Import Request.
-  Time since last request: 8.027277 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebcd22f490663d9e27396c799dccd934') in 0.014028 seconds 
-  Import took 0.017336 seconds .
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1911.
+Total: 2.474300 ms (FindLiveObjects: 0.277900 ms CreateObjectMapping: 0.106500 ms MarkObjects: 2.029400 ms  DeleteObjects: 0.059400 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 10.013518 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png
-  artifactKey: Guid(9324c096ceeb7994498bf4b8a56edf47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png using Guid(9324c096ceeb7994498bf4b8a56edf47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b431bf38775149c47aac3fc79c2d9ef') in 0.018325 seconds 
-  Import took 0.021415 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.731501 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png
-  artifactKey: Guid(9324c096ceeb7994498bf4b8a56edf47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png using Guid(9324c096ceeb7994498bf4b8a56edf47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6d37b88fd65e785912fcb1c1aaf4e8e') in 0.018824 seconds 
-  Import took 0.021440 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 24.259677 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4c4449ed25b80523feeea0e478a60f8') in 0.019006 seconds 
-  Import took 0.022213 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.979204 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '407c6ffe2378c88afa763bfb16b4d381') in 0.016824 seconds 
-  Import took 0.019994 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.129394 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49acf1ae10498e0ce248e85e47d147d1') in 0.034634 seconds 
-  Import took 0.037761 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.504555 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c30d64455ccbc5bbe4d84de3238b4b6') in 0.036726 seconds 
-  Import took 0.041380 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.696582 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e8665838b7791ed299ee6d44cabb8fd') in 0.018718 seconds 
-  Import took 0.027644 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.865336 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '229c170ca11b9c8daf630818b681a9e6') in 0.020223 seconds 
-  Import took 0.023304 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.185280 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee8311c4b9b099e0cb70056ccbb3efdc') in 0.016785 seconds 
-  Import took 0.019425 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.849939 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd73236a78fc1811955c84186e66c5f84') in 0.017753 seconds 
-  Import took 0.021036 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.584712 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53fb90c91df07e4c491dd3967d9a2684') in 0.021491 seconds 
-  Import took 0.024107 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.723327 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc18a3bab2fe4683b00f41e6b4ebf693') in 0.015225 seconds 
-  Import took 0.017774 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001875 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc18a3bab2fe4683b00f41e6b4ebf693') in 0.021829 seconds 
-  Import took 0.025305 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.726713 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '759acb0eee8fb708c03039d08cd7f1a2') in 0.016253 seconds 
-  Import took 0.019488 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.459196 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dc58ea0090242361cc498310ac184c1') in 0.018558 seconds 
-  Import took 0.021077 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.427000 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36d7d5161b4edc1697e31b5b0164de40') in 0.015829 seconds 
-  Import took 0.018451 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.486547 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4758eacff4317b79127a28b2620924f4') in 0.020041 seconds 
-  Import took 0.022665 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.636012 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d686bd727806af716364b17f30866f3') in 0.020236 seconds 
-  Import took 0.022950 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.598303 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9017b3854667aa22f437b795bbac133b') in 0.011552 seconds 
-  Import took 0.015636 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.324695 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dab696089fb683b007f301c2a50713a9') in 0.017394 seconds 
-  Import took 0.020192 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 35.017050 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(3a5de43f08026bc4e82ccbd37ec4a9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e09b7c5608f407f459a5c1cb54c28a94') in 0.012664 seconds 
-  Import took 0.016284 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 140.659229 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark.mat
-  artifactKey: Guid(c261277cfc856284c83db8cdd6d05951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark.mat using Guid(c261277cfc856284c83db8cdd6d05951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcfaa1f688fabf5fff6558f6a0570b00') in 0.013739 seconds 
-  Import took 0.016588 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000265 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/Leafs.mat
-  artifactKey: Guid(2a3c8b83b0490b14787f9c209ecbee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/Leafs.mat using Guid(2a3c8b83b0490b14787f9c209ecbee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9abb6746d8f3ecc5c5b8ef528c919554') in 0.012443 seconds 
-  Import took 0.015820 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000125 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx
-  artifactKey: Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx using Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c73d889e42c49d94420a5d3f5674957') in 0.037773 seconds 
-  Import took 0.041799 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.856430 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark_basecolor.png
-  artifactKey: Guid(5de399b79afe19b438a81759a2387a8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/AncientMossyBark_basecolor.png using Guid(5de399b79afe19b438a81759a2387a8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab58df836d6b1eb1732e602543fd8ab4') in 0.019166 seconds 
-  Import took 0.022128 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000359 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx
-  artifactKey: Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/bush1.fbx using Guid(bbea239cd8575c941b29400375872d04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0df63d3596078e9434471558ad070c9f') in 0.036206 seconds 
-  Import took 0.038971 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000248 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png
-  artifactKey: Guid(42f6488f148341940ae03b411d5ff4e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_basecolor.png using Guid(42f6488f148341940ae03b411d5ff4e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddab54b232ac92f348130c24d49f707b') in 0.010957 seconds 
-  Import took 0.019068 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000288 seconds.
-  path: Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png
-  artifactKey: Guid(8ab31f03cac9da94f91bd1cdb25b32e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Props/Foliage/Bush/bush1/BranchesFreshSheet2_opacity.png using Guid(8ab31f03cac9da94f91bd1cdb25b32e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '509fe41edbe766ac3f7b7212292d485a') in 0.012196 seconds 
-  Import took 0.015056 seconds .
-
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

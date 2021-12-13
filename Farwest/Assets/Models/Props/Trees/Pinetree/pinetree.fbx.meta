@@ -8,27 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: OakTreeBarkV2
-    second: {fileID: 2100000, guid: fe27e0149c0cea34f920bf726abd63c4, type: 2}
+    second: {fileID: 2100000, guid: 974c1d699d3ddb64caa83cec5703c89c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PineBranch1
-    second: {fileID: 2100000, guid: a4d9a8bc44fe8164eb94b6784fdf37f6, type: 2}
+    second: {fileID: 2100000, guid: 8ef54fe921cac804ba53f4109ce37b72, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PineBranch2
-    second: {fileID: 2100000, guid: e63a4a5ce0c541e4195f4a3c44e73f86, type: 2}
+    second: {fileID: 2100000, guid: 435ae5e58d0fd2b46a85b5edd8ad6760, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PineBranch3
-    second: {fileID: 2100000, guid: e49411615e77e914486bec80c5ce7621, type: 2}
+    second: {fileID: 2100000, guid: b69ca954478170e44b0c305bdeed271d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PineBranch4
-    second: {fileID: 2100000, guid: 8387431b1d2d9244b9bff8754cc94c22, type: 2}
+    second: {fileID: 2100000, guid: 3005c45bebfd0d3468a91758261c3319, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

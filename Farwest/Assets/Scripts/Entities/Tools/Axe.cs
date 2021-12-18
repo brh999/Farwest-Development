@@ -42,11 +42,15 @@ public class Axe : MonoBehaviour
             if(tree == owner_LogicTasks.taskObject)
             {
                 Tree treeScript = tree.GetComponent<Tree>();
-                if (treeScript.firstStage_hacks > 0)
+                if (treeScript.FirstStage_hacks > 0)
                 {
                     owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
-                    treeScript.firstStage_hacks -= 1;
+                    treeScript.FirstStage_hacks -= 1;
                     treeScript.WoodFlakeSequence();
+                }
+                else if(treeScript.CurrentStage == 0)
+                {
+                    treeScript.CutDown();
                 }
             }
         }

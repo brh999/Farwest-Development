@@ -146,7 +146,7 @@ public class LogicTasks : MonoBehaviour
                
                 if (logic.Task == "collect")
                 {
-                    if (!hasReachedTaskObject) // If settler hasn't reached the tree
+                    if (!hasReachedTaskObject && taskObject) // If settler hasn't reached the tree
                     {
                         float distance = Vector3.Distance(self.transform.position, taskObject.transform.position);
                         if (distance <= 4.5 && distance >= 3)
@@ -159,12 +159,10 @@ public class LogicTasks : MonoBehaviour
                             BeginChopping();
                         }
                     }
-                    else // When the settler has reached a tree
+                    else if(hasReachedTaskObject && !taskObject)
                     {
-                        if(isChopping && taskObject.GetComponent<Tree>().FirstStageDone) 
-                        {
-
-                        }
+                        hasReachedTaskObject = false;
+                        anim.PlayAnimation("hacking_horizontal_end", 1f);
                     }
                 }
                 break;

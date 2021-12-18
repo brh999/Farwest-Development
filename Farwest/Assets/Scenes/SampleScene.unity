@@ -2552,6 +2552,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.0000666222
       objectReference: {fileID: 0}
+    - target: {fileID: 2454140999225271363, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
+      propertyPath: firstStage_hacks
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2832787356865497992, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_Name
       value: pinetree
@@ -2560,13 +2564,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: tree
       objectReference: {fileID: 0}
+    - target: {fileID: 2832787356865497992, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.57
+      value: -54.99
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2574,27 +2582,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.38
+      value: -12.49
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: -0.62161946
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0.62161946
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.33703014
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.33703017
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2602,7 +2610,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3178351369939570994, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -303.069
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900737837533447887, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
+      propertyPath: TreeType
+      value: pinetree
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900737837533447887, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}
+      propertyPath: FirstStage_hacks
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 708363e88e290ed45b6e78d172b7c124, type: 3}

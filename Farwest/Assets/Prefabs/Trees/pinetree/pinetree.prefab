@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4346230271494859357}
   - component: {fileID: 462884445748389540}
   - component: {fileID: 8742487702837792198}
-  - component: {fileID: 2454140999225271363}
+  - component: {fileID: 7900737837533447887}
   m_Layer: 0
   m_Name: pinetree
   m_TagString: Untagged
@@ -118,7 +118,7 @@ CapsuleCollider:
   m_Height: 0.096843466
   m_Direction: 2
   m_Center: {x: -0.00012752294, y: -0.00012839958, z: 0.046035994}
---- !u!114 &2454140999225271363
+--- !u!114 &7900737837533447887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,15 +127,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2832787356865497992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ca5b76343d1484593787d84ec06d96, type: 3}
+  m_Script: {fileID: 11500000, guid: ece599d7d5a25664584d990e335f50fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OccupiedOwner: {fileID: 0}
-  firstStage_hacks: 10
+  FirstStage_hacks: 1
+  TreeType: 
   IsOccupied: 0
-  FirstStageDone: 0
-  RootStump: {fileID: 919132149155446097, guid: a709fc33dd6b4fb47bfe51dc6050a380, type: 3}
-  UpperPart: {fileID: 919132149155446097, guid: 514aa3e2c0f2fa04394ebab984de2423, type: 3}
+  CurrentStage: 0
+  TreeStump: {fileID: 919132149155446097, guid: a709fc33dd6b4fb47bfe51dc6050a380, type: 3}
+  Stage1_UpperPart: {fileID: 919132149155446097, guid: 514aa3e2c0f2fa04394ebab984de2423, type: 3}
   Woodflake1: {fileID: 919132149155446097, guid: 6143b4cb93f197f4b983dd86c1f6ed84, type: 3}
   Woodflake2: {fileID: 919132149155446097, guid: d5097fe8a7fb7ac4c83e34b23b29392b, type: 3}
   Woodflake3: {fileID: 919132149155446097, guid: b114169c73ccd6e4aba00d20fc7994f2, type: 3}

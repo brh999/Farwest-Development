@@ -12,6 +12,9 @@ public class CameraMovementScript : MonoBehaviour
     float maxHeight = 40f;
     float minHeight = 4f;
 
+    public float movement_x;
+    public float movement_z;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,19 +39,19 @@ public class CameraMovementScript : MonoBehaviour
 
         float hsp = transform.position.y * speed * Input.GetAxis("Horizontal");
         float vsp = transform.position.y * speed * Input.GetAxis("Vertical");
-        float scrollSp = Mathf.Log(transform.position.y) * zoomSpeed * Input.GetAxis("Mouse ScrollWheel");
+        if(transform.position.y < 1.5f)
+        {
+            gameObject.transform.position = gameObject.transform.position + new Vector3(0, 1.5f, 0);
+        }
+        float scrollSp = Mathf.Log(transform.position.y) * 150 * Time.deltaTime * Input.GetAxis("Mouse ScrollWheel");
 
 
 
-        Vector3 verticalMove = new Vector3(0, scrollSp, 0);
-        Vector3 lateralMove = hsp * transform.right;
-        Vector3 forwardMove = transform.forward;
-        forwardMove.y = 0;
-        forwardMove.Normalize();
-        forwardMove *= vsp;
+        movement_x = Input.GetAxisRaw("Horizontal") * 20 * Time.deltaTime;
+        movement_z = Input.GetAxisRaw("Vertical") * 20 * Time.deltaTime;
 
-        Vector3 move = verticalMove + lateralMove + forwardMove;
+        gameObject.transform.Translate(movement_x, movement_z, scrollSp, Space.Self);
 
-        transform.position += move;
+
     }
 }

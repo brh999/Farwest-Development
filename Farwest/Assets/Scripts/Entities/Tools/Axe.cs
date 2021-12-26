@@ -39,7 +39,7 @@ public class Axe : MonoBehaviour
         GameObject tree = collision.transform.gameObject;
         if(tree.tag == "tree")
         {
-            if(tree == owner_LogicTasks.taskObject)
+            if(tree == owner_LogicTasks.TaskObject)
             {
                 Tree treeScript = tree.GetComponent<Tree>();
                 if (treeScript.FirstStage_hacks > 0)

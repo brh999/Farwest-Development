@@ -24,7 +24,7 @@ public class Logic : MonoBehaviour
 
     private void Start()
     {
-        logictasks.LumberTask("collect");
+        logictasks.LumberTask("choptree");
     }
 
     public void LogicThink()

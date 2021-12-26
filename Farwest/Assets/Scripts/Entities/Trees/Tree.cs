@@ -26,6 +26,9 @@ public class Tree : MonoBehaviour
     public GameObject Woodflake2;
     public GameObject Woodflake3;
 
+    public AudioClip TreeFallOffStartSound;
+    public AudioClip TreeFallOffEndSound;
+
     void Awake()
     {
         self = gameObject;
@@ -51,11 +54,23 @@ public class Tree : MonoBehaviour
             stump.AddComponent<MeshCollider>();
             
             GameObject stage1 = Instantiate(Stage1_UpperPart, self.transform.position + self.transform.forward * 1.5f, self.transform.rotation);
-            stage1.AddComponent<PinetreeStage1>();
+
             stage1.AddComponent<Rigidbody>();
             stage1.AddComponent<CapsuleCollider>();
+            stage1.AddComponent<AudioSource>();
+            stage1.AddComponent<Sound>();
+            stage1.AddComponent<PinetreeStage1>();
+
+            stage1.GetComponent<Sound>().AddAudioClip(TreeFallOffStartSound);
+            stage1.GetComponent<Sound>().AddAudioClip(TreeFallOffEndSound);
+
+            stage1.tag = "treestage1";
+
+            Sound stage1S = stage1.GetComponent<Sound>();
             CapsuleCollider stage1CC = stage1.GetComponent<CapsuleCollider>();
             Rigidbody stage1RB = stage1.GetComponent<Rigidbody>();
+            PinetreeStage1 stage1PTS = stage1.GetComponent<PinetreeStage1>();
+            stage1S.PlaySound("treefall_start", 0.5f, 1f, 0);
             stage1CC.direction = self.GetComponent<CapsuleCollider>().direction;
             stage1CC.height = UpperPartCollisionHeight;
             stage1CC.radius = self.GetComponent<CapsuleCollider>().radius;

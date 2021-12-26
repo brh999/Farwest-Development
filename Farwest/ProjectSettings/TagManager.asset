@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - tree
-  - pinetree
+  - outsideGround
+  - treestage1
   layers:
   - Default
   - TransparentFX

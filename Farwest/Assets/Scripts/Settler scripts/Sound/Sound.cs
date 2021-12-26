@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-    public AudioClip[] sounds;
+    public AudioClip[] sounds = new AudioClip[25];
 
     private AudioSource audioSource;
 
@@ -59,6 +59,20 @@ public class Sound : MonoBehaviour
         }
         Debug.Log("Could not find AudioClip with the name: " + name);
         return null;
+    }
+
+    public void AddAudioClip(AudioClip clip)
+    {
+        int index = 0;
+        foreach(AudioClip i in sounds)
+        {
+            if(i == null)
+            {
+                sounds[index] = clip;
+                break;
+            }
+            index += 1;
+        }
     }
 
 

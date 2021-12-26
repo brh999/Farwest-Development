@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class LogicTasks : MonoBehaviour
 {
+    
 
     private GameObject self;
-    public GameObject taskObject;
+    public GameObject TaskObject;
 
     private NavMeshAgent selfAgent;
 
@@ -46,56 +47,92 @@ public class LogicTasks : MonoBehaviour
 
     public void LumberTask(string stage)
     {
-        if(stage == "collect")
+        if(stage == "choptree")
         {
-            GameObject treeobject = FindTree();
+            GameObject treeobject = FindClosestObject("tree");
             if(treeobject != null)
             {
                 treeobject.GetComponent<Tree>().OccupiedOwner = gameObject;
-                navigation.WalkToDestination(treeobject.transform.position);
+                navigation.WalkToDestination(treeobject.transform.position, 3f);
                 anim.PlayAnimation("walk_m", 0);
-                taskObject = treeobject;
+                TaskObject = treeobject;
                 logic.HasDestination = true;
                 hasReachedTaskObject = false;
-                logic.Task = "collect";
+                logic.Task = "choptree";
+            }
+        }
+        else if(stage == "choptree_stage1")
+        {
+            GameObject treeObject = FindClosestObject("treestage1");
+            if (treeObject)
+            {
+                navigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 4 + self.transform.right * 1, 0f);
+                logic.Task = "choptree_stage1";
+                TaskObject = treeObject;
             }
         }
     }
 
-    private GameObject FindTree()
+
+    private GameObject FindClosestObject(string tag)
     {
       
-        GameObject[] trees = GameObject.FindGameObjectsWithTag("tree");
-        if (trees != null)
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
+        if (objects != null)
         {
-            float[] treesDistances = new float[trees.Length];
+            float[] objectDistances = new float[objects.Length];
             int index = 0;
-            foreach (GameObject tree in trees)
+            foreach (GameObject i in objects)
             {
-                treesDistances[index] = Vector3.Distance(self.transform.position, tree.transform.position);
+                objectDistances[index] = Vector3.Distance(self.transform.position, i.transform.position);
                 index++;
             }
 
-            bool treeHasntBeenFound = true;
+            bool objectHasntBeenFound = true;
             int indexToUse = -1;
-            while (treeHasntBeenFound)
+            while (objectHasntBeenFound)
             {
                 int indexFound = 0;
-                foreach (float distance in treesDistances)
+                foreach (float distance in objectDistances)
                 {
-                    if (distance == Mathf.Min(treesDistances))
+                    if (distance == Mathf.Min(objectDistances))
                     {
-                        if (!trees[indexFound].GetComponent<Tree>().IsOccupied)
+                        if (tag == "tree")
                         {
-                            trees[indexFound].GetComponent<Tree>().IsOccupied = true;
-                            indexToUse = indexFound;
-                            treeHasntBeenFound = false;
-                            break;
+                            if (!objects[indexFound].GetComponent<Tree>().IsOccupied)
+                            {
+                                objects[indexFound].GetComponent<Tree>().IsOccupied = true;
+                                indexToUse = indexFound;
+                                objectHasntBeenFound = false;
+                                break;
+                            }
+                            else
+                            {
+                                objects[indexFound] = null;
+                                objectDistances[indexFound] = 99999999;
+                                break;
+                            }
+                        }
+                        else if(tag == "treestage1")
+                        {
+                            if (!objects[indexFound].GetComponent<PinetreeStage1>().IsOccupied)
+                            {
+                                objects[indexFound].GetComponent<PinetreeStage1>().IsOccupied = true;
+                                indexToUse = indexFound;
+                                objectHasntBeenFound = false;
+                                break;
+                            }
+                            else
+                            {
+                                objects[indexFound] = null;
+                                objectDistances[indexFound] = 99999999;
+                                break;
+                            }
                         }
                         else
                         {
-                            trees[indexFound] = null;
-                            treesDistances[indexFound] = 99999999;
+                            indexToUse = indexFound;
+                            objectHasntBeenFound = false;
                             break;
                         }
                     }
@@ -104,7 +141,7 @@ public class LogicTasks : MonoBehaviour
                 }
             }
             
-                return trees[indexToUse];
+                return objects[indexToUse];
            
         }
         else
@@ -118,7 +155,7 @@ public class LogicTasks : MonoBehaviour
     {
         if (!isChopping)
         {
-            self.transform.LookAt(taskObject.transform);
+            self.transform.LookAt(TaskObject.transform);
             anim.PlayAnimation("hacking_horizontal_start", 1f);
             anim.PlayAnimation("hacking_horizontal", 1.8f);
             isChopping = true;
@@ -142,28 +179,43 @@ public class LogicTasks : MonoBehaviour
 
             // -- Lumberjack job --
             case "lumberjack":
-                // Collecting wood
+                
                
-                if (logic.Task == "collect")
+                if (logic.Task == "choptree")
                 {
-                    if (!hasReachedTaskObject && taskObject) // If settler hasn't reached the tree
+                    if (!hasReachedTaskObject && TaskObject) // If settler hasn't reached the tree
                     {
-                        float distance = Vector3.Distance(self.transform.position, taskObject.transform.position);
-                        if (distance <= 4.5 && distance >= 3)
-                        {
-                            navigation.WalkToDestination(Vector3.Lerp(self.transform.position, taskObject.transform.position, 0.5f));
-                        }
+                        float distance = Vector3.Distance(self.transform.position, TaskObject.transform.position);
+                    
                         if (distance <= 3 && !hasReachedTaskObject)
                         {
                             hasReachedTaskObject = true;
                             BeginChopping();
                         }
                     }
-                    else if(hasReachedTaskObject && !taskObject)
+                    else if (hasReachedTaskObject && !TaskObject) // If the tree has been chopped down, and needs to go to stage1
                     {
                         hasReachedTaskObject = false;
                         anim.PlayAnimation("hacking_horizontal_end", 1f);
+                        IEnumerator SwitchStageTo1()
+                        {
+                            while (true)
+                            {
+                                yield return new WaitForSeconds(5f);
+                                LumberTask("choptree_stage1");
+                                StopCoroutine(SwitchStageTo1());
+                            }
+                        }
+                        StartCoroutine(SwitchStageTo1());
                     }
+                }
+                else if(logic.Task == "choptree_stage1")
+                {
+                    if(!hasReachedTaskObject && TaskObject)
+                    {
+
+                    }
+                    
                 }
                 break;
 

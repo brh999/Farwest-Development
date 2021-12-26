@@ -15,13 +15,13 @@ public class Anim : MonoBehaviour
 
     private bool playingDelayedAnim = false;
 
-
+    public string currentAnim;
 
     void Awake()
     {
         self = gameObject;
-
         animator = GetComponent<Animator>();
+        currentAnim = "null";
     }
 
     
@@ -36,7 +36,8 @@ public class Anim : MonoBehaviour
         }
         else
         {
-            animator.Play(animation); 
+            animator.Play(animation);
+            currentAnim = animation;
         }
     }
 
@@ -84,6 +85,7 @@ public class Anim : MonoBehaviour
                             break;
                     }
                     PlayAnimation(upcomingAnims[0], 0);
+                    currentAnim = upcomingAnims[0];
                     playingDelayedAnim = false;
                     upcomingAnims[0] = null;
                     upcomingAnimsTime[0] = 0;

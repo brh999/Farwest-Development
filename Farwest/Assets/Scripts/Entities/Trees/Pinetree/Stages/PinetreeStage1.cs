@@ -16,11 +16,14 @@ public class PinetreeStage1 : MonoBehaviour
     private bool treeHasFallen = false;
     public bool IsOccupied = false;
 
+    public float PluckTime; // The time for how long the plucking process should take
+
     void Awake()
     {
         self = gameObject;
         selfRB = self.GetComponent<Rigidbody>();
         selfS = self.GetComponent<Sound>();
+        PluckTime = Random.Range(10, 12); 
     }
 
     void Start()

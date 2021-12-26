@@ -12,13 +12,13 @@ public class LogicTasks : MonoBehaviour
 
     private NavMeshAgent selfAgent;
 
-    private Logic logic;
+    private Logic selfLogic;
 
-    private Nav navigation;
+    private Nav selfNavigation;
 
-    private Anim anim;
+    private Anim selfAnim;
 
-    private Sound sound;
+    private Sound selfSound;
 
 
     private bool hasReachedTaskObject;
@@ -32,10 +32,10 @@ public class LogicTasks : MonoBehaviour
         self = gameObject;
 
         selfAgent = GetComponent<NavMeshAgent>();
-        logic = GetComponent<Logic>();
-        anim = GetComponent<Anim>();
-        navigation = GetComponent<Nav>();
-        sound = GetComponent<Sound>();
+        selfLogic = GetComponent<Logic>();
+        selfAnim = GetComponent<Anim>();
+        selfNavigation = GetComponent<Nav>();
+        selfSound = GetComponent<Sound>();
       
     }
 
@@ -50,15 +50,15 @@ public class LogicTasks : MonoBehaviour
         if(stage == "choptree")
         {
             GameObject treeobject = FindClosestObject("tree");
-            if(treeobject != null)
+            if(treeobject)
             {
                 treeobject.GetComponent<Tree>().OccupiedOwner = gameObject;
-                navigation.WalkToDestination(treeobject.transform.position, 3f);
-                anim.PlayAnimation("walk_m", 0);
+                selfNavigation.WalkToDestination(treeobject.transform.position, 3f);
+                selfAnim.PlayAnimation("walk_m", 0);
                 TaskObject = treeobject;
-                logic.HasDestination = true;
+                selfLogic.HasDestination = true;
                 hasReachedTaskObject = false;
-                logic.Task = "choptree";
+                selfLogic.Task = "choptree";
             }
         }
         else if(stage == "choptree_stage1")
@@ -66,8 +66,8 @@ public class LogicTasks : MonoBehaviour
             GameObject treeObject = FindClosestObject("treestage1");
             if (treeObject)
             {
-                navigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 4 + self.transform.right * 1, 0f);
-                logic.Task = "choptree_stage1";
+                selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 4 + self.transform.right * 1, 0f);
+                selfLogic.Task = "choptree_stage1";
                 TaskObject = treeObject;
             }
         }
@@ -97,7 +97,7 @@ public class LogicTasks : MonoBehaviour
                 {
                     if (distance == Mathf.Min(objectDistances))
                     {
-                        if (tag == "tree")
+                        if (tag == "tree" && objects[indexFound])
                         {
                             if (!objects[indexFound].GetComponent<Tree>().IsOccupied)
                             {
@@ -113,7 +113,7 @@ public class LogicTasks : MonoBehaviour
                                 break;
                             }
                         }
-                        else if(tag == "treestage1")
+                        else if(tag == "treestage1" && objects[indexFound])
                         {
                             if (!objects[indexFound].GetComponent<PinetreeStage1>().IsOccupied)
                             {
@@ -136,8 +136,7 @@ public class LogicTasks : MonoBehaviour
                             break;
                         }
                     }
-
-                    indexFound++;
+                        indexFound++;
                 }
             }
             
@@ -156,8 +155,8 @@ public class LogicTasks : MonoBehaviour
         if (!isChopping)
         {
             self.transform.LookAt(TaskObject.transform);
-            anim.PlayAnimation("hacking_horizontal_start", 1f);
-            anim.PlayAnimation("hacking_horizontal", 1.8f);
+            selfAnim.PlayAnimation("hacking_horizontal_start", 1f);
+            selfAnim.PlayAnimation("hacking_horizontal", 1.8f);
             isChopping = true;
             
         }
@@ -173,7 +172,7 @@ public class LogicTasks : MonoBehaviour
     // Update method for all jobs/tasks
     private void Update()
     {
-        switch(logic.Work)
+        switch(selfLogic.Work)
         {
 
 
@@ -181,7 +180,7 @@ public class LogicTasks : MonoBehaviour
             case "lumberjack":
                 
                
-                if (logic.Task == "choptree")
+                if (selfLogic.Task == "choptree")
                 {
                     if (!hasReachedTaskObject && TaskObject) // If settler hasn't reached the tree
                     {
@@ -196,24 +195,37 @@ public class LogicTasks : MonoBehaviour
                     else if (hasReachedTaskObject && !TaskObject) // If the tree has been chopped down, and needs to go to stage1
                     {
                         hasReachedTaskObject = false;
-                        anim.PlayAnimation("hacking_horizontal_end", 1f);
+                        selfAnim.PlayAnimation("hacking_horizontal_end", 1f);
                         IEnumerator SwitchStageTo1()
                         {
-                            while (true)
-                            {
                                 yield return new WaitForSeconds(5f);
                                 LumberTask("choptree_stage1");
+                                print("Running 2");
                                 StopCoroutine(SwitchStageTo1());
-                            }
                         }
                         StartCoroutine(SwitchStageTo1());
                     }
                 }
-                else if(logic.Task == "choptree_stage1")
+                else if(selfLogic.Task == "choptree_stage1")
                 {
                     if(!hasReachedTaskObject && TaskObject)
                     {
-
+                        Vector3 stage1GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 4;
+                        float distance = Vector3.Distance(self.transform.position, stage1GameObjectPositionToLookAt + self.transform.right * 1);
+                        if(distance <= 0.25f)
+                        {
+                            hasReachedTaskObject = true;
+                            IEnumerator Stage1Pluck()
+                            {
+                                    yield return new WaitForSeconds(0.5f);
+                                    self.transform.LookAt(stage1GameObjectPositionToLookAt);
+                                    selfAnim.PlayAnimation("plucking_start", 0);
+                                    selfAnim.PlayAnimation("plucking", 1.5f);
+                                    print("Running");
+                                    StopCoroutine(Stage1Pluck());
+                            }
+                            StartCoroutine(Stage1Pluck());
+                        }
                     }
                     
                 }

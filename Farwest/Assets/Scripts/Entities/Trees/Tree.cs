@@ -131,14 +131,11 @@ public class Tree : MonoBehaviour
 
         IEnumerator WoodFlakeSequenceTimer()
         {
-            while (true)
-            {
                 yield return new WaitForSeconds(2f);
                 Destroy(flake1);
                 Destroy(flake2);
                 Destroy(flake3);
                 StopCoroutine(WoodFlakeSequenceTimer());
-            }
         }
         StartCoroutine(WoodFlakeSequenceTimer());
     }

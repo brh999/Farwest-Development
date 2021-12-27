@@ -14,12 +14,12 @@ public class ResourceSystem : MonoBehaviour
         
     }
 
-    public void SetCurrentMoney(int amt)
+    public void SetMoney(int amt)
     {
         money = amt;
     }
 
-    public void AddCurrentMoney(int amt)
+    public void AddMoney(int amt)
     {
         money = money + amt;
     }

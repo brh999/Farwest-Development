@@ -20,7 +20,7 @@ public class MoneyScript : MonoBehaviour
 
     public void AddMoneyButton()
     {
-        moneyHandler.AddCurrentMoney(10);
+        moneyHandler.AddMoney(10);
     }
 
     public void RemoveMoneyButton()

@@ -7,8 +7,8 @@ using TMPro;
 public class MoneyScript : MonoBehaviour
 {
 
-    public GameObject moneyObject;
-    public ResourceSystem moneyHandler;
+    private GameObject moneyObject;
+    private ResourceSystem moneyHandler;
     public TMP_Text moneyText;
 
     void Start()

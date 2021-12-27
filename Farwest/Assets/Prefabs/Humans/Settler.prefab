@@ -931,6 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fdc458d7a3cb74486eb02a7e359a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAnim: 
 --- !u!114 &-7011701069447079352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,6 +945,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRunning: 0
+  isWalking: 0
+  isUsingSlerp: 0
 --- !u!114 &-336923292098172972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,7 +959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd42baeed91376478d8fbab5f9a48fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskObject: {fileID: 0}
+  TaskObject: {fileID: 0}
+  isChopping: 0
 --- !u!114 &7046635375081014834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,6 +976,7 @@ MonoBehaviour:
   Work: none
   Task: none
   HasDestination: 0
+  CurrentTool: {fileID: 0}
 --- !u!114 &4162181445327202968
 MonoBehaviour:
   m_ObjectHideFlags: 0

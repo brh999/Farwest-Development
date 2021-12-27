@@ -200,7 +200,6 @@ public class LogicTasks : MonoBehaviour
                         {
                                 yield return new WaitForSeconds(5f);
                                 LumberTask("choptree_stage1");
-                                print("Running 2");
                                 StopCoroutine(SwitchStageTo1());
                         }
                         StartCoroutine(SwitchStageTo1());
@@ -208,11 +207,11 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if(selfLogic.Task == "choptree_stage1")
                 {
-                    if(!hasReachedTaskObject && TaskObject)
+                    if(!hasReachedTaskObject && TaskObject) // If the settler hasn't reached the tree in stage 1
                     {
                         Vector3 stage1GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 4;
                         float distance = Vector3.Distance(self.transform.position, stage1GameObjectPositionToLookAt + self.transform.right * 1);
-                        if(distance <= 0.25f)
+                        if(distance <= 1f)
                         {
                             hasReachedTaskObject = true;
                             IEnumerator Stage1Pluck()
@@ -221,7 +220,6 @@ public class LogicTasks : MonoBehaviour
                                     self.transform.LookAt(stage1GameObjectPositionToLookAt);
                                     selfAnim.PlayAnimation("plucking_start", 0);
                                     selfAnim.PlayAnimation("plucking", 1.5f);
-                                    print("Running");
                                     StopCoroutine(Stage1Pluck());
                             }
                             StartCoroutine(Stage1Pluck());

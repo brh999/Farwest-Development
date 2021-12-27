@@ -22,6 +22,8 @@ public class Nav : MonoBehaviour
 
     private float distanceToKeep;
     private float slerpToUse;
+    private float distanceLerpAmount = 1f;
+    private float distanceLerpAmountSpeed = 0.8f; // How fast we want to smooth out the movement to our end destination
 
     void Awake()
     {
@@ -66,9 +68,8 @@ public class Nav : MonoBehaviour
             float distance = Vector3.Distance(self.transform.position, destination);
             if (distance <= distanceToKeep + 1.5f && distance >= distanceToKeep)
             {
-                
-                    selfNav.destination = Vector3.Lerp(self.transform.position, destination, 0.5f);
-               
+                    selfNav.destination = Vector3.Lerp(self.transform.position, destination, distanceLerpAmount);
+                    distanceLerpAmount -= distanceLerpAmountSpeed * Time.deltaTime;
             }
             else if(distance <= distanceToKeep)
             {

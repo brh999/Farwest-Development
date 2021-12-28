@@ -14,13 +14,15 @@ public class Logic : MonoBehaviour
     public string Task = "none";
 
     public bool HasDestination = false;
-    public bool ToolIsHolstered;
+    public bool CurrentToolIsHolstered;
 
     public GameObject CurrentTool;
 
     public string CurrentToolName;
 
     public GameObject RightHand;
+
+    public GameObject Spine2;
 
     public string[] ExistingTools = {"tools_axe"}; // All the existing tools a settler can use
 
@@ -39,26 +41,64 @@ public class Logic : MonoBehaviour
         {
             RightHand = findRightHand;
         }
+
+        GameObject findSpine2 = self.transform.Find("Armature").Find("Root").Find("Spine1").Find("Spine2").gameObject;
+        if(findSpine2)
+        {
+            Spine2 = findSpine2;
+        }
+
         CurrentTool = GetCurrentTool();
         CurrentToolName = CurrentTool.name;
-        ToolIsHolstered = false;
-        selfLogicTasks.LumberTask("choptree");
+        CurrentToolIsHolstered = false;
+        ToggleHolsterTool();
+        Invoke("ToggleHolsterTool", 4f);
+       // selfLogicTasks.LumberTask("choptree");
     }
+
+    private Vector3 toolsAxe_unholstered_pos = new Vector3(-0.00011f, 0.00576f, 0.00563f);
+    private Quaternion toolsAxe_unholstered_qua = new Quaternion(-16.135f, -8.512f, 78.228f, 0);
 
     public void ToggleHolsterTool()
     {
         if (CurrentTool)
         {
-            switch (ToolIsHolstered)
+            IEnumerator ToggleHolsterTool()
             {
-                case true:
-                    ToolIsHolstered = false;
-                    break;
+                yield return new WaitForSeconds(1f);
+                Transform CTT = CurrentTool.transform;
+                switch (CurrentToolIsHolstered)
+                {
+                    case true:
+                        switch (CurrentTool.name)
+                        {
+                            case "tools_axe":
+                                CTT.SetParent(RightHand.transform);
+                                CTT.localPosition = toolsAxe_unholstered_pos;
+                                CTT.localRotation = toolsAxe_unholstered_qua;
+                                CTT.position += CTT.right * 0f + CTT.up * 0f + CTT.forward * 0f;
+                                break;
+                        }
+                        CurrentToolIsHolstered = false;
+                        break;
 
-                case false:
-                    ToolIsHolstered = true;
-                    break;
+                    case false:
+                        switch (CurrentTool.name)
+                        {
+                            case "tools_axe":
+                                CTT.SetParent(Spine2.transform);
+                                CTT.position = Spine2.transform.position;
+                                CTT.rotation = Spine2.transform.rotation;
+                                CTT.Rotate(CTT.right * -90 + CTT.forward * 20);
+                                CTT.position += CTT.right * 0 + CTT.up * 0.2f + CTT.forward * 0;
+                                break;
+                        }
+                        CurrentToolIsHolstered = true;
+                        break;
+                }
+                StopCoroutine(ToggleHolsterTool());
             }
+            StartCoroutine(ToggleHolsterTool());
             selfAnim.PlayAnimation("toggleHolster", 0);
         }
     }
@@ -76,6 +116,18 @@ public class Logic : MonoBehaviour
                 }
             }
         }
+        if(Spine2)
+        {
+            foreach (string tool in ExistingTools)
+            {
+                GameObject thetool = Spine2.transform.Find(tool).gameObject;
+                if (thetool)
+                {
+                    return thetool;
+                }
+            }
+        }
+
         print("Could not find any tool on settler:" + gameObject.name);
         return null;
     }

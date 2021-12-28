@@ -216,11 +216,12 @@ public class LogicTasks : MonoBehaviour
                             hasReachedTaskObject = true;
                             IEnumerator Stage1Pluck()
                             {
-                                    yield return new WaitForSeconds(0.5f);
-                                    self.transform.LookAt(stage1GameObjectPositionToLookAt);
-                                    selfAnim.PlayAnimation("plucking_start", 0);
-                                    selfAnim.PlayAnimation("plucking", 1.5f);
-                                    StopCoroutine(Stage1Pluck());
+                                yield return new WaitForSeconds(0.5f);
+                                self.transform.LookAt(stage1GameObjectPositionToLookAt);
+                                selfLogic.ToggleHolsterTool();
+                                selfAnim.PlayAnimation("plucking_start", 1.5f);
+                                selfAnim.PlayAnimation("plucking", 1.5f);
+                                StopCoroutine(Stage1Pluck());
                             }
                             StartCoroutine(Stage1Pluck());
                         }

@@ -38,7 +38,7 @@ public class MoneyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = moneyHandler.CurrentMoney().ToString();
+        moneyText.text = moneyHandler.CurrentMoney().ToString() + "$";
     }
 
 

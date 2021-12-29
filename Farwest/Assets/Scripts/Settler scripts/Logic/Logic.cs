@@ -18,8 +18,6 @@ public class Logic : MonoBehaviour
 
     public GameObject CurrentTool;
 
-    public string CurrentToolName;
-
     public GameObject RightHand;
 
     public GameObject Spine2;
@@ -49,15 +47,16 @@ public class Logic : MonoBehaviour
         }
 
         CurrentTool = GetCurrentTool();
-        CurrentToolName = CurrentTool.name;
         CurrentToolIsHolstered = false;
-        ToggleHolsterTool();
-        Invoke("ToggleHolsterTool", 4f);
-       // selfLogicTasks.LumberTask("choptree");
+        selfLogicTasks.LumberTask("choptree");
     }
 
+
+    // tools_axe
     private Vector3 toolsAxe_unholstered_pos = new Vector3(-0.00011f, 0.00576f, 0.00563f);
     private Quaternion toolsAxe_unholstered_qua = new Quaternion(-16.135f, -8.512f, 78.228f, 0);
+    private Vector3 toolsAxe_holstered_pos = new Vector3(0f, 0f, -0.00025f);
+    private Quaternion toolsAxe_holstered_qua = new Quaternion(-90f, 0f, 0f, 0);
 
     public void ToggleHolsterTool()
     {
@@ -74,8 +73,12 @@ public class Logic : MonoBehaviour
                         {
                             case "tools_axe":
                                 CTT.SetParent(RightHand.transform);
+                                CTT.position = RightHand.transform.position;
                                 CTT.localPosition = toolsAxe_unholstered_pos;
-                                CTT.localRotation = toolsAxe_unholstered_qua;
+                                CTT.rotation = RightHand.transform.rotation;
+                                CTT.RotateAround(CTT.position, CTT.right, toolsAxe_unholstered_qua.x);
+                                CTT.RotateAround(CTT.position, CTT.up, toolsAxe_unholstered_qua.y);
+                                CTT.RotateAround(CTT.position, CTT.forward, toolsAxe_unholstered_qua.z);
                                 CTT.position += CTT.right * 0f + CTT.up * 0f + CTT.forward * 0f;
                                 break;
                         }
@@ -88,8 +91,11 @@ public class Logic : MonoBehaviour
                             case "tools_axe":
                                 CTT.SetParent(Spine2.transform);
                                 CTT.position = Spine2.transform.position;
+                                CTT.localPosition = toolsAxe_holstered_pos;
                                 CTT.rotation = Spine2.transform.rotation;
-                                CTT.Rotate(CTT.right * -90 + CTT.forward * 20);
+                                CTT.RotateAround(CTT.position, CTT.right, toolsAxe_holstered_qua.x);
+                                CTT.RotateAround(CTT.position, CTT.up, toolsAxe_holstered_qua.y);
+                                CTT.RotateAround(CTT.position, CTT.forward, toolsAxe_holstered_qua.z);
                                 CTT.position += CTT.right * 0 + CTT.up * 0.2f + CTT.forward * 0;
                                 break;
                         }

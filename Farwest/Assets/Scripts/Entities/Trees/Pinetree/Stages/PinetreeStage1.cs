@@ -8,22 +8,28 @@ public class PinetreeStage1 : MonoBehaviour
 {
 
     private GameObject self;
+    public GameObject OccupiedOwner;
+    public GameObject stage1_UpperPartPlucked;
+
+    private Anim occupiedOwnerAnim;
 
     private Rigidbody selfRB;
 
     private Sound selfS;
 
     private bool treeHasFallen = false;
+    private bool hasBeenPlucked = false;
+    private bool shouldBePlucked = false;
     public bool IsOccupied = false;
 
-    public float PluckTime; // The time for how long the plucking process should take
+    private float pluckTime; // The time for how long the plucking process should take, should be set in "Awake" method
 
     void Awake()
     {
         self = gameObject;
         selfRB = self.GetComponent<Rigidbody>();
         selfS = self.GetComponent<Sound>();
-        PluckTime = Random.Range(10, 12); 
+        pluckTime = Random.Range(10, 20);
     }
 
     void Start()
@@ -31,14 +37,64 @@ public class PinetreeStage1 : MonoBehaviour
         Invoke("FreezePosition", 5f);
     }
     
+    // Freeze rigidbody on all constraints 
     void FreezePosition()
     {
         selfRB.constraints = RigidbodyConstraints.FreezeAll;
     }
 
+    // Update the current occupied owner of this entity (Which settler is plucking it currently)
+    public void UpdateOwner(GameObject owner)
+    {
+        if(owner)
+        {
+            OccupiedOwner = owner;
+            occupiedOwnerAnim = owner.GetComponent<Anim>();
+        }
+        else if(owner == null)
+        {
+            OccupiedOwner = null;
+        }
+    }
+
+
+    // The countdown for the tree to be plucked, has succeded 
+    private void plucktree_done()
+    {
+        if (!hasBeenPlucked)
+        {
+            hasBeenPlucked = true;
+            GameObject stage1Plucked = Instantiate(stage1_UpperPartPlucked, self.transform.position, self.transform.rotation);
+            stage1Plucked.tag = "treestage1plucked";
+            Destroy(self);
+        }
+    }
+
+    // Start/continue the countdown to pluck the tree 
+    public void plucktree_start()
+    {
+        if(!shouldBePlucked)
+        {
+            shouldBePlucked = true;
+        }
+    }
+
+    // Stop the countdown in FixedUpdate to pluck the tree, and make the owner play "plucking_end" animation
+    public void plucktree_stop()
+    {
+        if(shouldBePlucked)
+        {
+            shouldBePlucked = false;
+            if(OccupiedOwner)
+            {
+                occupiedOwnerAnim.PlayAnimation("plucking_end", 0);
+            }
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "outsideGround" && !treeHasFallen)
+        if (collision.gameObject.tag == "outsideGround" && !treeHasFallen)
         {
             treeHasFallen = true;
             selfS.PlaySound("treefall_end", 0.5f, 1, 0);
@@ -47,6 +103,15 @@ public class PinetreeStage1 : MonoBehaviour
 
     void FixedUpdate()
     {
-       
+        // If we reach countdown of zero of pluckTime
+       if(pluckTime <= 0 && !hasBeenPlucked && shouldBePlucked)
+       {
+            occupiedOwnerAnim.PlayAnimation("plucking_end", 0);
+            plucktree_done();
+       } 
+       else if(shouldBePlucked) // Else substract pluckTime towards 0 
+       {
+            pluckTime -= Time.deltaTime;
+       }
     }
 }

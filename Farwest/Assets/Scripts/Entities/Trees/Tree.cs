@@ -21,6 +21,7 @@ public class Tree : MonoBehaviour
     public GameObject TreeStump;
 
     public GameObject Stage1_UpperPart;
+    public GameObject Stage1_UpperPartPlucked;
 
     public GameObject Woodflake1;
     public GameObject Woodflake2;
@@ -70,6 +71,7 @@ public class Tree : MonoBehaviour
             CapsuleCollider stage1CC = stage1.GetComponent<CapsuleCollider>();
             Rigidbody stage1RB = stage1.GetComponent<Rigidbody>();
             PinetreeStage1 stage1PTS = stage1.GetComponent<PinetreeStage1>();
+            stage1PTS.stage1_UpperPartPlucked = Stage1_UpperPartPlucked;
             stage1S.PlaySound("treefall_start", 0.5f, 1f, 0);
             stage1CC.direction = self.GetComponent<CapsuleCollider>().direction;
             stage1CC.height = UpperPartCollisionHeight;

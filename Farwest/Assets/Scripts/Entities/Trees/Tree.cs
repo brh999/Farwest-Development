@@ -78,7 +78,10 @@ public class Tree : MonoBehaviour
             stage1CC.radius = self.GetComponent<CapsuleCollider>().radius;
             stage1CC.center = new Vector3(self.GetComponent<CapsuleCollider>().center.x, self.GetComponent<CapsuleCollider>().center.y, 0.04f);
             stage1RB.AddForce(OccupiedOwner.transform.forward * 0.1f, ForceMode.Impulse);
-            
+
+            stage1PTS.Woodflake1 = Woodflake1;
+            stage1PTS.Woodflake2 = Woodflake2;
+            stage1PTS.Woodflake3 = Woodflake3;
 
             Object.Destroy(self);
         }

@@ -6,6 +6,10 @@ using UnityEngine.AI;
 
 public class PinetreeStage1 : MonoBehaviour
 {
+    // Entities to move on:
+    public GameObject Woodflake1;
+    public GameObject Woodflake2;
+    public GameObject Woodflake3;
 
     private GameObject self;
     public GameObject OccupiedOwner;
@@ -65,7 +69,13 @@ public class PinetreeStage1 : MonoBehaviour
         {
             hasBeenPlucked = true;
             GameObject stage1Plucked = Instantiate(stage1_UpperPartPlucked, self.transform.position, self.transform.rotation);
-            stage1Plucked.tag = "treestage1plucked";
+            stage1Plucked.AddComponent<PinetreeStage2>();
+            PinetreeStage2 s1p = stage1Plucked.GetComponent<PinetreeStage2>();
+            s1p.Woodflake1 = Woodflake1;
+            s1p.Woodflake2 = Woodflake2;
+            s1p.Woodflake3 = Woodflake3;
+            stage1Plucked.tag = "treestage2";
+            occupiedOwnerAnim.PlayAnimation("plucking_end", 1.5f);
             Destroy(self);
         }
     }
@@ -103,15 +113,17 @@ public class PinetreeStage1 : MonoBehaviour
 
     void FixedUpdate()
     {
-        // If we reach countdown of zero of pluckTime
-       if(pluckTime <= 0 && !hasBeenPlucked && shouldBePlucked)
-       {
-            occupiedOwnerAnim.PlayAnimation("plucking_end", 0);
-            plucktree_done();
-       } 
-       else if(shouldBePlucked) // Else substract pluckTime towards 0 
-       {
-            pluckTime -= Time.deltaTime;
-       }
+        if (shouldBePlucked)
+        {
+            // If we reach countdown of zero of pluckTime
+            if (pluckTime <= 0 && !hasBeenPlucked)
+            {
+                plucktree_done();
+            }
+            else  // Else substract pluckTime towards 0 
+            {
+                pluckTime -= Time.deltaTime;
+            }
+        }
     }
 }

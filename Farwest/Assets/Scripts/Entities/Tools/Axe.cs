@@ -17,6 +17,7 @@ public class Axe : MonoBehaviour
     private float chopDelayTimer;
 
     private bool readyToChop = true;
+    public bool shouldChop = false;
 
     void Awake()
     {
@@ -40,7 +41,7 @@ public class Axe : MonoBehaviour
 
      void OnCollisionEnter(Collision collision)
     {
-        if (readyToChop)
+        if (readyToChop && shouldChop)
         {
             GameObject tree = collision.transform.gameObject;
             if (tree.tag == "tree")

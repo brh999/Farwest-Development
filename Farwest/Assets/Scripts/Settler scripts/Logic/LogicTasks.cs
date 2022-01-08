@@ -100,6 +100,7 @@ public class LogicTasks : MonoBehaviour
     // Begin chopping sequence for LumberTask
     private void BeginChopping(string swingside)
     {
+        float timerToActivateAxe = 0f;
         if (!isChopping)
         {
             switch (swingside)
@@ -108,15 +109,24 @@ public class LogicTasks : MonoBehaviour
                 selfAnim.PlayAnimation("hacking_horizontal_start", 1f);
                 selfAnim.PlayAnimation("hacking_horizontal", 1.8f);
                 isChopping = true;
+                timerToActivateAxe = 1.8f;
                 break;
 
                 case "vertical":
                 selfAnim.PlayAnimation("hacking_vertical_start", 0f);
                 selfAnim.PlayAnimation("hacking_vertical", 2.5f);
                 isChopping = true;
+                timerToActivateAxe = 2.5f;
                 break;
             }
-            
+            IEnumerator ActivateChopping()
+            {
+                yield return new WaitForSeconds(timerToActivateAxe);
+                selfLogic.CurrentTool.GetComponent<Axe>().shouldChop = true;
+                print("Activated");
+                StopCoroutine(ActivateChopping());
+            }
+            StartCoroutine(ActivateChopping());
         }
     }
 
@@ -249,6 +259,7 @@ public class LogicTasks : MonoBehaviour
                     {
                         hasReachedTaskObject = false;
                         isChopping = false;
+                        selfLogic.CurrentTool.GetComponent<Axe>().shouldChop = false;
                         selfAnim.PlayAnimation("hacking_horizontal_end", 1f);
                         IEnumerator SwitchStageTo1()
                         {

@@ -874,7 +874,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -976,7 +976,12 @@ MonoBehaviour:
   Work: none
   Task: none
   HasDestination: 0
+  CurrentToolIsHolstered: 0
   CurrentTool: {fileID: 0}
+  RightHand: {fileID: 0}
+  Spine2: {fileID: 0}
+  ExistingTools:
+  - tools_axe
 --- !u!114 &4162181445327202968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +996,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 8300000, guid: e51d86b794a5e9a4f889d0a351cdabef, type: 3}
+  - {fileID: 8300000, guid: cdb9d4629e0e2e34e8d4c5c1976ee970, type: 3}
+  - {fileID: 8300000, guid: ffc20362f4d40184c8b270138123fb43, type: 3}
+  - {fileID: 8300000, guid: 1968fb842405a2846a332d3ac22edeba, type: 3}
+  - {fileID: 8300000, guid: c26a4097c7f6276479ee5aef80e74321, type: 3}
+  - {fileID: 8300000, guid: 2027091212b97b2469dd3d25180dd5c8, type: 3}
 --- !u!82 &1982095324100203256
 AudioSource:
   m_ObjectHideFlags: 0

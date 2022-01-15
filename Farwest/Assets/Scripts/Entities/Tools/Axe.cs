@@ -39,6 +39,13 @@ public class Axe : MonoBehaviour
     }
 
 
+    private string PickRandomWoodBreakSound()
+    {
+        int choosenint = Random.Range(0, 4);
+        string[] sounds = {"wood_break1", "wood_break2", "wood_break3", "wood_break4", "wood_break5"};
+        return sounds[choosenint];
+    }
+
      void OnCollisionEnter(Collision collision)
     {
         if (readyToChop && shouldChop)
@@ -57,6 +64,9 @@ public class Axe : MonoBehaviour
                     }
                     else if (treeScript.CurrentStage == 0)
                     {
+                        owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                        owner_Sound.PlaySound(PickRandomWoodBreakSound(), 0.1f, 1, 0);
+                        treeScript.WoodFlakeSequence();
                         treeScript.CutDown();
                     }
                     readyToChop = false;
@@ -73,7 +83,28 @@ public class Axe : MonoBehaviour
                 }
                 else
                 {
-                    print("Done");
+                    owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                    owner_Sound.PlaySound(PickRandomWoodBreakSound(), 0.1f, 1, 0);
+                    pinetreeStage2.WoodFlakeSequence();
+                    pinetreeStage2.CutDown();
+                }
+                readyToChop = false;
+            }
+            else if (tree.tag == "treestage3")
+            {
+                PinetreeStage3 pinetreeStage3 = tree.GetComponent<PinetreeStage3>();
+                if (pinetreeStage3.HacksLeft > 0)
+                {
+                    owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                    pinetreeStage3.HacksLeft -= 1;
+                    pinetreeStage3.WoodFlakeSequence();
+                }
+                else
+                {
+                    owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                    owner_Sound.PlaySound(PickRandomWoodBreakSound(), 0.1f, 1, 0);
+                    pinetreeStage3.WoodFlakeSequence();
+                    pinetreeStage3.CutDown();
                 }
                 readyToChop = false;
             }

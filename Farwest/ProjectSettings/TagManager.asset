@@ -9,6 +9,7 @@ TagManager:
   - treestage1
   - treestage1plucked
   - treestage2
+  - treestage3
   layers:
   - Default
   - TransparentFX

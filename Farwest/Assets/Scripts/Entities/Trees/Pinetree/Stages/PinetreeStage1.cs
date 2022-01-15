@@ -10,6 +10,15 @@ public class PinetreeStage1 : MonoBehaviour
     public GameObject Woodflake1;
     public GameObject Woodflake2;
     public GameObject Woodflake3;
+    public GameObject Stage2_UpperPart;
+    public GameObject Stage2_LowerPart;
+    public GameObject Stage3_UpperPart;
+    public GameObject Stage3_LowerPart;
+    public GameObject Stage4_part1;
+    public GameObject Stage4_part2;
+    public GameObject Stage4_part3;
+    public GameObject Stage4_part4;
+
 
     private GameObject self;
     public GameObject OccupiedOwner;
@@ -25,6 +34,8 @@ public class PinetreeStage1 : MonoBehaviour
     private bool hasBeenPlucked = false;
     private bool shouldBePlucked = false;
     public bool IsOccupied = false;
+
+    public Vector3 TreeRightSide;
 
     private float pluckTime; // The time for how long the plucking process should take, should be set in "Awake" method
 
@@ -54,6 +65,7 @@ public class PinetreeStage1 : MonoBehaviour
         {
             OccupiedOwner = owner;
             occupiedOwnerAnim = owner.GetComponent<Anim>();
+            TreeRightSide = owner.transform.right;
         }
         else if(owner == null)
         {
@@ -71,11 +83,21 @@ public class PinetreeStage1 : MonoBehaviour
             GameObject stage1Plucked = Instantiate(stage1_UpperPartPlucked, self.transform.position, self.transform.rotation);
             stage1Plucked.AddComponent<PinetreeStage2>();
             PinetreeStage2 s1p = stage1Plucked.GetComponent<PinetreeStage2>();
+
             s1p.Woodflake1 = Woodflake1;
             s1p.Woodflake2 = Woodflake2;
             s1p.Woodflake3 = Woodflake3;
+            s1p.Stage2_UpperPart = Stage2_UpperPart;
+            s1p.Stage2_LowerPart = Stage2_LowerPart;
+            s1p.Stage3_UpperPart = Stage3_UpperPart;
+            s1p.Stage3_LowerPart = Stage3_LowerPart;
+            s1p.Stage4_part1 = Stage4_part1;
+            s1p.Stage4_part2 = Stage4_part2;
+            s1p.Stage4_part3 = Stage4_part3;
+            s1p.Stage4_part4 = Stage4_part4;
+            s1p.TreeRightSide = TreeRightSide;
+
             stage1Plucked.tag = "treestage2";
-            occupiedOwnerAnim.PlayAnimation("plucking_end", 1.5f);
             Destroy(self);
         }
     }

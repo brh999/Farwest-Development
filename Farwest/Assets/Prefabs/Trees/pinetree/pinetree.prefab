@@ -133,13 +133,21 @@ MonoBehaviour:
   OccupiedOwner: {fileID: 0}
   FirstStage_hacks: 1
   CurrentStage: 0
-  TreeType: 
+  TreeType: pinetree
   IsOccupied: 0
   TreeStump: {fileID: 919132149155446097, guid: a709fc33dd6b4fb47bfe51dc6050a380, type: 3}
   Stage1_UpperPart: {fileID: 919132149155446097, guid: 514aa3e2c0f2fa04394ebab984de2423, type: 3}
   Stage1_UpperPartPlucked: {fileID: 919132149155446097, guid: ceb9f0cc67e2750468cbe3537863ae86, type: 3}
+  Stage2_UpperPart: {fileID: 919132149155446097, guid: 00b09aa14c92bc14483b1ad412aa6d1f, type: 3}
+  Stage2_LowerPart: {fileID: 919132149155446097, guid: 993e828b191484b4691f83e985a2be0f, type: 3}
+  Stage3_UpperPart: {fileID: 919132149155446097, guid: 7fafb59be8e3d8e4088441460ae5526d, type: 3}
+  Stage3_LowerPart: {fileID: 919132149155446097, guid: 36804d233d3df2944be2e0327d485fcb, type: 3}
+  Stage4_part1: {fileID: 919132149155446097, guid: 2cd2a63661d36774dbc6a029521eb390, type: 3}
+  Stage4_part2: {fileID: 919132149155446097, guid: 3a3de054eedd81c41888043660d7a674, type: 3}
+  Stage4_part3: {fileID: 919132149155446097, guid: 2e0dbd49fb72e5947b8a5432cc9f9cd0, type: 3}
+  Stage4_part4: {fileID: 919132149155446097, guid: 80337f5137582da4cb39907e0a2badec, type: 3}
   Woodflake1: {fileID: 919132149155446097, guid: 6143b4cb93f197f4b983dd86c1f6ed84, type: 3}
   Woodflake2: {fileID: 919132149155446097, guid: d5097fe8a7fb7ac4c83e34b23b29392b, type: 3}
   Woodflake3: {fileID: 919132149155446097, guid: b114169c73ccd6e4aba00d20fc7994f2, type: 3}
-  TreeFallOffStartSound: {fileID: 0}
-  TreeFallOffEndSound: {fileID: 0}
+  TreeFallOffStartSound: {fileID: 8300000, guid: ce6978f946ee5e54eb07a9654f3d2465, type: 3}
+  TreeFallOffEndSound: {fileID: 8300000, guid: 490c07da5f1695c40a0dc9bea2fec011, type: 3}

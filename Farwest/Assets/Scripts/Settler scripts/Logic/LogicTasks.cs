@@ -83,14 +83,38 @@ public class LogicTasks : MonoBehaviour
                     IEnumerator DelayForNav()
                     {
                         yield return new WaitForSeconds(2f);
-                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5 + self.transform.right * 1.35f, 0f);
+                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5.4f + TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f, 0f);
                         StopCoroutine(DelayForNav());
                     }
                     StartCoroutine(DelayForNav());
                 }
                 else
                 {
-                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5 + self.transform.right * 1.35f, 0f);
+                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5.4f + TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f, 0f);
+                }
+            }
+        }
+        else if(stage == "choptree_stage3")
+        {
+            GameObject treeObject = FindClosestObject("treestage3");
+            if(treeObject)
+            {
+                TaskObject = treeObject;
+                selfLogic.Task = "choptree_stage3";
+                if (selfLogic.CurrentToolIsHolstered)
+                {
+                    selfLogic.ToggleHolsterTool();
+                    IEnumerator DelayForNav()
+                    {
+                        yield return new WaitForSeconds(2f);
+                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 3f + TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f, 0f);
+                        StopCoroutine(DelayForNav());
+                    }
+                    StartCoroutine(DelayForNav());
+                }
+                else
+                {
+                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 3f + TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f, 0f);
                 }
             }
         }
@@ -123,7 +147,6 @@ public class LogicTasks : MonoBehaviour
             {
                 yield return new WaitForSeconds(timerToActivateAxe);
                 selfLogic.CurrentTool.GetComponent<Axe>().shouldChop = true;
-                print("Activated");
                 StopCoroutine(ActivateChopping());
             }
             StartCoroutine(ActivateChopping());
@@ -142,7 +165,7 @@ public class LogicTasks : MonoBehaviour
     {
 
         GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
-        if (objects != null)
+        if (objects.Length != 0) // Is the array not empty?
         {
             float[] objectDistances = new float[objects.Length];
             int index = 0;
@@ -211,6 +234,23 @@ public class LogicTasks : MonoBehaviour
                                 break;
                             }
                         }
+                        else if (tag == "treestage3" && objects[indexFound])  //A tree entity in stage 3
+                        {
+                            if (!objects[indexFound].GetComponent<PinetreeStage3>().IsOccupied)
+                            {
+                                objects[indexFound].GetComponent<PinetreeStage3>().IsOccupied = true;
+                                objects[indexFound].GetComponent<PinetreeStage3>().UpdateOwner(self);
+                                indexToUse = indexFound;
+                                objectHasntBeenFound = false;
+                                break;
+                            }
+                            else
+                            {
+                                objects[indexFound] = null;
+                                objectDistances[indexFound] = 99999999;
+                                break;
+                            }
+                        }
                         else
                         {
                             indexToUse = indexFound;
@@ -227,12 +267,13 @@ public class LogicTasks : MonoBehaviour
         }
         else
         {
+            print("No object found with tag: " + tag);
             return null;
         }
     }
 
     // Update method for all jobs/tasks
-    private void Update()
+    private void FixedUpdate()
     {
         switch(selfLogic.Work)
         {
@@ -240,14 +281,14 @@ public class LogicTasks : MonoBehaviour
 
             // -- Lumberjack job --
             case "lumberjack":
-                
-               
+
+
                 if (selfLogic.Task == "choptree") // Find and chop a tree
                 {
                     if (!hasReachedTaskObject && TaskObject) // If settler hasn't reached the tree
                     {
                         float distance = Vector3.Distance(self.transform.position, TaskObject.transform.position);
-                    
+
                         if (distance <= 3 && !hasReachedTaskObject)
                         {
                             hasReachedTaskObject = true;
@@ -263,20 +304,20 @@ public class LogicTasks : MonoBehaviour
                         selfAnim.PlayAnimation("hacking_horizontal_end", 1f);
                         IEnumerator SwitchStageTo1()
                         {
-                                yield return new WaitForSeconds(5f);
-                                LumberTask("choptree_stage1");
-                                StopCoroutine(SwitchStageTo1());
+                            yield return new WaitForSeconds(5f);
+                            LumberTask("choptree_stage1");
+                            StopCoroutine(SwitchStageTo1());
                         }
                         StartCoroutine(SwitchStageTo1());
                     }
                 }
-                else if(selfLogic.Task == "choptree_stage1") // Find and pluck a tree
+                else if (selfLogic.Task == "choptree_stage1") // Find and pluck a tree
                 {
-                    if(!hasReachedTaskObject && TaskObject) // If the settler hasn't reached the tree in stage 1
+                    if (!hasReachedTaskObject && TaskObject) // If the settler hasn't reached the tree in stage 1
                     {
                         Vector3 stage1GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 4;
                         float distance = Vector3.Distance(self.transform.position, stage1GameObjectPositionToLookAt + self.transform.right * 1);
-                        if(distance <= 1f) // If we reach the tree in stage1 
+                        if (distance <= 1f) // If we reach the tree in stage1 
                         {
                             hasReachedTaskObject = true;
                             IEnumerator Stage1Pluck() // Begin plucking sequence of the tree
@@ -295,9 +336,10 @@ public class LogicTasks : MonoBehaviour
                             StartCoroutine(Stage1Pluck());
                         }
                     }
-                    else if(hasReachedTaskObject && !TaskObject) // When the tree has been plucked
+                    else if (hasReachedTaskObject && !TaskObject) // When the tree has been plucked
                     {
                         hasReachedTaskObject = false;
+                        selfAnim.PlayAnimation("plucking_end", 1.5f);
                         IEnumerator SwitchStageTo2()
                         {
                             yield return new WaitForSeconds(2.5f);
@@ -307,28 +349,28 @@ public class LogicTasks : MonoBehaviour
                         StartCoroutine(SwitchStageTo2());
                     }
                 }
-                else if(selfLogic.Task == "choptree_stage2") // Find and begin chopping top of the tree
+                else if (selfLogic.Task == "choptree_stage2") // Find and begin chopping top of the tree
                 {
-                    if(!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && TaskObject)
                     {
-                        Vector3 stage2GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 5;
-                        float distance = Vector3.Distance(self.transform.position, stage2GameObjectPositionToLookAt + self.transform.right * 1.35f);
+                        Vector3 stage2GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 5.4f;
+                        float distance = Vector3.Distance(self.transform.position, stage2GameObjectPositionToLookAt + TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f);
                         if (distance <= 1f) // If we reach the tree in stage2 
                         {
                             hasReachedTaskObject = true;
                             IEnumerator Stage2BeginChopping() // Begin vertically chopping the tree in stage 2
                             {
-                                yield return new WaitForSeconds(1.5f);
-                                self.transform.LookAt(stage2GameObjectPositionToLookAt + TaskObject.transform.forward * 1);
+                                yield return new WaitForSeconds(1f);
+                                self.transform.LookAt(stage2GameObjectPositionToLookAt);
                                 if (selfLogic.CurrentToolIsHolstered)
                                 {
                                     selfLogic.ToggleHolsterTool();
                                     IEnumerator BeginChoppingDelay()
-                                        {
+                                    {
                                         yield return new WaitForSeconds(1.5f);
                                         BeginChopping("vertical");
-                                        StopCoroutine("BeginChoppingDelay");
-                                        }
+                                        StopCoroutine(BeginChoppingDelay());
+                                    }
                                     StartCoroutine(BeginChoppingDelay());
                                 }
                                 else
@@ -338,6 +380,54 @@ public class LogicTasks : MonoBehaviour
                                 StopCoroutine(Stage2BeginChopping());
                             }
                             StartCoroutine(Stage2BeginChopping());
+                        }
+                    }
+                    else if (hasReachedTaskObject && !TaskObject) // When the upper part of the tree has ben cut off.
+                    {
+                        hasReachedTaskObject = false;
+                        isChopping = false;
+                        selfLogic.CurrentTool.GetComponent<Axe>().shouldChop = false;
+                        selfAnim.PlayAnimation("hacking_vertical_end", 0.5f);
+                        IEnumerator SwitchStageTo3()
+                        {
+                            yield return new WaitForSeconds(1.5f);
+                            LumberTask("choptree_stage3");
+                            StopCoroutine(SwitchStageTo3());
+                        }
+                        StartCoroutine(SwitchStageTo3());
+                    }
+                }
+                else if (selfLogic.Task == "choptree_stage3") // Find and begin chopping lower section of the tree, in stage 3
+                {
+                    if (!hasReachedTaskObject && TaskObject)
+                    {
+                        Vector3 stage3GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 3f;
+                        float distance = Vector3.Distance(self.transform.position, stage3GameObjectPositionToLookAt + TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f);
+                        if (distance <= 1f) // If we reach the tree in stage3
+                        {
+                            hasReachedTaskObject = true;
+                            IEnumerator Stage3BeginChopping() // Begin vertically chopping the tree in stage 3
+                            {
+                                yield return new WaitForSeconds(1f);
+                                self.transform.LookAt(stage3GameObjectPositionToLookAt);
+                                if (selfLogic.CurrentToolIsHolstered)
+                                {
+                                    selfLogic.ToggleHolsterTool();
+                                    IEnumerator BeginChoppingDelay()
+                                    {
+                                        yield return new WaitForSeconds(2.5f);
+                                        BeginChopping("vertical");
+                                        StopCoroutine(BeginChoppingDelay());
+                                    }
+                                    StartCoroutine(BeginChoppingDelay());
+                                }
+                                else
+                                {
+                                    BeginChopping("vertical");
+                                }
+                                StopCoroutine(Stage3BeginChopping());
+                            }
+                            StartCoroutine(Stage3BeginChopping());
                         }
                     }
                 }

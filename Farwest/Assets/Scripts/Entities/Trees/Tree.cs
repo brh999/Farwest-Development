@@ -23,6 +23,17 @@ public class Tree : MonoBehaviour
     public GameObject Stage1_UpperPart;
     public GameObject Stage1_UpperPartPlucked;
 
+    public GameObject Stage2_UpperPart;
+    public GameObject Stage2_LowerPart;
+
+    public GameObject Stage3_UpperPart;
+    public GameObject Stage3_LowerPart;
+
+    public GameObject Stage4_part1;
+    public GameObject Stage4_part2;
+    public GameObject Stage4_part3;
+    public GameObject Stage4_part4;
+
     public GameObject Woodflake1;
     public GameObject Woodflake2;
     public GameObject Woodflake3;
@@ -82,6 +93,14 @@ public class Tree : MonoBehaviour
             stage1PTS.Woodflake1 = Woodflake1;
             stage1PTS.Woodflake2 = Woodflake2;
             stage1PTS.Woodflake3 = Woodflake3;
+            stage1PTS.Stage2_UpperPart = Stage2_UpperPart;
+            stage1PTS.Stage2_LowerPart = Stage2_LowerPart;
+            stage1PTS.Stage3_UpperPart = Stage3_UpperPart;
+            stage1PTS.Stage3_LowerPart = Stage3_LowerPart;
+            stage1PTS.Stage4_part1 = Stage4_part1;
+            stage1PTS.Stage4_part2 = Stage4_part2;
+            stage1PTS.Stage4_part3 = Stage4_part3;
+            stage1PTS.Stage4_part4 = Stage4_part4;
 
             Object.Destroy(self);
         }

@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class PinetreeStage2 : MonoBehaviour
 {
+    // Entities to move on:
     public GameObject Woodflake1;
     public GameObject Woodflake2;
     public GameObject Woodflake3;
+    public GameObject Stage2_UpperPart;
+    public GameObject Stage2_LowerPart;
+    public GameObject Stage3_UpperPart;
+    public GameObject Stage3_LowerPart;
+    public GameObject Stage4_part1;
+    public GameObject Stage4_part2;
+    public GameObject Stage4_part3;
+    public GameObject Stage4_part4;
+
 
     private GameObject self;
     public GameObject OccupiedOwner;
@@ -21,10 +31,12 @@ public class PinetreeStage2 : MonoBehaviour
 
     public int HacksLeft;
 
+    public Vector3 TreeRightSide;
+
     void Awake()
     {
         self = gameObject;
-        HacksLeft = Random.Range(5, 8); // The amount of hacks that's needed in order to chop down the tree part
+        HacksLeft = 1; // The amount of hacks that's needed in order to chop down the tree part
         self.AddComponent<Rigidbody>();
         self.AddComponent<CapsuleCollider>();
         selfCC = self.GetComponent<CapsuleCollider>();
@@ -49,6 +61,28 @@ public class PinetreeStage2 : MonoBehaviour
         {
             OccupiedOwner = null;
         }
+    }
+
+    public void CutDown()
+    {
+        GameObject stage3 = Instantiate(Stage2_LowerPart, self.transform.position, self.transform.rotation);
+        GameObject stage2_UpperPart = Instantiate(Stage2_UpperPart, self.transform.position + self.transform.forward * 5.5f, self.transform.rotation);
+        stage3.AddComponent<PinetreeStage3>();
+        stage3.tag = "treestage3";
+
+        PinetreeStage3 stage3script = stage3.GetComponent<PinetreeStage3>();
+        stage3script.Stage3_UpperPart = Stage3_UpperPart;
+        stage3script.Stage3_LowerPart = Stage3_LowerPart;
+        stage3script.Stage4_part1 = Stage4_part1;
+        stage3script.Stage4_part2 = Stage4_part2;
+        stage3script.Stage4_part3 = Stage4_part3;
+        stage3script.Stage4_part4 = Stage4_part4;
+        stage3script.TreeRightSide = TreeRightSide;
+        stage3script.Woodflake1 = Woodflake1;
+        stage3script.Woodflake2 = Woodflake2;
+        stage3script.Woodflake3 = Woodflake3;
+
+        Destroy(self);
     }
 
     public void WoodFlakeSequence()

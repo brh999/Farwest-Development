@@ -84,7 +84,6 @@ public class Nav : MonoBehaviour
             {
                     selfNav.destination = Vector3.Lerp(self.transform.position, destination, distanceLerpAmount);
                     distanceLerpAmount -= distanceLerpAmountSpeed * Time.deltaTime;
-                    print(distanceLerpAmount);
             }
             else if(distance <= distanceToKeep)
             {

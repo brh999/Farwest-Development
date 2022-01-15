@@ -3,7 +3,37 @@ guid: 993e828b191484b4691f83e985a2be0f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OakTreeBarkV2
+    second: {fileID: 2100000, guid: d56c4fcbffa2a1945b650c996561036e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineBranch1
+    second: {fileID: 2100000, guid: 23bf09c8d42b7c34698044f78d7cc484, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineBranch2
+    second: {fileID: 2100000, guid: cbf136e7e724aac45a169169f6c08830, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineBranch3
+    second: {fileID: 2100000, guid: de5c11e2867d7874f997847bef2c9f7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PineBranch4
+    second: {fileID: 2100000, guid: b595212c54d16074594fc9c8767e08e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TreeStump
+    second: {fileID: 2100000, guid: 1b4e3d8cc62f15b4da6b06b81b17681d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

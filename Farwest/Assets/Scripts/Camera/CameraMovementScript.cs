@@ -50,7 +50,8 @@ public class CameraMovementScript : MonoBehaviour
         movement_x = Input.GetAxisRaw("Horizontal") * 20 * Time.deltaTime;
         movement_z = Input.GetAxisRaw("Vertical") * 20 * Time.deltaTime;
 
-        gameObject.transform.Translate(movement_x, movement_z, scrollSp, Space.Self);
+        gameObject.transform.Translate(0, 0, scrollSp, Space.Self);
+        gameObject.transform.position = gameObject.transform.position + new Vector3(hsp * 100 * Time.deltaTime, 0, vsp * 100 * Time.deltaTime);
 
 
     }

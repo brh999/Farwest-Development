@@ -9,7 +9,6 @@ public class Tree : MonoBehaviour
     public GameObject OccupiedOwner;
 
     public int FirstStage_hacks; // How many chops/hacks are needed to cut down the tree
-    public int CurrentStage = 0;
 
     public string TreeType; // The type of tree
 
@@ -17,7 +16,10 @@ public class Tree : MonoBehaviour
 
     private float UpperPartCollisionHeight;
 
-    // GameObjects that will be instantiatet for later stages of the tree chopping:
+    public AudioClip TreeFallOffStartSound;
+    public AudioClip TreeFallOffEndSound;
+
+    // GameObjects/Data that will be instantiatet for later stages of the tree chopping:
     public GameObject TreeStump;
 
     public GameObject Stage1_UpperPart;
@@ -29,17 +31,22 @@ public class Tree : MonoBehaviour
     public GameObject Stage3_UpperPart;
     public GameObject Stage3_LowerPart;
 
-    public GameObject Stage4_part1;
-    public GameObject Stage4_part2;
-    public GameObject Stage4_part3;
-    public GameObject Stage4_part4;
+    public GameObject Stage4_UpperPart;
+    public GameObject Stage4_LowerPart;
+
+    public GameObject Stage5_UpperPart;
+    public GameObject Stage5_LowerPart;
 
     public GameObject Woodflake1;
     public GameObject Woodflake2;
     public GameObject Woodflake3;
 
-    public AudioClip TreeFallOffStartSound;
-    public AudioClip TreeFallOffEndSound;
+    public AudioClip WoodBreak1;
+    public AudioClip WoodBreak2;
+    public AudioClip WoodBreak3;
+    public AudioClip WoodBreak4;
+    public AudioClip WoodBreak5;
+
 
     void Awake()
     {
@@ -52,15 +59,30 @@ public class Tree : MonoBehaviour
             UpperPartCollisionHeight = 0.08f;
             break;
         }
+
+        self.AddComponent<AudioSource>();
+        self.AddComponent<Sound>();
+
+        Sound soundscript = self.GetComponent<Sound>();
+        soundscript.sounds[0] = WoodBreak1;
+        soundscript.sounds[1] = WoodBreak2;
+        soundscript.sounds[2] = WoodBreak3;
+        soundscript.sounds[3] = WoodBreak4;
+        soundscript.sounds[4] = WoodBreak5;
+
+        self.tag = "tree";
+
     }
+
+  
 
     public void CutDown()
     {
-        if(CurrentStage == 0)
-        {
+
+        self.GetComponent<Sound>().Tree_CutDownAudio();
+             
             // This part will simulate the tree to tilt down, by removing the main tree, and adding in a seperate root
             // + upper tree part, and then adding force to the upper part to make it fall off/tilt off
-            CurrentStage = 1;
             GameObject stump = Instantiate(TreeStump, self.transform.position, self.transform.rotation);
             stump.AddComponent<Stump>();
             stump.AddComponent<MeshCollider>();
@@ -75,8 +97,6 @@ public class Tree : MonoBehaviour
 
             stage1.GetComponent<Sound>().AddAudioClip(TreeFallOffStartSound);
             stage1.GetComponent<Sound>().AddAudioClip(TreeFallOffEndSound);
-
-            stage1.tag = "treestage1";
 
             Sound stage1S = stage1.GetComponent<Sound>();
             CapsuleCollider stage1CC = stage1.GetComponent<CapsuleCollider>();
@@ -97,16 +117,20 @@ public class Tree : MonoBehaviour
             stage1PTS.Stage2_LowerPart = Stage2_LowerPart;
             stage1PTS.Stage3_UpperPart = Stage3_UpperPart;
             stage1PTS.Stage3_LowerPart = Stage3_LowerPart;
-            stage1PTS.Stage4_part1 = Stage4_part1;
-            stage1PTS.Stage4_part2 = Stage4_part2;
-            stage1PTS.Stage4_part3 = Stage4_part3;
-            stage1PTS.Stage4_part4 = Stage4_part4;
+            stage1PTS.Stage4_UpperPart = Stage4_UpperPart;
+            stage1PTS.Stage4_LowerPart = Stage4_LowerPart;
+            stage1PTS.Stage5_UpperPart = Stage5_UpperPart;
+            stage1PTS.Stage5_LowerPart = Stage5_LowerPart;
 
-            Object.Destroy(self);
-        }
+            stage1PTS.WoodBreak1 = WoodBreak1;
+            stage1PTS.WoodBreak2 = WoodBreak2;
+            stage1PTS.WoodBreak3 = WoodBreak3;
+            stage1PTS.WoodBreak4 = WoodBreak4;
+            stage1PTS.WoodBreak5 = WoodBreak5;
+
+        Object.Destroy(self);
+        
     }
-
-   
 
 
     public void WoodFlakeSequence()
@@ -153,15 +177,16 @@ public class Tree : MonoBehaviour
             woodflakeToGo += 1;
         }
 
-        IEnumerator WoodFlakeSequenceTimer()
+
+        IEnumerator DestroyFlakes()
         {
-                yield return new WaitForSeconds(2f);
-                Destroy(flake1);
-                Destroy(flake2);
-                Destroy(flake3);
-                StopCoroutine(WoodFlakeSequenceTimer());
+            yield return new WaitForSeconds(2f);
+            Destroy(flake1);
+            Destroy(flake2);
+            Destroy(flake3);
+            StopCoroutine(DestroyFlakes());
         }
-        StartCoroutine(WoodFlakeSequenceTimer());
+        StartCoroutine(DestroyFlakes());
     }
 
 

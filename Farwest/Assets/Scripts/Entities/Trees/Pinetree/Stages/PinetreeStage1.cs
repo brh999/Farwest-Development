@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class PinetreeStage1 : MonoBehaviour
 {
-    // Entities to move on:
+    // Entities/data to move on:
     public GameObject Woodflake1;
     public GameObject Woodflake2;
     public GameObject Woodflake3;
@@ -14,10 +14,15 @@ public class PinetreeStage1 : MonoBehaviour
     public GameObject Stage2_LowerPart;
     public GameObject Stage3_UpperPart;
     public GameObject Stage3_LowerPart;
-    public GameObject Stage4_part1;
-    public GameObject Stage4_part2;
-    public GameObject Stage4_part3;
-    public GameObject Stage4_part4;
+    public GameObject Stage4_UpperPart;
+    public GameObject Stage4_LowerPart;
+    public GameObject Stage5_UpperPart;
+    public GameObject Stage5_LowerPart;
+    public AudioClip WoodBreak1;
+    public AudioClip WoodBreak2;
+    public AudioClip WoodBreak3;
+    public AudioClip WoodBreak4;
+    public AudioClip WoodBreak5;
 
 
     private GameObject self;
@@ -45,6 +50,7 @@ public class PinetreeStage1 : MonoBehaviour
         selfRB = self.GetComponent<Rigidbody>();
         selfS = self.GetComponent<Sound>();
         pluckTime = Random.Range(10, 20);
+        self.tag = "treestage1";
     }
 
     void Start()
@@ -91,13 +97,19 @@ public class PinetreeStage1 : MonoBehaviour
             s1p.Stage2_LowerPart = Stage2_LowerPart;
             s1p.Stage3_UpperPart = Stage3_UpperPart;
             s1p.Stage3_LowerPart = Stage3_LowerPart;
-            s1p.Stage4_part1 = Stage4_part1;
-            s1p.Stage4_part2 = Stage4_part2;
-            s1p.Stage4_part3 = Stage4_part3;
-            s1p.Stage4_part4 = Stage4_part4;
+            s1p.Stage4_UpperPart = Stage4_UpperPart;
+            s1p.Stage4_LowerPart = Stage4_LowerPart;
+            s1p.Stage5_UpperPart = Stage5_UpperPart;
+            s1p.Stage5_LowerPart = Stage5_LowerPart;
             s1p.TreeRightSide = TreeRightSide;
 
-            stage1Plucked.tag = "treestage2";
+            s1p.WoodBreak1 = WoodBreak1;
+            s1p.WoodBreak2 = WoodBreak2;
+            s1p.WoodBreak3 = WoodBreak3;
+            s1p.WoodBreak4 = WoodBreak4;
+            s1p.WoodBreak5 = WoodBreak5;
+            s1p.InitSounds();
+
             Destroy(self);
         }
     }

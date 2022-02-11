@@ -57,6 +57,7 @@ public class Nav : MonoBehaviour
             distanceLerpAmountSpeed = 0.7f;
             distanceLerpAmountSpeed_Modified = true;
             break;
+
         }
     }
 

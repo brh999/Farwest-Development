@@ -48,14 +48,16 @@ public class Logic : MonoBehaviour
 
         CurrentTool = GetCurrentTool();
         CurrentToolIsHolstered = false;
-        selfLogicTasks.LumberTask("choptree");
+
+        StartWorkTask();
+       
     }
 
 
     // tools_axe
-    private Vector3 toolsAxe_unholstered_pos = new Vector3(-0.00011f, 0.00576f, 0.00563f);
-    private Quaternion toolsAxe_unholstered_qua = new Quaternion(-16.135f, -8.512f, 78.228f, 0);
-    private Vector3 toolsAxe_holstered_pos = new Vector3(0f, 0f, -0.00025f);
+    private Vector3 toolsAxe_unholstered_pos = new Vector3(0.14f, 0.0f, 0.25f);
+    private Quaternion toolsAxe_unholstered_qua = new Quaternion(-14f, -8f, 78.228f, 0);
+    private Vector3 toolsAxe_holstered_pos = new Vector3(0f, 0.2f, -0.00025f);
     private Quaternion toolsAxe_holstered_qua = new Quaternion(-90f, 0f, 0f, 0);
 
     public void ToggleHolsterTool()
@@ -73,13 +75,11 @@ public class Logic : MonoBehaviour
                         {
                             case "tools_axe":
                                 CTT.SetParent(RightHand.transform);
-                                CTT.position = RightHand.transform.position;
-                                CTT.localPosition = toolsAxe_unholstered_pos;
                                 CTT.rotation = RightHand.transform.rotation;
                                 CTT.RotateAround(CTT.position, CTT.right, toolsAxe_unholstered_qua.x);
                                 CTT.RotateAround(CTT.position, CTT.up, toolsAxe_unholstered_qua.y);
                                 CTT.RotateAround(CTT.position, CTT.forward, toolsAxe_unholstered_qua.z);
-                                CTT.position += CTT.right * 0f + CTT.up * 0f + CTT.forward * 0f;
+                                CTT.position = RightHand.transform.position + CTT.right * toolsAxe_unholstered_pos.x + CTT.up * toolsAxe_unholstered_pos.y + CTT.forward * toolsAxe_unholstered_pos.z;
                                 break;
                         }
                         CurrentToolIsHolstered = false;
@@ -90,13 +90,11 @@ public class Logic : MonoBehaviour
                         {
                             case "tools_axe":
                                 CTT.SetParent(Spine2.transform);
-                                CTT.position = Spine2.transform.position;
-                                CTT.localPosition = toolsAxe_holstered_pos;
                                 CTT.rotation = Spine2.transform.rotation;
                                 CTT.RotateAround(CTT.position, CTT.right, toolsAxe_holstered_qua.x);
                                 CTT.RotateAround(CTT.position, CTT.up, toolsAxe_holstered_qua.y);
                                 CTT.RotateAround(CTT.position, CTT.forward, toolsAxe_holstered_qua.z);
-                                CTT.position += CTT.right * 0 + CTT.up * 0.2f + CTT.forward * 0;
+                                CTT.position = Spine2.transform.position + CTT.right * toolsAxe_holstered_pos.x + CTT.up * toolsAxe_holstered_pos.y + CTT.forward * toolsAxe_holstered_pos.z;
                                 break;
                         }
                         CurrentToolIsHolstered = true;
@@ -138,5 +136,17 @@ public class Logic : MonoBehaviour
         return null;
     }
 
+
+    public void StartWorkTask() // Find a task for the assigned work
+    {
+        switch(Work)
+        {
+            case "lumberjack": // Tasks for lumberjack
+                selfLogicTasks.CalcLumberTask();
+                break;
+        }
+    }
+
+    
 
 }

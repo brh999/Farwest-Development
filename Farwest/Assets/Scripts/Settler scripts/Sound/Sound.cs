@@ -76,6 +76,25 @@ public class Sound : MonoBehaviour
     }
 
 
+    //Tree audio for "cracking" the tree up:
+    public void Tree_CutDownAudio()
+    {
+        string pickedsound = PickRandomWoodBreakSound();
+        if(pickedsound != null)
+        {
+            PlaySound(pickedsound, 0.1f, 1, 0);
+        }
+    }
+
+    // Pick a random wood break sound for the tree:
+    private string PickRandomWoodBreakSound()
+    {
+        int choosenint = Random.Range(0, 4);
+        string[] sounds = { "wood_break1", "wood_break2", "wood_break3", "wood_break4", "wood_break5" };
+        return sounds[choosenint];
+    }
+
+
 
     private void Update()
     {

@@ -49,6 +49,9 @@ ModelImporter:
       74: 1601805656581339209
     second: Armature|idle_fear2
   - first:
+      74: 1611437799642604791
+    second: Armature|item_pickup_ground
+  - first:
       74: -3989007995488988441
     second: Armature|log_carry_walk
   - first:

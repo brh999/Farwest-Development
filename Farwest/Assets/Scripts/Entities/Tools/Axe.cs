@@ -39,12 +39,7 @@ public class Axe : MonoBehaviour
     }
 
 
-    private string PickRandomWoodBreakSound()
-    {
-        int choosenint = Random.Range(0, 4);
-        string[] sounds = {"wood_break1", "wood_break2", "wood_break3", "wood_break4", "wood_break5"};
-        return sounds[choosenint];
-    }
+ 
 
      void OnCollisionEnter(Collision collision)
     {
@@ -62,10 +57,9 @@ public class Axe : MonoBehaviour
                         treeScript.FirstStage_hacks -= 1;
                         treeScript.WoodFlakeSequence();
                     }
-                    else if (treeScript.CurrentStage == 0)
+                    else
                     {
                         owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
-                        owner_Sound.PlaySound(PickRandomWoodBreakSound(), 0.1f, 1, 0);
                         treeScript.WoodFlakeSequence();
                         treeScript.CutDown();
                     }
@@ -84,7 +78,6 @@ public class Axe : MonoBehaviour
                 else
                 {
                     owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
-                    owner_Sound.PlaySound(PickRandomWoodBreakSound(), 0.1f, 1, 0);
                     pinetreeStage2.WoodFlakeSequence();
                     pinetreeStage2.CutDown();
                 }
@@ -102,9 +95,42 @@ public class Axe : MonoBehaviour
                 else
                 {
                     owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
-                    owner_Sound.PlaySound(PickRandomWoodBreakSound(), 0.1f, 1, 0);
                     pinetreeStage3.WoodFlakeSequence();
                     pinetreeStage3.CutDown();
+                }
+                readyToChop = false;
+            }
+            else if (tree.tag == "treestage4")
+            {
+                PinetreeStage4 pinetreeStage4 = tree.GetComponent<PinetreeStage4>();
+                if (pinetreeStage4.HacksLeft > 0)
+                {
+                    owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                    pinetreeStage4.HacksLeft -= 1;
+                    pinetreeStage4.WoodFlakeSequence();
+                }
+                else
+                {
+                    owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                    pinetreeStage4.WoodFlakeSequence();
+                    pinetreeStage4.CutDown();
+                }
+                readyToChop = false;
+            }
+            else if (tree.tag == "treestage5")
+            {
+                PinetreeStage5 pinetreeStage5 = tree.GetComponent<PinetreeStage5>();
+                if (pinetreeStage5.HacksLeft > 0)
+                {
+                    owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                    pinetreeStage5.HacksLeft -= 1;
+                    pinetreeStage5.WoodFlakeSequence();
+                }
+                else
+                {
+                    owner_Sound.PlaySound("axechop", 0.1f, 1, 0);
+                    pinetreeStage5.WoodFlakeSequence();
+                    pinetreeStage5.CutDown();
                 }
                 readyToChop = false;
             }

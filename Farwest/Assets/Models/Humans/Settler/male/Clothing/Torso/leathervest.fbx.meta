@@ -4,8 +4,20 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -1978303741906493279
-    second: Armature|idle
+      74: -1279999608682540688
+    second: Armature|aaa
+  - first:
+      74: 8516114890755689418
+    second: Armature|hacking_horizontal
+  - first:
+      74: 2723098152589058953
+    second: Armature|hacking_horizontal_start
+  - first:
+      74: -5188593743756512021
+    second: Armature|hacking_vertical
+  - first:
+      74: 4132072648292240266
+    second: Armature|hacking_vertical_start
   - first:
       74: 3297461196283193974
     second: Armature|idle1
@@ -25,17 +37,29 @@ ModelImporter:
       74: -6426819678927606099
     second: Armature|idle6
   - first:
-      74: 1959280953189403080
-    second: Armature|idle6.002
-  - first:
-      74: -8837782413191831901
-    second: Armature|idle6.004
-  - first:
       74: -3365228820461387328
     second: Armature|idle_fear1
   - first:
       74: 1601805656581339209
     second: Armature|idle_fear2
+  - first:
+      74: -3989007995488988441
+    second: Armature|log_carry_walk
+  - first:
+      74: 8072606413434231080
+    second: Armature|log_drop
+  - first:
+      74: 2611050978558710723
+    second: Armature|log_pickup
+  - first:
+      74: -2214708187601686322
+    second: Armature|plucking
+  - first:
+      74: 6269383965081614532
+    second: Armature|plucking_end
+  - first:
+      74: 5084880726465045178
+    second: Armature|plucking_start
   - first:
       74: -87672012810527710
     second: Armature|run_m
@@ -43,17 +67,30 @@ ModelImporter:
       74: 4120321718025410971
     second: Armature|run_m_fear
   - first:
+      74: 1574331027797509233
+    second: Armature|toggleHolster
+  - first:
+      74: -1517914392405745316
+    second: Armature|tools_saw_lumberworkstation_sawing
+  - first:
+      74: -6603670064203206659
+    second: Armature|tools_saw_lumberworkstation_sawing1
+  - first:
+      74: 7120051384284968542
+    second: Armature|tools_saw_lumberworkstation_sawing2
+  - first:
+      74: 281080553161196364
+    second: Armature|tools_saw_lumberworkstation_sawing3
+  - first:
+      74: 8986987668256190849
+    second: Armature|tools_saw_lumberworkstation_start
+  - first:
       74: -126210440812934267
     second: Armature|tpose
   - first:
       74: -2950080023610852482
     second: Armature|walk_m
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: DestroyedOldLeather
-    second: {fileID: 2800000, guid: b1a04ebe7ee2ba14084c54693c4a4c9b, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

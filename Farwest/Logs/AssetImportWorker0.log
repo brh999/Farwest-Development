@@ -1,0 +1,319 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.12f1 (b3b2c6512326) revision 11776710'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19044.1526; Version 2009; 64bit' Language: 'da' Physical Memory: 16344 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/dkste/Desktop/Spil/Farwest Project/Farwest-Development/Farwest-Development/Farwest
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+64435
+Successfully changed project path to: C:/Users/dkste/Desktop/Spil/Farwest Project/Farwest-Development/Farwest-Development/Farwest
+C:/Users/dkste/Desktop/Spil/Farwest Project/Farwest-Development/Farwest-Development/Farwest
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 41.82 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.12f1 (b3b2c6512326)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/dkste/Desktop/Spil/Farwest Project/Farwest-Development/Farwest-Development/Farwest/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Vendor:   
+    VRAM:     8079 MB
+    Driver:   30.0.15.1165
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56892
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003524 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 36.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.453 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006379 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.209 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1421 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 81.4 MB.
+System memory in use after: 81.5 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1872.
+Total: 2.142500 ms (FindLiveObjects: 0.145800 ms CreateObjectMapping: 0.047600 ms MarkObjects: 1.845600 ms  DeleteObjects: 0.101700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Models/Props/Furnitures/Stoves
+  artifactKey: Guid(7fbc9ae08f9b659409f3ad3d5ee2d54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves using Guid(7fbc9ae08f9b659409f3ad3d5ee2d54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3d5ea4ba2c4745d61ff88c5f0d276f7') in 0.005510 seconds 
+  Import took 0.007923 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.512521 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1.fbx
+  artifactKey: Guid(da3c18e855294234ba85772830f02690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1.fbx using Guid(da3c18e855294234ba85772830f02690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '772c4397ee0a5d8f49dada1aec40e967') in 0.446250 seconds 
+  Import took 0.449609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 47.604465 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1.fbx
+  artifactKey: Guid(da3c18e855294234ba85772830f02690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1.fbx using Guid(da3c18e855294234ba85772830f02690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aca2ef2cb46e4dba555f8f2866740462') in 0.441996 seconds 
+  Import took 0.450714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000412 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 18_base.png
+  artifactKey: Guid(9a6c889440036e3488b0f4339b3419ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 18_base.png using Guid(9a6c889440036e3488b0f4339b3419ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '439d5c79bcbd8de34305709897127971') in 0.059911 seconds 
+  Import took 0.062858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 20_base.png
+  artifactKey: Guid(cbe35c2d7dac8494bab0939b496bdb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 20_base.png using Guid(cbe35c2d7dac8494bab0939b496bdb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75a3c729daafed0ccccb56d5d096a448') in 0.010637 seconds 
+  Import took 0.013848 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 1_base.png
+  artifactKey: Guid(6a61ebcc27450fc448022c43c04f9031) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 1_base.png using Guid(6a61ebcc27450fc448022c43c04f9031) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2128109b682b96d7cc83375f1c8381a3') in 0.033897 seconds 
+  Import took 0.036839 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 22_base.png
+  artifactKey: Guid(300662334a2f1584d8bfc2a6ffce0c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 22_base.png using Guid(300662334a2f1584d8bfc2a6ffce0c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fce2ecbdc4d7dfdd124ae96915d726eb') in 0.034624 seconds 
+  Import took 0.038321 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 11_base.png
+  artifactKey: Guid(eab67b2496f9ac7488e5c16c6094d91c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 11_base.png using Guid(eab67b2496f9ac7488e5c16c6094d91c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cebaa46876ab2cda1fe048e048eda4db') in 0.033987 seconds 
+  Import took 0.038940 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000460 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 14_base.png
+  artifactKey: Guid(28eb8c9bd58a46c4f8f304d5a08abd7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 14_base.png using Guid(28eb8c9bd58a46c4f8f304d5a08abd7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17586e5266aa314d33f73a59d33c2b0f') in 0.034241 seconds 
+  Import took 0.037326 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 15_base.png
+  artifactKey: Guid(cd1fa0900c3ecc84898badaf47557b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 15_base.png using Guid(cd1fa0900c3ecc84898badaf47557b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7051ce5009b5382188c5ba849ec8fdb') in 0.030396 seconds 
+  Import took 0.033285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000283 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 21_base.png
+  artifactKey: Guid(d1410b327c71363459c93f538a646595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 21_base.png using Guid(d1410b327c71363459c93f538a646595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36f5f727b6b80c1f2a50fe53b40da772') in 0.034645 seconds 
+  Import took 0.038360 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 24_base.png
+  artifactKey: Guid(28f54bd3eca6d1f4cae2a4d3c6724a02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 24_base.png using Guid(28f54bd3eca6d1f4cae2a4d3c6724a02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd18174d49c1a9f3f6a8bf670e38aeb32') in 0.029800 seconds 
+  Import took 0.034265 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000301 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 6_base.png
+  artifactKey: Guid(5c4b2fb23bd60df459cbbc7faaa499c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 6_base.png using Guid(5c4b2fb23bd60df459cbbc7faaa499c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920a711a1169f7f4b36ac234962d5959') in 0.008696 seconds 
+  Import took 0.013216 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 13_base.png
+  artifactKey: Guid(22109001b556f2d4497ef7914964ed2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 13_base.png using Guid(22109001b556f2d4497ef7914964ed2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abbf8074da7d807c56d3d3082ad5f69c') in 0.010971 seconds 
+  Import took 0.014427 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 16_base.png
+  artifactKey: Guid(9221cbc7d9c3e6f46ad5d95f0f8d7b10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 16_base.png using Guid(9221cbc7d9c3e6f46ad5d95f0f8d7b10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04036842408c5a7ea0f44bf23ca8b3ca') in 0.010954 seconds 
+  Import took 0.013956 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 25_base.png
+  artifactKey: Guid(c3d8d139e13addb41984e9730292fa9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 25_base.png using Guid(c3d8d139e13addb41984e9730292fa9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4ba0f03416d67337ca8e975412bfac0') in 0.013277 seconds 
+  Import took 0.015917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 2_base.png
+  artifactKey: Guid(fdfa61bb102cc274cb7e54ac3213793e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 2_base.png using Guid(fdfa61bb102cc274cb7e54ac3213793e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b81f669958003b774966b74323f3fec') in 0.011417 seconds 
+  Import took 0.014063 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 4_base.png
+  artifactKey: Guid(506e029931df0f243af17c3d36277c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 4_base.png using Guid(506e029931df0f243af17c3d36277c6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca62c4da5681c967a9804f61c47a7f29') in 0.014538 seconds 
+  Import took 0.018574 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 12_base.png
+  artifactKey: Guid(34f984b2524f332488359a7d3fb1ffa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 12_base.png using Guid(34f984b2524f332488359a7d3fb1ffa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53ff01914a72971cf5464cd88eb1f6d5') in 0.011609 seconds 
+  Import took 0.034443 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000823 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 23_base.png
+  artifactKey: Guid(0c54d281448bb104481a06228536ae31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 23_base.png using Guid(0c54d281448bb104481a06228536ae31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66a1397ac7b7ae6d2f70f5440c79584b') in 0.063553 seconds 
+  Import took 0.109196 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/TexturesCom_Rust_Pitted_1K_albedo.tif
+  artifactKey: Guid(b728db3a9bd60de4888cfbf83fb9938c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/TexturesCom_Rust_Pitted_1K_albedo.tif using Guid(b728db3a9bd60de4888cfbf83fb9938c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37c320e03a2c28f6ba7bb903bb05d266') in 0.014854 seconds 
+  Import took 0.018447 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000296 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 3_base.png
+  artifactKey: Guid(7f21724ae2025bd4792b49971c326210) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 3_base.png using Guid(7f21724ae2025bd4792b49971c326210) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0388588bd6e88d9387d6899a4fa824b') in 0.011178 seconds 
+  Import took 0.013796 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 7_base.png
+  artifactKey: Guid(7639c6a0db571c44d8d57d70b9459acc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 7_base.png using Guid(7639c6a0db571c44d8d57d70b9459acc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8523b2c616e072ca7370761179be9630') in 0.016695 seconds 
+  Import took 0.019259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 5_base.png
+  artifactKey: Guid(b57c0e60d8063fe42a23f2120fb97570) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 5_base.png using Guid(b57c0e60d8063fe42a23f2120fb97570) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8024c6f707b2d8316966db86cc074f92') in 0.009638 seconds 
+  Import took 0.012681 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 8_base.png
+  artifactKey: Guid(07b8defff37005c4da514bc9c85fe837) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 8_base.png using Guid(07b8defff37005c4da514bc9c85fe837) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caa6f1d85e014809ba12f46a4f852e4f') in 0.016793 seconds 
+  Import took 0.019906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 19_base.png
+  artifactKey: Guid(5d9c3ffb6eeedf24f81839945626bfce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 19_base.png using Guid(5d9c3ffb6eeedf24f81839945626bfce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5274fffe0cbe6e4ef3f21d54cea31c7') in 0.016187 seconds 
+  Import took 0.019219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 17_base.png
+  artifactKey: Guid(1fb63cdc346ffda4a9bc7139a610b32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 17_base.png using Guid(1fb63cdc346ffda4a9bc7139a610b32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd35d55f117b6f81bc78c7e02ebe8efd4') in 0.010017 seconds 
+  Import took 0.013057 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 9_base.png
+  artifactKey: Guid(20ed1f525f28ab245ba10380a010b821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 9_base.png using Guid(20ed1f525f28ab245ba10380a010b821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fffcc68de7681ff8f12a47c6e30e6515') in 0.010131 seconds 
+  Import took 0.013288 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 10_base.png
+  artifactKey: Guid(f8915d58fa685994faac846ae506e1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/stove1_Atlas 10_base.png using Guid(f8915d58fa685994faac846ae506e1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1bc1d7452574a15fbbd0e404d02be03') in 0.011652 seconds 
+  Import took 0.014954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 291.405539 seconds.
+  path: Assets/Models/Props/Furnitures/Stoves/Materials
+  artifactKey: Guid(a5e81a956c7d5b54db00bc29d297003e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Props/Furnitures/Stoves/Materials using Guid(a5e81a956c7d5b54db00bc29d297003e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15c54bbcd0cf2a0d2686ef6b4bd6db7c') in 0.004263 seconds 
+  Import took 0.007750 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

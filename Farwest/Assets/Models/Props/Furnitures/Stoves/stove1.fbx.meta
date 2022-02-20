@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: da3c18e855294234ba85772830f02690
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Rust_Pitted_1K_albedo
+    second: {fileID: 2800000, guid: b728db3a9bd60de4888cfbf83fb9938c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 10_base
+    second: {fileID: 2800000, guid: f8915d58fa685994faac846ae506e1cf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 11_base
+    second: {fileID: 2800000, guid: eab67b2496f9ac7488e5c16c6094d91c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 12_base
+    second: {fileID: 2800000, guid: 34f984b2524f332488359a7d3fb1ffa6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 13_base
+    second: {fileID: 2800000, guid: 22109001b556f2d4497ef7914964ed2f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 14_base
+    second: {fileID: 2800000, guid: 28eb8c9bd58a46c4f8f304d5a08abd7d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 15_base
+    second: {fileID: 2800000, guid: cd1fa0900c3ecc84898badaf47557b16, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 16_base
+    second: {fileID: 2800000, guid: 9221cbc7d9c3e6f46ad5d95f0f8d7b10, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 17_base
+    second: {fileID: 2800000, guid: 1fb63cdc346ffda4a9bc7139a610b32c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 18_base
+    second: {fileID: 2800000, guid: 9a6c889440036e3488b0f4339b3419ac, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 19_base
+    second: {fileID: 2800000, guid: 5d9c3ffb6eeedf24f81839945626bfce, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 1_base
+    second: {fileID: 2800000, guid: 6a61ebcc27450fc448022c43c04f9031, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 20_base
+    second: {fileID: 2800000, guid: cbe35c2d7dac8494bab0939b496bdb78, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 21_base
+    second: {fileID: 2800000, guid: d1410b327c71363459c93f538a646595, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 22_base
+    second: {fileID: 2800000, guid: 300662334a2f1584d8bfc2a6ffce0c6b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 23_base
+    second: {fileID: 2800000, guid: 0c54d281448bb104481a06228536ae31, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 24_base
+    second: {fileID: 2800000, guid: 28f54bd3eca6d1f4cae2a4d3c6724a02, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 25_base
+    second: {fileID: 2800000, guid: c3d8d139e13addb41984e9730292fa9e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 2_base
+    second: {fileID: 2800000, guid: fdfa61bb102cc274cb7e54ac3213793e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 3_base
+    second: {fileID: 2800000, guid: 7f21724ae2025bd4792b49971c326210, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 4_base
+    second: {fileID: 2800000, guid: 506e029931df0f243af17c3d36277c6b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 5_base
+    second: {fileID: 2800000, guid: b57c0e60d8063fe42a23f2120fb97570, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 6_base
+    second: {fileID: 2800000, guid: 5c4b2fb23bd60df459cbbc7faaa499c3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 7_base
+    second: {fileID: 2800000, guid: 7639c6a0db571c44d8d57d70b9459acc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 8_base
+    second: {fileID: 2800000, guid: 07b8defff37005c4da514bc9c85fe837, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stove1_Atlas 9_base
+    second: {fileID: 2800000, guid: 20ed1f525f28ab245ba10380a010b821, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

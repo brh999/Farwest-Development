@@ -4,6 +4,9 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
+      74: -5931455777651139638
+    second: Armature|idle_open
+  - first:
       74: -1217877605849726614
     second: Armature|LValve_close
   - first:
@@ -15,47 +18,7 @@ ModelImporter:
   - first:
       74: 6389097229425853321
     second: Armature|RValve_open
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: AnvilIronMetal
-    second: {fileID: 2800000, guid: d0a406fd4bc50be4a96ae3e96b8a1d61, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: RifleStockWood
-    second: {fileID: 2800000, guid: 218fbb0b004765e4a92026665f6e924b, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: RustyIronMetal
-    second: {fileID: 2800000, guid: 484fa3ce37b11894fa127116a0bdc207, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: SalvagedMetal
-    second: {fileID: 2800000, guid: e62f081aad405db44a45d46f68851190, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: TrashedSteel
-    second: {fileID: 2800000, guid: 0eaeefed0b069ac44bcee42b85dff91d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: TreeStump
-    second: {fileID: 2800000, guid: 7268ec8fca35ba243a77e99a0cf748d8, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: WoodLogWallAndLogButts
-    second: {fileID: 2800000, guid: b26c28f61bd14be45acfa9316ca992f6, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: WornGrungyWood
-    second: {fileID: 2800000, guid: 0c8ed637ca9cdf845a3fd8100937f9c8, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -4,9 +4,6 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -1279999608682540688
-    second: Armature|aaa
-  - first:
       74: 8516114890755689418
     second: Armature|hacking_horizontal
   - first:
@@ -49,14 +46,29 @@ ModelImporter:
       74: 1601805656581339209
     second: Armature|idle_fear2
   - first:
+      74: -3555882474355166640
+    second: Armature|idlestatic
+  - first:
       74: 1611437799642604791
     second: Armature|item_pickup_ground
+  - first:
+      74: 334831371192978290
+    second: Armature|legs_combat_genericsharpobject_ready
+  - first:
+      74: -1779566613196120589
+    second: Armature|legs_run
+  - first:
+      74: 3440649006714657366
+    second: Armature|legs_walk
   - first:
       74: -3989007995488988441
     second: Armature|log_carry_walk
   - first:
       74: 8072606413434231080
     second: Armature|log_drop
+  - first:
+      74: -6459854117736876564
+    second: Armature|log_idle
   - first:
       74: 2611050978558710723
     second: Armature|log_pickup
@@ -93,6 +105,42 @@ ModelImporter:
   - first:
       74: 8986987668256190849
     second: Armature|tools_saw_lumberworkstation_start
+  - first:
+      74: 8400474955368439399
+    second: Armature|torso_combat_axe_ready
+  - first:
+      74: -8073439542502499401
+    second: Armature|torso_combat_axe_ready_end
+  - first:
+      74: -3414177212950716485
+    second: Armature|torso_combat_axe_ready_start
+  - first:
+      74: -5900649955723856513
+    second: Armature|torso_combat_axe_swing
+  - first:
+      74: -5270984234837984833
+    second: Armature|torso_combat_genericsharpobject_ready
+  - first:
+      74: -8108729480833104624
+    second: Armature|torso_combat_genericsharpobject_ready_end
+  - first:
+      74: -2785836968096067031
+    second: Armature|torso_combat_genericsharpobject_ready_start
+  - first:
+      74: -6265666474643247869
+    second: Armature|torso_combat_genericsharpobject_stab
+  - first:
+      74: 272376924681520181
+    second: Armature|torso_holster_axe
+  - first:
+      74: 1812905476576596563
+    second: Armature|torso_idle_axe
+  - first:
+      74: 4846451899118743351
+    second: Armature|torso_unholster_axe
+  - first:
+      74: -289462672655570378
+    second: Armature|torso_walk_axe
   - first:
       74: -126210440812934267
     second: Armature|tpose

@@ -46,7 +46,12 @@ public class Nav : MonoBehaviour
         isWalking = true;
         destination = dest;
         distanceToKeep = distance;
-        if(selfAnim.currentAnim != "walk_m")
+       
+        if(selfLogic.Task == "collectwood" && selfLogicTasks.IsCarryingResource)
+        {
+            selfAnim.PlayAnimation("log_carry_walk", 0f);
+        }
+        else if(selfAnim.currentAnim != "walk_m")
         {
             selfAnim.PlayAnimation("walk_m", 0f);
         }

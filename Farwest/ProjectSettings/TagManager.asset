@@ -13,6 +13,7 @@ TagManager:
   - treestage4
   - treestage5
   - treepart
+  - lumberworkstation
   layers:
   - Default
   - TransparentFX

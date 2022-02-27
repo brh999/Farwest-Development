@@ -17,6 +17,7 @@ public class Logic : MonoBehaviour
     public bool CurrentToolIsHolstered;
 
     public GameObject CurrentTool;
+    public GameObject CurrentCarrying;
 
     public GameObject RightHand;
 

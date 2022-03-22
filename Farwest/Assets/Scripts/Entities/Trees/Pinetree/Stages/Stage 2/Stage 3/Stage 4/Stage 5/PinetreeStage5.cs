@@ -11,11 +11,7 @@ public class PinetreeStage5 : MonoBehaviour
     public GameObject Woodflake3;
     public GameObject Stage5_UpperPart;
     public GameObject Stage5_LowerPart;
-    public AudioClip WoodBreak1;
-    public AudioClip WoodBreak2;
-    public AudioClip WoodBreak3;
-    public AudioClip WoodBreak4;
-    public AudioClip WoodBreak5;
+   
     public Vector3 TreeRightSide;
 
     public GameObject OccupiedOwner;
@@ -27,42 +23,13 @@ public class PinetreeStage5 : MonoBehaviour
 
     private Anim occupiedOwnerAnim;
 
-    private Rigidbody selfRB;
-    private CapsuleCollider selfCC;
-
     void Awake()
     {
         self = gameObject;
-        self.AddComponent<Rigidbody>();
-        self.AddComponent<CapsuleCollider>();
-        selfCC = self.GetComponent<CapsuleCollider>();
-        selfRB = self.GetComponent<Rigidbody>();
-
         HacksLeft = 1; // The amount of hacks that's needed in order to chop down the tree part
-
-        selfRB.constraints = RigidbodyConstraints.FreezeAll;
-
-        selfCC.direction = 2;
-        selfCC.center = new Vector3(-0.00012f, -0.00012f, 0.0127f);
-        selfCC.radius = 0.0021f;
-        selfCC.height = 0.034f;
-
-        self.AddComponent<AudioSource>();
-        self.AddComponent<Sound>();
-
-        self.tag = "treestage5";
     }
 
-    public void InitSounds()
-    {
-        Sound soundscript = self.GetComponent<Sound>();
-        soundscript.sounds[0] = WoodBreak1;
-        soundscript.sounds[1] = WoodBreak2;
-        soundscript.sounds[2] = WoodBreak3;
-        soundscript.sounds[3] = WoodBreak4;
-        soundscript.sounds[4] = WoodBreak5;
-    }
-
+   
     public void UpdateOwner(GameObject owner)
     {
         if (owner)
@@ -79,12 +46,8 @@ public class PinetreeStage5 : MonoBehaviour
     public void CutDown()
     {
         self.GetComponent<Sound>().Tree_CutDownAudio();
-
         GameObject UpperPart = Instantiate(Stage5_UpperPart, self.transform.position + self.transform.forward * 1.52f, self.transform.rotation);
         GameObject LowerPart = Instantiate(Stage5_LowerPart, self.transform.position + self.transform.forward * 0.05f, self.transform.rotation);
-        UpperPart.AddComponent<TreePart>();
-        LowerPart.AddComponent<TreePart>();
-
         Destroy(self);
     }
 

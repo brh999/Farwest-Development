@@ -10,6 +10,11 @@ public class TreePart : MonoBehaviour
 
     public bool IsOccupied = false;
 
+    public int SawingHealth = 5; // The health of the treepart - Used for sawing sequence
+
+    public GameObject LeftPart;
+    public GameObject RightPart;
+
     void Awake()
     {
         self = gameObject;

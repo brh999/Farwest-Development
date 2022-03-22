@@ -4,6 +4,9 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
+      74: -1279999608682540688
+    second: Armature|aaa
+  - first:
       74: 8516114890755689418
     second: Armature|hacking_horizontal
   - first:
@@ -46,14 +49,14 @@ ModelImporter:
       74: 1601805656581339209
     second: Armature|idle_fear2
   - first:
-      74: -3555882474355166640
-    second: Armature|idlestatic
-  - first:
       74: 1611437799642604791
     second: Armature|item_pickup_ground
   - first:
       74: 334831371192978290
     second: Armature|legs_combat_genericsharpobject_ready
+  - first:
+      74: -3521948880840691252
+    second: Armature|legs_idle
   - first:
       74: -1779566613196120589
     second: Armature|legs_run
@@ -66,9 +69,6 @@ ModelImporter:
   - first:
       74: 8072606413434231080
     second: Armature|log_drop
-  - first:
-      74: -6459854117736876564
-    second: Armature|log_idle
   - first:
       74: 2611050978558710723
     second: Armature|log_pickup
@@ -90,6 +90,9 @@ ModelImporter:
   - first:
       74: 1574331027797509233
     second: Armature|toggleHolster
+  - first:
+      74: -562158426367846993
+    second: Armature|tools_saw_lumberworkstation_end
   - first:
       74: -1517914392405745316
     second: Armature|tools_saw_lumberworkstation_sawing
@@ -118,17 +121,53 @@ ModelImporter:
       74: -5900649955723856513
     second: Armature|torso_combat_axe_swing
   - first:
-      74: -5270984234837984833
-    second: Armature|torso_combat_genericsharpobject_ready
+      74: 6446102881100963074
+    second: Armature|torso_combat_genericbluntobject_left_ready
   - first:
-      74: -8108729480833104624
-    second: Armature|torso_combat_genericsharpobject_ready_end
+      74: 5311677847798786399
+    second: Armature|torso_combat_genericbluntobject_left_ready_end
   - first:
-      74: -2785836968096067031
-    second: Armature|torso_combat_genericsharpobject_ready_start
+      74: 6066356395111435701
+    second: Armature|torso_combat_genericbluntobject_left_ready_start
   - first:
-      74: -6265666474643247869
-    second: Armature|torso_combat_genericsharpobject_stab
+      74: 5593029147462329261
+    second: Armature|torso_combat_genericbluntobject_left_strike
+  - first:
+      74: -3115049001193871936
+    second: Armature|torso_combat_genericbluntobject_right_ready
+  - first:
+      74: -7483104505463085635
+    second: Armature|torso_combat_genericbluntobject_right_ready_end
+  - first:
+      74: -4139681743754564761
+    second: Armature|torso_combat_genericbluntobject_right_ready_start
+  - first:
+      74: -9065229715423210060
+    second: Armature|torso_combat_genericbluntobject_right_strike
+  - first:
+      74: 5236669396358908172
+    second: Armature|torso_combat_genericsharpobject_ready_left
+  - first:
+      74: 6218297216789420508
+    second: Armature|torso_combat_genericsharpobject_ready_left_end
+  - first:
+      74: -3701527851986375288
+    second: Armature|torso_combat_genericsharpobject_ready_left_start
+  - first:
+      74: -4554475638795159114
+    second: Armature|torso_combat_genericsharpobject_ready_left_strike
+  - first:
+      74: -6549091932159899328
+    second: Armature|torso_combat_genericsharpobject_ready_right
+  - first:
+      74: -8142178786258896357
+    second: Armature|torso_combat_genericsharpobject_ready_right_end
+  - first:
+      74: -371858532672356456
+    second: Armature|torso_combat_genericsharpobject_ready_right_start
+  - first:
+      74: 6316533308038382380
+    second: Armature|torso_combat_genericsharpobject_stab_right
   - first:
       74: 272376924681520181
     second: Armature|torso_holster_axe
@@ -142,11 +181,14 @@ ModelImporter:
       74: -289462672655570378
     second: Armature|torso_walk_axe
   - first:
-      74: -126210440812934267
-    second: Armature|tpose
-  - first:
       74: -2950080023610852482
     second: Armature|walk_m
+  - first:
+      74: -6363372279565859874
+    second: Armature|workstation_lumber_use_valve1
+  - first:
+      74: -1612225879062783149
+    second: Armature|workstation_lumber_use_valve2
   externalObjects: {}
   materials:
     materialImportMode: 2

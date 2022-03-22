@@ -9,7 +9,7 @@ public class LogicTasks : MonoBehaviour
 
     private GameObject self;
     public GameObject TaskObject;
-    public GameObject UsedWorkstation;
+    public GameObject UsingWorkstation;
 
     private NavMeshAgent selfAgent;
 
@@ -24,9 +24,9 @@ public class LogicTasks : MonoBehaviour
 
     private bool hasReachedTaskObject;
     private bool transportTaskObject = false;
+    private bool breakLoops = false;
     public bool isChopping = false;
     public bool IsCarryingResource = false;
-    
 
 
 
@@ -216,18 +216,43 @@ public class LogicTasks : MonoBehaviour
                     }
                     else
                     {
-                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1f, 2f);
+                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1f, 0f);
                     }
                 }
             }
         }
         else if(stage == "sawtreepart")
         {
-            selfLogic.Task = "sawtreepart";
-            GameObject saw = TaskObject.GetComponent<Lumberworkstation>().SawTransform.gameObject;
-            selfNavigation.WalkToDestination(saw.transform.position, 4f);
-            TaskObject = saw;
             hasReachedTaskObject = false;
+            Lumberworkstation uwsScript = UsingWorkstation.GetComponent<Lumberworkstation>();
+            if (!uwsScript.RightValveIsAdjusted) // Making sure that the right valve is closed
+            {
+                TaskObject = UsingWorkstation.transform.Find("AdjustStation").gameObject;
+                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+            }
+            else if (!uwsScript.LeftValveIsAdjusted) // Making sure that the left valve is closed
+            {
+                TaskObject = UsingWorkstation.transform.Find("AdjustStation2").gameObject;
+                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+            }
+            else if (!uwsScript.SawIsTaken) // If both valves are closed - Then we can begin to get the saw
+            {
+                TaskObject = UsingWorkstation.transform.Find("GetSawPos").gameObject;
+                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+            }
+            else // If all the above conditions are met, we begin to saw the treepart
+            {
+                TaskObject = UsingWorkstation.transform.Find("SawingPos").gameObject;
+                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+            }
+            selfLogic.Task = "sawtreepart";
+        }
+        else if(stage == "storetreeparts")
+        {
+            hasReachedTaskObject = false;
+            TaskObject = UsingWorkstation.transform.Find("GetSawPos").gameObject;
+            selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+            selfLogic.Task = "storetreeparts";
         }
     }
 
@@ -299,6 +324,35 @@ public class LogicTasks : MonoBehaviour
         }
     }
 
+    private void PlaySawSound()
+    {
+        string[] sounds = {"handsaw1", "handsaw2", "handsaw3"};
+        selfSound.PlaySound(sounds[Random.Range(0, 2)], 0.5f, 1f, 0f);
+    }
+
+    private void SplitTreepart() // Split the treepart in two when the sawing process is finished
+    {
+        Lumberworkstation station = UsingWorkstation.GetComponent<Lumberworkstation>();
+        if(station.CurrentHoldingRS != null)
+        {
+            if(station.CurrentHoldingRS.tag == "treepart")
+            {
+                GameObject log = station.CurrentHoldingRS;
+
+                GameObject RightCut = Instantiate(log.GetComponent<TreePart>().RightPart);
+                RightCut.transform.parent = UsingWorkstation.transform;
+                RightCut.transform.rotation = log.transform.rotation;
+                RightCut.transform.position = log.transform.position + log.transform.right * -0.01f + log.transform.up * 0f + log.transform.forward * 0f;
+                
+                GameObject LeftCut = Instantiate(log.GetComponent<TreePart>().LeftPart);
+                LeftCut.transform.parent = UsingWorkstation.transform;
+                LeftCut.transform.rotation = log.transform.rotation;
+                LeftCut.transform.position = log.transform.position + log.transform.right * 0.01f + log.transform.up * 0f + log.transform.forward * 0f;
+
+                Destroy(log);
+            }
+        }
+    }
 
     // New work here etc.
 
@@ -581,9 +635,11 @@ public class LogicTasks : MonoBehaviour
                     {
                         Vector3 stage1GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 4;
                         float distance = Vector3.Distance(self.transform.position, stage1GameObjectPositionToLookAt + self.transform.right * 1);
-                        if (distance <= 1.1f) // If we reach the tree in stage1 
+                      
+                        if (distance <= 1.5f) // If we reach the tree in stage1 
                         {
                             hasReachedTaskObject = true;
+                            selfNavigation.Stop();
                             IEnumerator Stage1Pluck() // Begin plucking sequence of the tree
                             {
                                 yield return new WaitForSeconds(0.5f);
@@ -619,9 +675,10 @@ public class LogicTasks : MonoBehaviour
                     {
                         Vector3 stage2GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 5.4f;
                         float distance = Vector3.Distance(self.transform.position, stage2GameObjectPositionToLookAt + TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f);
-                        if (distance <= 1f) // If we reach the tree in stage2 
+                        if (distance <= 0.4f) // If we reach the tree in stage2 
                         {
                             hasReachedTaskObject = true;
+                            selfNavigation.Stop();
                             IEnumerator Stage2BeginChopping() // Begin vertically chopping the tree in stage 2
                             {
                                 yield return new WaitForSeconds(1f);
@@ -849,14 +906,14 @@ public class LogicTasks : MonoBehaviour
                             if(distance <= 0.1f)
                             {
                                 hasReachedTaskObject = true;
-                                UsedWorkstation = TaskObject;
+                                UsingWorkstation = TaskObject;
                                 Transform treepartPos = TaskObject.transform.Find("TreepartPos");
                                 selfAnim.PlayAnimation("log_idle", 0f);
                                 self.transform.LookAt(treepartPos);
-                                selfAnim.PlayAnimation("log_drop", 2f);
+                                selfAnim.PlayAnimation("log_drop", 1.25f);
                                 IEnumerator DropLogToStation()
                                 {
-                                    yield return new WaitForSeconds(2.75f);
+                                    yield return new WaitForSeconds(2f);
                                     self.transform.LookAt(treepartPos);
                                     Transform workstationTreepartPos = TaskObject.transform.Find("TreepartPos");
                                     GameObject treepart = selfLogic.CurrentCarrying;
@@ -865,13 +922,16 @@ public class LogicTasks : MonoBehaviour
                                     treepart.transform.RotateAround(treepart.transform.position, treepart.transform.up, -90);
                                     treepart.transform.position = workstationTreepartPos.position + treepart.transform.right * 0f + treepart.transform.up * 0.05f + treepart.transform.forward * -0.75f;
                                     IsCarryingResource = false;
-                                    IEnumerator StartSawing()
+                                    UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS = treepart;
+
+                                    IEnumerator BeginAdjustWorkstation()
                                     {
-                                        yield return new WaitForSeconds(1f);
+                                        yield return new WaitForSeconds(2f);
                                         LumberTask("sawtreepart");
-                                        StopCoroutine(StartSawing());
+                                        StopCoroutine(BeginAdjustWorkstation());
                                     }
-                                    StartCoroutine(StartSawing());
+                                    StartCoroutine(BeginAdjustWorkstation());
+
 
                                     StopCoroutine(DropLogToStation());
                                 }
@@ -891,24 +951,187 @@ public class LogicTasks : MonoBehaviour
                         }
                     }
                 }
-                else if(selfLogic.Task == "sawtreepart")
+                else if(selfLogic.Task == "sawtreepart") // When we are going to saw the treepart
                 {
-                    if (!hasReachedTaskObject)
+                    if (!hasReachedTaskObject && TaskObject)
+                    {
+                        if (TaskObject.name == "GetSawPos") // Get the saw from the table
+                        {
+                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            if (distance <= 0.1f)
+                            {
+                                hasReachedTaskObject = true;
+                                selfNavigation.Stop();
+                                selfAnim.PlayAnimation("item_pickup_ground", 1f);
+
+                                GameObject saw = UsingWorkstation.transform.Find("carpenter_saw").gameObject;
+                                GameObject rh = selfLogic.RightHand;
+                                Transform sawT = saw.transform;
+                                self.transform.LookAt(saw.transform);
+                                IEnumerator GrabSaw()
+                                {
+                                    yield return new WaitForSeconds(2f);
+                                    float extratime = 0f;
+                                    if (!selfLogic.CurrentToolIsHolstered) // If we don't have our tool holstered
+                                    {
+                                        extratime = 2f;
+                                        selfLogic.ToggleHolsterTool();
+                                        IEnumerator GrabSaw2()
+                                        {
+                                            yield return new WaitForSeconds(2f);
+                                            sawT.SetParent(rh.transform);
+                                            sawT.rotation = rh.transform.rotation;
+                                            sawT.RotateAround(sawT.position, sawT.right, 180f);
+                                            sawT.RotateAround(sawT.position, sawT.up, 180f);
+                                            sawT.RotateAround(sawT.position, sawT.forward, 10f);
+                                            sawT.position = rh.transform.position + sawT.transform.right * -0.05f + sawT.transform.up * -0.35f + sawT.transform.forward * -0.035f;
+                                            StopCoroutine(GrabSaw2());
+                                        }
+                                        StartCoroutine(GrabSaw2());
+                                    }
+                                    else
+                                    {
+                                        sawT.SetParent(rh.transform);
+                                        sawT.rotation = rh.transform.rotation;
+                                        sawT.RotateAround(sawT.position, sawT.right, 180f);
+                                        sawT.RotateAround(sawT.position, sawT.up, 180f);
+                                        sawT.RotateAround(sawT.position, sawT.forward, 10f);
+                                        sawT.position = rh.transform.position + sawT.transform.right * -0.05f + sawT.transform.up * -0.35f + sawT.transform.forward * -0.035f;
+                                    }
+                                    StopCoroutine(GrabSaw());
+                                    UsingWorkstation.GetComponent<Lumberworkstation>().SawIsTaken = true;
+                                    IEnumerator GrabSaw3()
+                                    {
+                                        yield return new WaitForSeconds(2f + extratime);
+                                        LumberTask("sawtreepart");
+                                        StopCoroutine(GrabSaw3());
+                                    }
+                                    StartCoroutine(GrabSaw3());
+                                }
+                                StartCoroutine(GrabSaw());
+                            }
+                        }
+                        else if (TaskObject.name == "AdjustStation") // Adjust the workbench with the right valve
+                        {
+                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            if (distance <= 0.05f)
+                            {
+                                selfNavigation.Stop();
+                                hasReachedTaskObject = true;
+                                self.transform.LookAt(UsingWorkstation.transform);
+                                selfAnim.PlayAnimation("workstation_lumber_use_valve1", 1f);
+                                UsingWorkstation.GetComponent<Anim>().PlayAnimation("RValve_close", 2f);
+                                IEnumerator AdjustStation()
+                                {
+                                    yield return new WaitForSeconds(6f);
+                                    UsingWorkstation.GetComponent<Lumberworkstation>().RightValveIsAdjusted = true;
+                                    LumberTask("sawtreepart");
+                                    StopCoroutine(AdjustStation());
+                                }
+                                StartCoroutine(AdjustStation());
+                            }
+                        }
+                        else if (TaskObject.name == "AdjustStation2") // Adjust the workbench on the left valve
+                        {
+                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            if (distance <= 0.05f)
+                            {
+                                selfNavigation.Stop();
+                                hasReachedTaskObject = true;
+                                self.transform.LookAt(UsingWorkstation.transform.Find("AdjustStation2Look"));
+                                selfAnim.PlayAnimation("workstation_lumber_use_valve2", 1f);
+                                UsingWorkstation.GetComponent<Anim>().PlayAnimation("LValve_close", 4f);
+                                IEnumerator AdjustStation()
+                                {
+                                    yield return new WaitForSeconds(8f);
+                                    UsingWorkstation.GetComponent<Lumberworkstation>().LeftValveIsAdjusted = true;
+                                    LumberTask("sawtreepart");
+                                    StopCoroutine(AdjustStation());
+                                }
+                                StartCoroutine(AdjustStation());
+                            }
+                        }
+                        else if (TaskObject.name == "SawingPos")
+                        {
+                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            if (distance <= 0.05f)
+                            {
+                                selfNavigation.Stop();
+                                hasReachedTaskObject = true;
+                                self.transform.LookAt(UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS.transform);
+                                selfAnim.PlayAnimation("tools_saw_lumberworkstation_start", 0f);
+                                GameObject treepart = UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS;
+
+                                IEnumerator Sawing1()
+                                {
+                                    int health = treepart.GetComponent<TreePart>().SawingHealth;
+                                    while (true)
+                                    {
+                                        if(breakLoops)
+                                        {
+                                            treepart.GetComponent<TreePart>().SawingHealth = health;
+                                            break;
+                                        }
+
+                                        if (health > 0)
+                                        {
+                                            yield return new WaitForSeconds(1f);
+                                            health -= 1;
+                                            PlaySawSound();
+                                            print(health);
+                                        }
+                                        else if(health <= 0)
+                                        {
+                                            StopCoroutine(Sawing1());
+                                            selfAnim.PlayAnimation("tools_saw_lumberworkstation_end", 0f);
+                                            SplitTreepart();
+                                            IEnumerator SwitchToStorageTreeparts()
+                                            {
+                                                yield return new WaitForSeconds(1f);
+                                                LumberTask("storetreeparts");
+                                                StopCoroutine(SwitchToStorageTreeparts());
+                                            }
+                                            StartCoroutine(SwitchToStorageTreeparts());
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                IEnumerator Sawing()
+                                {
+                                    yield return new WaitForSeconds(2f);
+                                    selfAnim.PlayAnimation("tools_saw_lumberworkstation_sawing", 0f);
+                                    StartCoroutine(Sawing1());
+                                    StopCoroutine(Sawing());
+                                }
+                                StartCoroutine(Sawing());
+                            }
+                        }
+                    }
+                }
+                else if(selfLogic.Task == "storetreeparts")
+                {
+                    if(!hasReachedTaskObject && TaskObject)
                     {
                         float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
-                        if (distance <= 1f)
+                        if(distance <= 0.1f)
                         {
                             hasReachedTaskObject = true;
-                            self.transform.LookAt(TaskObject.transform);
+                            Transform HolderPos = UsingWorkstation.transform.Find("SawHolderPos");
+                            self.transform.LookAt(HolderPos);
+                            selfNavigation.Stop();
                             selfAnim.PlayAnimation("aaa", 0f);
-                            IEnumerator GrabSaw()
+                            selfAnim.PlayAnimation("item_pickup_ground", 1f);
+                            IEnumerator PlaceSaw()
                             {
-                                yield return new WaitForSeconds(0.5f);
-                                self.transform.LookAt(TaskObject.transform);
-
-                                StopCoroutine(GrabSaw());
+                                yield return new WaitForSeconds(2f);
+                                GameObject saw = selfLogic.RightHand.transform.Find("carpenter_saw").gameObject;
+                                saw.transform.SetParent(UsingWorkstation.transform);
+                                saw.transform.position = HolderPos.transform.position;
+                                saw.transform.rotation = HolderPos.transform.rotation;
+                                StopCoroutine(PlaceSaw());
                             }
-                            StartCoroutine(GrabSaw());
+                            StartCoroutine(PlaceSaw());
                         }
                     }
                 }

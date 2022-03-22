@@ -80,6 +80,13 @@ public class Nav : MonoBehaviour
         }
     }
 
+    public void Stop()
+    {
+        selfAnim.PlayAnimation("aaa", 0f);
+        isWalking = false;
+        isRunning = false;
+        selfNav.destination = self.transform.position;
+    }
 
     private void FixedUpdate()
     {

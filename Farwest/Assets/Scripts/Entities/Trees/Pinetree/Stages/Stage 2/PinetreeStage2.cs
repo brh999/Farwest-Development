@@ -10,18 +10,6 @@ public class PinetreeStage2 : MonoBehaviour
     public GameObject Woodflake3;
     public GameObject Stage2_UpperPart;
     public GameObject Stage2_LowerPart;
-    public GameObject Stage3_UpperPart;
-    public GameObject Stage3_LowerPart;
-    public GameObject Stage4_UpperPart;
-    public GameObject Stage4_LowerPart;
-    public GameObject Stage5_UpperPart;
-    public GameObject Stage5_LowerPart;
-    public AudioClip WoodBreak1;
-    public AudioClip WoodBreak2;
-    public AudioClip WoodBreak3;
-    public AudioClip WoodBreak4;
-    public AudioClip WoodBreak5;
-
 
     private GameObject self;
     public GameObject OccupiedOwner;
@@ -41,36 +29,9 @@ public class PinetreeStage2 : MonoBehaviour
     void Awake()
     {
         self = gameObject;
-        HacksLeft = 1; // The amount of hacks that's needed in order to chop down the tree part
-        self.AddComponent<Rigidbody>();
-        self.AddComponent<CapsuleCollider>();
-        selfCC = self.GetComponent<CapsuleCollider>();
-        selfRB = self.GetComponent<Rigidbody>();
-
-        selfRB.constraints = RigidbodyConstraints.FreezeAll;
-
-        selfCC.direction = 2;
-        selfCC.center = new Vector3(-0.00012f, -0.00012f, 0.04f);
-        selfCC.radius = 0.00228712F;
-        selfCC.height = 0.08f;
-
-        self.AddComponent<AudioSource>();
-        self.AddComponent<Sound>();
-
-        self.tag = "treestage2";
     }
 
-    public void InitSounds()
-    {
-        Sound soundscript = self.GetComponent<Sound>();
-        soundscript.sounds[0] = WoodBreak1;
-        soundscript.sounds[1] = WoodBreak2;
-        soundscript.sounds[2] = WoodBreak3;
-        soundscript.sounds[3] = WoodBreak4;
-        soundscript.sounds[4] = WoodBreak5;
-    }
-
-
+    
     public void UpdateOwner(GameObject owner)
     {
         if (owner)
@@ -90,28 +51,8 @@ public class PinetreeStage2 : MonoBehaviour
 
         GameObject stage3 = Instantiate(Stage2_LowerPart, self.transform.position, self.transform.rotation);
         GameObject stage2_UpperPart = Instantiate(Stage2_UpperPart, self.transform.position + self.transform.forward * 5.5f, self.transform.rotation);
-        stage2_UpperPart.AddComponent<TreePart>();
-        stage3.AddComponent<PinetreeStage3>();
-
-        PinetreeStage3 stage3script = stage3.GetComponent<PinetreeStage3>();
-        stage3script.Stage3_UpperPart = Stage3_UpperPart;
-        stage3script.Stage3_LowerPart = Stage3_LowerPart;
-        stage3script.Stage4_UpperPart = Stage4_UpperPart;
-        stage3script.Stage4_LowerPart = Stage4_LowerPart;
-        stage3script.Stage5_UpperPart = Stage5_UpperPart;
-        stage3script.Stage5_LowerPart = Stage5_LowerPart;
-        stage3script.TreeRightSide = TreeRightSide;
-        stage3script.Woodflake1 = Woodflake1;
-        stage3script.Woodflake2 = Woodflake2;
-        stage3script.Woodflake3 = Woodflake3;
-
-        stage3script.WoodBreak1 = WoodBreak1;
-        stage3script.WoodBreak2 = WoodBreak2;
-        stage3script.WoodBreak3 = WoodBreak3;
-        stage3script.WoodBreak4 = WoodBreak4;
-        stage3script.WoodBreak5 = WoodBreak5;
-        stage3script.InitSounds();
-
+       
+        stage3.GetComponent<PinetreeStage3>().TreeRightSide = TreeRightSide;
         Destroy(self);
     }
 

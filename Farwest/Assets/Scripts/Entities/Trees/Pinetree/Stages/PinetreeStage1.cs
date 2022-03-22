@@ -6,25 +6,10 @@ using UnityEngine.AI;
 
 public class PinetreeStage1 : MonoBehaviour
 {
-    // Entities/data to move on:
     public GameObject Woodflake1;
     public GameObject Woodflake2;
     public GameObject Woodflake3;
-    public GameObject Stage2_UpperPart;
-    public GameObject Stage2_LowerPart;
-    public GameObject Stage3_UpperPart;
-    public GameObject Stage3_LowerPart;
-    public GameObject Stage4_UpperPart;
-    public GameObject Stage4_LowerPart;
-    public GameObject Stage5_UpperPart;
-    public GameObject Stage5_LowerPart;
-    public AudioClip WoodBreak1;
-    public AudioClip WoodBreak2;
-    public AudioClip WoodBreak3;
-    public AudioClip WoodBreak4;
-    public AudioClip WoodBreak5;
-
-
+   
     private GameObject self;
     public GameObject OccupiedOwner;
     public GameObject stage1_UpperPartPlucked;
@@ -87,29 +72,8 @@ public class PinetreeStage1 : MonoBehaviour
         {
             hasBeenPlucked = true;
             GameObject stage1Plucked = Instantiate(stage1_UpperPartPlucked, self.transform.position, self.transform.rotation);
-            stage1Plucked.AddComponent<PinetreeStage2>();
             PinetreeStage2 s1p = stage1Plucked.GetComponent<PinetreeStage2>();
-
-            s1p.Woodflake1 = Woodflake1;
-            s1p.Woodflake2 = Woodflake2;
-            s1p.Woodflake3 = Woodflake3;
-            s1p.Stage2_UpperPart = Stage2_UpperPart;
-            s1p.Stage2_LowerPart = Stage2_LowerPart;
-            s1p.Stage3_UpperPart = Stage3_UpperPart;
-            s1p.Stage3_LowerPart = Stage3_LowerPart;
-            s1p.Stage4_UpperPart = Stage4_UpperPart;
-            s1p.Stage4_LowerPart = Stage4_LowerPart;
-            s1p.Stage5_UpperPart = Stage5_UpperPart;
-            s1p.Stage5_LowerPart = Stage5_LowerPart;
             s1p.TreeRightSide = TreeRightSide;
-
-            s1p.WoodBreak1 = WoodBreak1;
-            s1p.WoodBreak2 = WoodBreak2;
-            s1p.WoodBreak3 = WoodBreak3;
-            s1p.WoodBreak4 = WoodBreak4;
-            s1p.WoodBreak5 = WoodBreak5;
-            s1p.InitSounds();
-
             Destroy(self);
         }
     }

@@ -960,7 +960,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskObject: {fileID: 0}
+  UsingWorkstation: {fileID: 0}
   isChopping: 0
+  IsCarryingResource: 0
 --- !u!114 &7046635375081014834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +980,7 @@ MonoBehaviour:
   HasDestination: 0
   CurrentToolIsHolstered: 0
   CurrentTool: {fileID: 0}
+  CurrentCarrying: {fileID: 0}
   RightHand: {fileID: 0}
   Spine2: {fileID: 0}
   ExistingTools:
@@ -1001,6 +1004,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1968fb842405a2846a332d3ac22edeba, type: 3}
   - {fileID: 8300000, guid: c26a4097c7f6276479ee5aef80e74321, type: 3}
   - {fileID: 8300000, guid: 2027091212b97b2469dd3d25180dd5c8, type: 3}
+  - {fileID: 8300000, guid: c1b7fa1a2d148374c92ab8a45cd000c8, type: 3}
+  - {fileID: 8300000, guid: 0e39e5cdb12649a45898695221fc3d3a, type: 3}
+  - {fileID: 8300000, guid: 9b72f9f88b5a6e5429669078d35bd7b9, type: 3}
 --- !u!82 &1982095324100203256
 AudioSource:
   m_ObjectHideFlags: 0

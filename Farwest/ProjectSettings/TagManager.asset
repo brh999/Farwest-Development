@@ -14,6 +14,8 @@ TagManager:
   - treestage5
   - treepart
   - lumberworkstation
+  - treepartcut
+  - storagetent
   layers:
   - Default
   - TransparentFX

@@ -46,12 +46,18 @@ public class Nav : MonoBehaviour
         isWalking = true;
         destination = dest;
         distanceToKeep = distance;
-       
-        if(selfLogic.Task == "collectwood" && selfLogicTasks.IsCarryingResource)
+
+        if (selfLogicTasks.IsCarryingResource)
         {
-            selfAnim.PlayAnimation("log_carry_walk", 0f);
+            if (selfLogic.Work == "lumberjack")
+            {
+                if (selfLogic.Task == "collectwood" || selfLogic.Task == "gotostorage")
+                {
+                    selfAnim.PlayAnimation("log_carry_walk", 0f);
+                }
+            }
         }
-        else if(selfAnim.currentAnim != "walk_m")
+        else if (selfAnim.currentAnim != "walk_m")
         {
             selfAnim.PlayAnimation("walk_m", 0f);
         }
@@ -82,7 +88,25 @@ public class Nav : MonoBehaviour
 
     public void Stop()
     {
-        selfAnim.PlayAnimation("aaa", 0f);
+        if (selfLogicTasks.IsCarryingResource)
+        {
+            if (selfLogic.Work == "lumberjack")
+            {
+                if (selfLogic.Task == "collectwood" || selfLogic.Task == "gotostorage")
+                {
+                    selfAnim.PlayAnimation("log_idle", 0f);
+                }
+            }
+            else
+            {
+                selfAnim.PlayAnimation("aaa", 0f);
+            }
+        } 
+        else
+        {
+            selfAnim.PlayAnimation("aaa", 0f);
+        }
+
         isWalking = false;
         isRunning = false;
         selfNav.destination = self.transform.position;
@@ -93,7 +117,7 @@ public class Nav : MonoBehaviour
         if (isWalking) 
         {
             float distance = Vector3.Distance(self.transform.position, destination);
-            if (distance <= distanceToKeep + 1.5f && distanceLerpAmount > 0f)
+            if (distance <= distanceToKeep && distanceLerpAmount > 0f)
             {
                     selfNav.destination = Vector3.Lerp(self.transform.position, destination, distanceLerpAmount);
                     distanceLerpAmount -= distanceLerpAmountSpeed * Time.deltaTime;

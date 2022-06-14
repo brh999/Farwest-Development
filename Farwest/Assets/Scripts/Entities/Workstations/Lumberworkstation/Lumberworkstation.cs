@@ -10,7 +10,7 @@ public class Lumberworkstation : MonoBehaviour
     public bool SawIsTaken = false;
 
     public GameObject CurrentHoldingRS; // The current treepart the workstation is holding
-    public GameObject CurrentHoldingRS2; // The second resource the workstation is holding
+    public GameObject CurrentHoldingRS2; // The second treepart the workstation is holding
 
     public Transform SawTransform;
 
@@ -35,6 +35,37 @@ public class Lumberworkstation : MonoBehaviour
         else
         {
             return null;
+        }
+    }
+
+    public void RemoveResource(int num)
+    {
+        switch(num)
+        {
+            case 1:
+                CurrentHoldingRS = null;
+            break;
+
+
+            case 2:
+                CurrentHoldingRS2 = null;
+            break;
+        }
+    }
+
+    public bool IsLastResource()
+    {
+        if(CurrentHoldingRS2)
+        {
+            return false;
+        }
+        else if(CurrentHoldingRS)
+        {
+            return true;
+        }
+        else
+        {
+            return true;
         }
     }
     

@@ -158,7 +158,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -193,7 +193,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupiedOwner: {fileID: 0}
-  FirstStage_hacks: 1
+  FirstStage_hacks: 9
   TreeType: pinetree
   IsOccupied: 0
   TreeStump: {fileID: 2774130914011845320, guid: 8a95f4842b9249a4d93f88c165ef35a6, type: 3}

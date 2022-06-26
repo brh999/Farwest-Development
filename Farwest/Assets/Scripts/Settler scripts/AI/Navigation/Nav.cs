@@ -12,16 +12,14 @@ public class Nav : MonoBehaviour
 
     private NavMeshAgent selfNav;
 
-    private LogicTasks selfLogicTasks;
-
     private Logic selfLogic;
 
-    public bool isRunning = false;
-    public bool isWalking = false;
-    public bool isUsingSlerp = false;
+    public bool IsRunning = false;
+    public bool IsWalking = false;
+    public bool IsUsingSlerp = false;
     private bool distanceLerpAmountSpeed_Modified = false;
 
-    private Vector3 destination;
+    public Vector3 Destination;
 
     private float distanceToKeep;
     private float slerpToUse;
@@ -34,7 +32,6 @@ public class Nav : MonoBehaviour
         self = gameObject;
         selfNav = GetComponent<NavMeshAgent>();
         selfAnim = self.GetComponent<Anim>();
-        selfLogicTasks = self.GetComponent<LogicTasks>();
         selfLogic = self.GetComponent<Logic>();
         distanceLerpAmountSpeed = distanceLerpAmountSpeedValue;
     }
@@ -43,11 +40,11 @@ public class Nav : MonoBehaviour
     public void WalkToDestination(Vector3 dest, float distance)
     {
         selfNav.destination = dest;
-        isWalking = true;
-        destination = dest;
+        IsWalking = true;
+        Destination = dest;
         distanceToKeep = distance;
 
-        if (selfLogicTasks.IsCarryingResource)
+        if (selfLogic.IsCarryingResource)
         {
             if (selfLogic.Work == "lumberjack")
             {
@@ -75,9 +72,9 @@ public class Nav : MonoBehaviour
     public void WalkToDestinationSlerp(Vector3 dest, float distance, float slerpAmount)
     {
         selfNav.destination = Vector3.Slerp(self.gameObject.transform.position, dest, slerpAmount);
-        isWalking = true;
-        isUsingSlerp = true;
-        destination = dest;
+        IsWalking = true;
+        IsUsingSlerp = true;
+        Destination = dest;
         distanceToKeep = distance;
         slerpToUse = slerpAmount;
         if (selfAnim.currentAnim != "walk_m")
@@ -88,7 +85,7 @@ public class Nav : MonoBehaviour
 
     public void Stop()
     {
-        if (selfLogicTasks.IsCarryingResource)
+        if (selfLogic.IsCarryingResource)
         {
             if (selfLogic.Work == "lumberjack")
             {
@@ -107,26 +104,26 @@ public class Nav : MonoBehaviour
             selfAnim.PlayAnimation("aaa", 0f);
         }
 
-        isWalking = false;
-        isRunning = false;
+        IsWalking = false;
+        IsRunning = false;
         selfNav.destination = self.transform.position;
     }
 
     private void FixedUpdate()
     {
-        if (isWalking) 
+        if (IsWalking) 
         {
-            float distance = Vector3.Distance(self.transform.position, destination);
-            if (distance <= distanceToKeep && distanceLerpAmount > 0f)
+            float distance = Vector3.Distance(self.transform.position, Destination);
+            if (distance <= distanceToKeep && distanceLerpAmount > 0.5f)
             {
-                    selfNav.destination = Vector3.Lerp(self.transform.position, destination, distanceLerpAmount);
+                    selfNav.destination = Vector3.Lerp(self.transform.position, Destination, distanceLerpAmount);
                     distanceLerpAmount -= distanceLerpAmountSpeed * Time.deltaTime;
             }
             else if(distance <= distanceToKeep)
             {
-                isWalking = false;
+                IsWalking = false;
                 distanceLerpAmount = 1f;
-                if(selfAnim.currentAnim == "walk_m" && !selfLogicTasks.TaskObject)
+                if(selfAnim.currentAnim == "walk_m" && !selfLogic.TaskObject)
                 {
                     selfAnim.PlayAnimation("aaa", 1f);
                 }

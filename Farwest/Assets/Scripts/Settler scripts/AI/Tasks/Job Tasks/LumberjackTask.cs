@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class LogicTasks : MonoBehaviour
+public class LumberjackTask : MonoBehaviour
 {
     
 
     private GameObject self;
-    public GameObject TaskObject;
-    public GameObject UsingWorkstation;
 
     private NavMeshAgent selfAgent;
 
@@ -26,7 +24,6 @@ public class LogicTasks : MonoBehaviour
     private bool transportTaskObject = false;
     private bool breakLoops = false;
     public bool isChopping = false;
-    public bool IsCarryingResource = false;
 
 
 
@@ -52,7 +49,7 @@ public class LogicTasks : MonoBehaviour
     public void CalcLumberTask()
     {
        
-        if(isGameObjectInWorld("treepart") || isGameObjectInWorld("treepartcut"))
+        if(selfLogic.isGameObjectInWorld("treepart") || selfLogic.isGameObjectInWorld("treepartcut"))
         {
             LumberTask("collectwood");
         }
@@ -66,72 +63,59 @@ public class LogicTasks : MonoBehaviour
     {
         if(stage == "choptree") // Find and chop a tree
         {
-            GameObject treeobject = FindClosestObject("tree");
+            GameObject treeobject = selfLogic.FindClosestObject("tree");
             if (treeobject)
             {
                 selfLogic.Task = "choptree";
-                TaskObject = treeobject;
+                selfLogic.TaskObject = treeobject;
                 selfLogic.HasDestination = true;
                 hasReachedTaskObject = false;
                 treeobject.GetComponent<Tree>().OccupiedOwner = self;
-                if (selfLogic.CurrentToolIsHolstered)
-                {
-                    selfLogic.ToggleHolsterTool();
-                    IEnumerator Delay()
-                    {
-                        yield return new WaitForSeconds(2f);
-                        selfNavigation.WalkToDestination(treeobject.transform.position, 0f);
-                        StopCoroutine(Delay());
-                    }
-                    StartCoroutine(Delay());
-                }
-                else
-                {
-                    selfNavigation.WalkToDestination(treeobject.transform.position, 3f);
-                }
+                selfNavigation.WalkToDestination(treeobject.transform.position, 0f);
+                
             }
         }
         else if(stage == "choptree_stage1") // Find and work with a tree in stage 1
         {
-            GameObject treeObject = FindClosestObject("treestage1");
+            GameObject treeObject = selfLogic.FindClosestObject("treestage1");
             if (treeObject)
             {
                 hasReachedTaskObject = false;
                 selfLogic.Task = "choptree_stage1";
                 selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 4 + self.transform.right * 1, 0f);
-                TaskObject = treeObject;
+                selfLogic.TaskObject = treeObject;
             }
         }
         else if(stage == "choptree_stage2") // Find and work with a tree in stage 2
         {
-            GameObject treeObject = FindClosestObject("treestage2");
+            GameObject treeObject = selfLogic.FindClosestObject("treestage2");
             if(treeObject)
             {
                 selfLogic.Task = "choptree_stage2";
-                TaskObject = treeObject;
+                selfLogic.TaskObject = treeObject;
                 if (selfLogic.CurrentToolIsHolstered)
                 {
                     selfLogic.ToggleHolsterTool();
                     IEnumerator DelayForNav()
                     {
                         yield return new WaitForSeconds(2f);
-                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5.4f + TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f, 0f);
+                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5.4f + selfLogic.TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f, 0f);
                         StopCoroutine(DelayForNav());
                     }
                     StartCoroutine(DelayForNav());
                 }
                 else
                 {
-                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5.4f + TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f, 0f);
+                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 5.4f + selfLogic.TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f, 0f);
                 }
             }
         }
         else if(stage == "choptree_stage3")
         {
-            GameObject treeObject = FindClosestObject("treestage3");
+            GameObject treeObject = selfLogic.FindClosestObject("treestage3");
             if(treeObject)
             {
-                TaskObject = treeObject;
+                selfLogic.TaskObject = treeObject;
                 selfLogic.Task = "choptree_stage3";
                 if (selfLogic.CurrentToolIsHolstered)
                 {
@@ -139,23 +123,23 @@ public class LogicTasks : MonoBehaviour
                     IEnumerator DelayForNav()
                     {
                         yield return new WaitForSeconds(2f);
-                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 3f + TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f, 0f);
+                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 3f + selfLogic.TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f, 0f);
                         StopCoroutine(DelayForNav());
                     }
                     StartCoroutine(DelayForNav());
                 }
                 else
                 {
-                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 3f + TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f, 0f);
+                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 3f + selfLogic.TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f, 0f);
                 }
             }
         }
         else if (stage == "choptree_stage4")
         {
-            GameObject treeObject = FindClosestObject("treestage4");
+            GameObject treeObject = selfLogic.FindClosestObject("treestage4");
             if (treeObject)
             {
-                TaskObject = treeObject;
+                selfLogic.TaskObject = treeObject;
                 selfLogic.Task = "choptree_stage4";
                 if (selfLogic.CurrentToolIsHolstered)
                 {
@@ -163,23 +147,23 @@ public class LogicTasks : MonoBehaviour
                     IEnumerator DelayForNav()
                     {
                         yield return new WaitForSeconds(2f);
-                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.15f + TaskObject.GetComponent<PinetreeStage4>().TreeRightSide * 1f, 0f);
+                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.15f + selfLogic.TaskObject.GetComponent<PinetreeStage4>().TreeRightSide * 1f, 0f);
                         StopCoroutine(DelayForNav());
                     }
                     StartCoroutine(DelayForNav());
                 }
                 else
                 {
-                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.15f + TaskObject.GetComponent<PinetreeStage4>().TreeRightSide * 1f, 0f);
+                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.15f + selfLogic.TaskObject.GetComponent<PinetreeStage4>().TreeRightSide * 1f, 0f);
                 }
             }
         }
         else if (stage == "choptree_stage5")
         {
-            GameObject treeObject = FindClosestObject("treestage5");
+            GameObject treeObject = selfLogic.FindClosestObject("treestage5");
             if (treeObject)
             {
-                TaskObject = treeObject;
+                selfLogic.TaskObject = treeObject;
                 selfLogic.Task = "choptree_stage5";
                 if (selfLogic.CurrentToolIsHolstered)
                 {
@@ -187,14 +171,14 @@ public class LogicTasks : MonoBehaviour
                     IEnumerator DelayForNav()
                     {
                         yield return new WaitForSeconds(2f);
-                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.4f + TaskObject.GetComponent<PinetreeStage5>().TreeRightSide * 1f, 0f);
+                        selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.4f + selfLogic.TaskObject.GetComponent<PinetreeStage5>().TreeRightSide * 1f, 0f);
                         StopCoroutine(DelayForNav());
                     }
                     StartCoroutine(DelayForNav());
                 }
                 else
                 {
-                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.4f + TaskObject.GetComponent<PinetreeStage5>().TreeRightSide * 1f, 0f);
+                    selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1.4f + selfLogic.TaskObject.GetComponent<PinetreeStage5>().TreeRightSide * 1f, 0f);
                 }
             }
         }
@@ -204,17 +188,17 @@ public class LogicTasks : MonoBehaviour
             GameObject workstation = FindClosestLumberWorkstationWithLog();
             if (workstation != null)
             {
-                TaskObject = workstation;
-                UsingWorkstation = workstation;
+                selfLogic.TaskObject = workstation;
+                selfLogic.UsingWorkstation = workstation;
                 selfLogic.Task = "gotolumberworkstation";
-                selfNavigation.WalkToDestination(TaskObject.transform.Find("SawingPos").position, 0f);
+                selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.Find("SawingPos").position, 0f);
             }
             else
             {
-                GameObject treeObject = FindClosestObject("treepart");
+                GameObject treeObject = selfLogic.FindClosestObject("treepart");
                 if (treeObject)
                 {
-                    TaskObject = treeObject;
+                    selfLogic.TaskObject = treeObject;
                     selfLogic.Task = "collectwood";
                     if (!selfLogic.CurrentToolIsHolstered)
                     {
@@ -222,7 +206,7 @@ public class LogicTasks : MonoBehaviour
                         IEnumerator DelayForNav()
                         {
                             yield return new WaitForSeconds(2f);
-                            float distance = Vector3.Distance(self.transform.position, TaskObject.transform.position);
+                            float distance = Vector3.Distance(self.transform.position, selfLogic.TaskObject.transform.position);
                             if (distance > 2.5)
                             {
                                 selfNavigation.WalkToDestination(treeObject.transform.position + treeObject.transform.forward * 1f, 4f);
@@ -242,51 +226,51 @@ public class LogicTasks : MonoBehaviour
         else if(stage == "sawtreepart")
         {
             hasReachedTaskObject = false;
-            Lumberworkstation uwsScript = UsingWorkstation.GetComponent<Lumberworkstation>();
+            Lumberworkstation uwsScript = selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>();
             if (!uwsScript.RightValveIsAdjusted) // Making sure that the right valve is closed
             {
-                TaskObject = UsingWorkstation.transform.Find("AdjustStation").gameObject;
-                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+                selfLogic.TaskObject = selfLogic.UsingWorkstation.transform.Find("AdjustStation").gameObject;
+                selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.position, 0f);
             }
             else if (!uwsScript.LeftValveIsAdjusted) // Making sure that the left valve is closed
             {
-                TaskObject = UsingWorkstation.transform.Find("AdjustStation2").gameObject;
-                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+                selfLogic.TaskObject = selfLogic.UsingWorkstation.transform.Find("AdjustStation2").gameObject;
+                selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.position, 0f);
             }
             else if (!uwsScript.SawIsTaken) // If both valves are closed - Then we can begin to get the saw
             {
-                TaskObject = UsingWorkstation.transform.Find("GetSawPos").gameObject;
-                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+                selfLogic.TaskObject = selfLogic.UsingWorkstation.transform.Find("GetSawPos").gameObject;
+                selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.position, 0f);
             }
             else // If all the above conditions are met, we begin to saw the treepart
             {
-                TaskObject = UsingWorkstation.transform.Find("SawingPos").gameObject;
-                selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+                selfLogic.TaskObject = selfLogic.UsingWorkstation.transform.Find("SawingPos").gameObject;
+                selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.position, 0f);
             }
             selfLogic.Task = "sawtreepart";
         }
         else if(stage == "storetreeparts")
         {
             hasReachedTaskObject = false;
-            TaskObject = UsingWorkstation.transform.Find("GetSawPos").gameObject;
-            selfNavigation.WalkToDestination(TaskObject.transform.position, 0f);
+            selfLogic.TaskObject = selfLogic.UsingWorkstation.transform.Find("GetSawPos").gameObject;
+            selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.position, 0f);
             selfLogic.Task = "storetreeparts";
         }
         else if(stage == "gotolumberworkstation")
         {
             hasReachedTaskObject = false;
-            TaskObject = UsingWorkstation;
-            selfNavigation.WalkToDestination(UsingWorkstation.transform.Find("SawingPos").position, 0f); 
+            selfLogic.TaskObject = selfLogic.UsingWorkstation;
+            selfNavigation.WalkToDestination(selfLogic.UsingWorkstation.transform.Find("SawingPos").position, 0f); 
             selfLogic.Task = "gotolumberworkstation";
         }
         else if (stage == "gotostorage")
         {
             hasReachedTaskObject = false;
-            TaskObject = FindClosestObject("storagetent");
-            if(TaskObject != null)
+            selfLogic.TaskObject = selfLogic.FindClosestObject("storagetent");
+            if(selfLogic.TaskObject != null)
             {
                 selfLogic.Task = "gotostorage";
-                selfNavigation.WalkToDestination(TaskObject.transform.Find("UsePosition").transform.position, 0f);
+                selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.Find("UsePosition").transform.position, 0f);
             }
         }
 
@@ -297,34 +281,50 @@ public class LogicTasks : MonoBehaviour
     // Begin chopping sequence for LumberTask
     private void BeginChopping(string swingside)
     {
-        float timerToActivateAxe = 0f;
-        if (!isChopping)
+        if (selfLogic.CurrentToolIsHolstered)
         {
-            switch (swingside)
-            {
-                case "horizontal":
-                selfAnim.PlayAnimation("hacking_horizontal_start", 1f);
-                selfAnim.PlayAnimation("hacking_horizontal", 1.8f);
-                isChopping = true;
-                timerToActivateAxe = 1.8f;
-                break;
+            selfLogic.ToggleHolsterTool();
 
-                case "vertical":
-                selfAnim.PlayAnimation("hacking_vertical_start", 0f);
-                selfAnim.PlayAnimation("hacking_vertical", 2.5f);
-                isChopping = true;
-                timerToActivateAxe = 2.5f;
-                break;
-            }
-            IEnumerator ActivateChopping()
+            IEnumerator ReRunMethod()
             {
-                yield return new WaitForSeconds(timerToActivateAxe);
-                selfLogic.CurrentTool.GetComponent<Axe>().shouldChop = true;
-                StopCoroutine(ActivateChopping());
+                yield return new WaitForSeconds(1.5f);
+                BeginChopping(swingside);
+                StopCoroutine(ReRunMethod());
             }
-            StartCoroutine(ActivateChopping());
+            StartCoroutine(ReRunMethod());
+        }
+        else
+        {
+            float timerToActivateAxe = 0f;
+            if (!isChopping)
+            {
+                switch (swingside)
+                {
+                    case "horizontal":
+                        selfAnim.PlayAnimation("hacking_horizontal_start", 1f);
+                        selfAnim.PlayAnimation("hacking_horizontal", 1.8f);
+                        isChopping = true;
+                        timerToActivateAxe = 1.8f;
+                        break;
+
+                    case "vertical":
+                        selfAnim.PlayAnimation("hacking_vertical_start", 0f);
+                        selfAnim.PlayAnimation("hacking_vertical", 2.5f);
+                        isChopping = true;
+                        timerToActivateAxe = 2.5f;
+                        break;
+                }
+                IEnumerator ActivateChopping()
+                {
+                    yield return new WaitForSeconds(timerToActivateAxe);
+                    selfLogic.CurrentTool.GetComponent<Axe>().shouldChop = true;
+                    StopCoroutine(ActivateChopping());
+                }
+                StartCoroutine(ActivateChopping());
+            }
         }
     }
+
 
 
     // Carry a treepart
@@ -332,21 +332,21 @@ public class LogicTasks : MonoBehaviour
     private Quaternion treepartQua = new Quaternion(0f, 0f, 0f, 0);
     private void CarryLog()
     {
-        if(TaskObject.tag == "treepart")
+        if(selfLogic.TaskObject.tag == "treepart")
         {
             selfAnim.PlayAnimation("log_pickup", 0f);
             IEnumerator ParentLog()
             {
                 yield return new WaitForSeconds(0.7f);
-                Transform tot = TaskObject.transform;
+                Transform tot = selfLogic.TaskObject.transform;
                 tot.SetParent(selfLogic.RightHand.transform);
                 tot.rotation = selfLogic.RightHand.transform.rotation;
                 tot.RotateAround(tot.position, tot.right, treepartQua.x);
                 tot.RotateAround(tot.position, tot.up, treepartQua.y);
                 tot.RotateAround(tot.position, tot.forward, treepartQua.z);
                 tot.position = selfLogic.RightHand.transform.position + tot.right * treepartPos.x + tot.up * treepartPos.y + tot.forward * treepartPos.z;
-                selfLogic.CurrentCarrying = TaskObject;
-                IsCarryingResource = true;
+                selfLogic.CurrentCarrying = selfLogic.TaskObject;
+                selfLogic.IsCarryingResource = true;
                 StopCoroutine(ParentLog());
             }
             StartCoroutine(ParentLog());
@@ -360,10 +360,10 @@ public class LogicTasks : MonoBehaviour
                 }
                 else
                 {
-                    TaskObject = FindClosestObject("lumberworkstation");
-                    if (TaskObject)
+                    selfLogic.TaskObject = selfLogic.FindClosestObject("lumberworkstation");
+                    if (selfLogic.TaskObject)
                     {
-                        selfNavigation.WalkToDestination(TaskObject.transform.Find("SawingPos").position, 0f);
+                        selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.Find("SawingPos").position, 0f);
                         hasReachedTaskObject = false;
                     }
                     else
@@ -373,10 +373,10 @@ public class LogicTasks : MonoBehaviour
                             while (true)
                             {
                                 yield return new WaitForSeconds(2f);
-                                TaskObject = FindClosestObject("lumberworkstation");
-                                if (TaskObject)
+                                selfLogic.TaskObject = selfLogic.FindClosestObject("lumberworkstation");
+                                if (selfLogic.TaskObject)
                                 {
-                                    selfNavigation.WalkToDestination(TaskObject.transform.Find("SawingPos").position, 0f);
+                                    selfNavigation.WalkToDestination(selfLogic.TaskObject.transform.Find("SawingPos").position, 0f);
                                     hasReachedTaskObject = false;
                                     break;
                                 }
@@ -393,15 +393,19 @@ public class LogicTasks : MonoBehaviour
         }
     }
 
+
+    // Play saw sounds
     private void PlaySawSound()
     {
         string[] sounds = {"handsaw1", "handsaw2", "handsaw3"};
         selfSound.PlaySound(sounds[Random.Range(0, 2)], 0.5f, 1f, 0f);
     }
 
+
+
     private void SplitTreepart() // Split the treepart in two when the sawing process is finished
     {
-        Lumberworkstation station = UsingWorkstation.GetComponent<Lumberworkstation>();
+        Lumberworkstation station = selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>();
         if(station.CurrentHoldingRS != null)
         {
             if(station.CurrentHoldingRS.tag == "treepart")
@@ -409,13 +413,13 @@ public class LogicTasks : MonoBehaviour
                 GameObject log = station.CurrentHoldingRS;
 
                 GameObject RightCut = Instantiate(log.GetComponent<TreePart>().RightPart);
-                RightCut.transform.parent = UsingWorkstation.transform;
+                RightCut.transform.parent = selfLogic.UsingWorkstation.transform;
                 RightCut.transform.rotation = log.transform.rotation;
                 RightCut.transform.position = log.transform.position + log.transform.right * -0.01f + log.transform.up * 0f + log.transform.forward * 0f;
                 station.CurrentHoldingRS = RightCut;
 
                 GameObject LeftCut = Instantiate(log.GetComponent<TreePart>().LeftPart);
-                LeftCut.transform.parent = UsingWorkstation.transform;
+                LeftCut.transform.parent = selfLogic.UsingWorkstation.transform;
                 LeftCut.transform.rotation = log.transform.rotation;
                 LeftCut.transform.position = log.transform.position + log.transform.right * 0.01f + log.transform.up * 0f + log.transform.forward * 0f;
                 station.CurrentHoldingRS2 = LeftCut;
@@ -425,14 +429,16 @@ public class LogicTasks : MonoBehaviour
         }
     }
 
-    public GameObject FindClosestLumberWorkstationWithLog()
+
+
+    public GameObject FindClosestLumberWorkstationWithLog() // Find the closest lumber workstation with a log on it
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("lumberworkstation");
-        if(objects.Length != 0)
+        if (objects.Length != 0)
         {
             float[] objectsDistances = new float[objects.Length];
             int index = 0;
-            foreach(GameObject i in objects)
+            foreach (GameObject i in objects)
             {
                 objectsDistances[index] = Vector3.Distance(self.transform.position, i.transform.position);
                 index++;
@@ -441,31 +447,31 @@ public class LogicTasks : MonoBehaviour
             bool objectHasntBeenFound = true;
             int indexToUse = -1;
             int indexFound = 0;
-                foreach (float distance in objectsDistances)
+            foreach (float distance in objectsDistances)
+            {
+                if (distance == Mathf.Min(objectsDistances))
                 {
-                    if (distance == Mathf.Min(objectsDistances))
+                    Lumberworkstation script = objects[indexFound].GetComponent<Lumberworkstation>();
+                    if (!script.IsOccupied && script.CurrentHoldingRS != null)
                     {
-                        Lumberworkstation script = objects[indexFound].GetComponent<Lumberworkstation>();
-                        if (!script.IsOccupied && script.CurrentHoldingRS != null)
-                        {
-                            objectHasntBeenFound = false;
-                            objects[indexFound].GetComponent<Lumberworkstation>().IsOccupied = true;
-                            indexToUse = indexFound;
-                            break;
-                        }
-                        else
-                        {
-                            objectsDistances[indexFound] = 99999999;
-                            objects[indexFound] = null;
-                        }
+                        objectHasntBeenFound = false;
+                        objects[indexFound].GetComponent<Lumberworkstation>().IsOccupied = true;
+                        indexToUse = indexFound;
+                        break;
                     }
-                    indexFound++;
+                    else
+                    {
+                        objectsDistances[indexFound] = 99999999;
+                        objects[indexFound] = null;
+                    }
                 }
+                indexFound++;
+            }
 
             if (!objectHasntBeenFound)
             {
                 return objects[indexToUse];
-            } 
+            }
             else
             {
                 return null;
@@ -477,279 +483,6 @@ public class LogicTasks : MonoBehaviour
             return null;
         }
     }
-
-    // New work here etc.
-
-
-
-    // Find an object by tag, and return the closest one to a settler/player
-    public GameObject FindClosestObject(string tag)
-    {
-
-        GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
-        if (objects.Length != 0) // Is the array empty?
-        {
-            float[] objectDistances = new float[objects.Length];
-            int index = 0;
-            foreach (GameObject i in objects)
-            {
-                objectDistances[index] = Vector3.Distance(self.transform.position, i.transform.position);
-                index++;
-            }
-
-            bool objectHasntBeenFound = true;
-            int indexToUse = -1;
-            while (objectHasntBeenFound)
-            {
-                int indexFound = 0;
-                foreach (float distance in objectDistances)
-                {
-                    if (distance == Mathf.Min(objectDistances))
-                    {
-                        if (tag == "tree" && objects[indexFound]) //Tree Entity
-                        {
-                            if (!objects[indexFound].GetComponent<Tree>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<Tree>().IsOccupied = true;
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else if (tag == "treestage1" && objects[indexFound])  //A tree entity in stage 1
-                        {
-                            if (!objects[indexFound].GetComponent<PinetreeStage1>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<PinetreeStage1>().IsOccupied = true;
-                                objects[indexFound].GetComponent<PinetreeStage1>().UpdateOwner(self);
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else if (tag == "treestage2" && objects[indexFound])  //A tree entity in stage 2
-                        {
-                            if (!objects[indexFound].GetComponent<PinetreeStage2>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<PinetreeStage2>().IsOccupied = true;
-                                objects[indexFound].GetComponent<PinetreeStage2>().UpdateOwner(self);
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else if (tag == "treestage3" && objects[indexFound])  //A tree entity in stage 3
-                        {
-                            if (!objects[indexFound].GetComponent<PinetreeStage3>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<PinetreeStage3>().IsOccupied = true;
-                                objects[indexFound].GetComponent<PinetreeStage3>().UpdateOwner(self);
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else if (tag == "treestage4" && objects[indexFound])  //A tree entity in stage 4
-                        {
-                            if (!objects[indexFound].GetComponent<PinetreeStage4>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<PinetreeStage4>().IsOccupied = true;
-                                objects[indexFound].GetComponent<PinetreeStage4>().UpdateOwner(self);
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else if (tag == "treestage5" && objects[indexFound])  //A tree entity in stage 5
-                        {
-                            if (!objects[indexFound].GetComponent<PinetreeStage5>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<PinetreeStage5>().IsOccupied = true;
-                                objects[indexFound].GetComponent<PinetreeStage5>().UpdateOwner(self);
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else if (tag == "treepart" && objects[indexFound])  //A part of a tree
-                        {
-                            if (!objects[indexFound].GetComponent<TreePart>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<TreePart>().IsOccupied = true;
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else if (tag == "lumberworkstation" && objects[indexFound])  //A lumber workstation
-                        {
-                            if (!objects[indexFound].GetComponent<Lumberworkstation>().IsOccupied)
-                            {
-                                objects[indexFound].GetComponent<Lumberworkstation>().IsOccupied = true;
-                                indexToUse = indexFound;
-                                objectHasntBeenFound = false;
-                                break;
-                            }
-                            else
-                            {
-                                objects[indexFound] = null;
-                                objectDistances[indexFound] = 99999999;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            indexToUse = indexFound;
-                            objectHasntBeenFound = false;
-                            break;
-                        }
-                    }
-                    indexFound++;
-                }
-            }
-
-            return objects[indexToUse];
-         
-        }
-        else
-        {
-            print("No object found with tag: " + tag);
-            return null;
-        }
-    }
-
-
-
-
-    // Check if a GameObject is within the world from a tag, and with custom properties for each GameObject type
-    private bool isGameObjectInWorld(string objectTag)
-    {
-        bool isInWorld = false;
-        GameObject[] objects = GameObject.FindGameObjectsWithTag(objectTag);
-        if (objects.Length != 0)
-        {
-            foreach (GameObject o in objects)
-            {
-                switch (objectTag) // Use this switch to customize the properties of the GameObject, before returning true
-                {
-                    case "treepart":
-                        if (!o.GetComponent<TreePart>().IsOccupied)
-                        {
-                            isInWorld = true;
-                        }
-                        break;
-
-                    case "treepartcut":
-                        if(!o.transform.Find("lumberworkstation").gameObject.GetComponent<Lumberworkstation>().IsOccupied)
-                        {
-
-                        }
-                        break;
-
-
-                    case "treestage5":
-                        if (!o.GetComponent<PinetreeStage5>().IsOccupied)
-                        {
-                            isInWorld = true;
-                        }
-                        break;
-
-
-                    case "treestage4":
-                        if (!o.GetComponent<PinetreeStage4>().IsOccupied)
-                        {
-                            isInWorld = true;
-                        }
-                        break;
-
-
-                    case "treestage3":
-                        if (!o.GetComponent<PinetreeStage3>().IsOccupied)
-                        {
-                            isInWorld = true;
-                        }
-                        break;
-
-
-                    case "treestage2":
-                        if (!o.GetComponent<PinetreeStage2>().IsOccupied)
-                        {
-                            isInWorld = true;
-                        }
-                        break;
-
-
-                    case "treestage1":
-                        if (!o.GetComponent<PinetreeStage1>().IsOccupied)
-                        {
-                            isInWorld = true;
-                        }
-                        break;
-
-
-                    case "tree":
-                        if (!o.GetComponent<Tree>().IsOccupied)
-                        {
-                            isInWorld = true;
-                        }
-                        break;
-
-                }
-            }
-        }
-
-        if (isInWorld)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
 
 
 
@@ -766,19 +499,19 @@ public class LogicTasks : MonoBehaviour
 
                 if (selfLogic.Task == "choptree") // Find and chop a tree
                 {
-                    if (!hasReachedTaskObject && TaskObject) // If settler hasn't reached the tree
+                    if (!hasReachedTaskObject && selfLogic.TaskObject) // If settler hasn't reached the tree
                     {
-                        float distance = Vector3.Distance(self.transform.position, TaskObject.transform.position);
+                        float distance = Vector3.Distance(self.transform.position, selfLogic.TaskObject.transform.position);
 
                         if (distance <= 1.5f && !hasReachedTaskObject)
                         {
                             hasReachedTaskObject = true;
                             selfNavigation.Stop();
-                            self.transform.LookAt(TaskObject.transform);
+                            self.transform.LookAt(selfLogic.TaskObject.transform);
                             BeginChopping("horizontal");
                         }
                     }
-                    else if (hasReachedTaskObject && !TaskObject) // If the tree has been chopped down, and needs to go to stage1
+                    else if (hasReachedTaskObject && !selfLogic.TaskObject) // If the tree has been chopped down, and needs to go to stage1
                     {
                         hasReachedTaskObject = false;
                         isChopping = false;
@@ -795,9 +528,9 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "choptree_stage1") // Find and pluck a tree
                 {
-                    if (!hasReachedTaskObject && TaskObject) // If the settler hasn't reached the tree in stage 1
+                    if (!hasReachedTaskObject && selfLogic.TaskObject) // If the settler hasn't reached the tree in stage 1
                     {
-                        Vector3 stage1GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 4;
+                        Vector3 stage1GameObjectPositionToLookAt = selfLogic.TaskObject.transform.position + selfLogic.TaskObject.transform.forward * 4;
                         float distance = Vector3.Distance(self.transform.position, stage1GameObjectPositionToLookAt + self.transform.right * 1);
                         if (distance <= 2f) // If we reach the tree in stage1 
                         {
@@ -813,13 +546,13 @@ public class LogicTasks : MonoBehaviour
                                 }
                                 selfAnim.PlayAnimation("plucking_start", 1.5f);
                                 selfAnim.PlayAnimation("plucking", 1.5f);
-                                TaskObject.GetComponent<PinetreeStage1>().plucktree_start();
+                                selfLogic.TaskObject.GetComponent<PinetreeStage1>().plucktree_start();
                                 StopCoroutine(Stage1Pluck());
                             }
                             StartCoroutine(Stage1Pluck());
                         }
                     }
-                    else if (hasReachedTaskObject && !TaskObject) // When the tree has been plucked
+                    else if (hasReachedTaskObject && !selfLogic.TaskObject) // When the tree has been plucked
                     {
                         hasReachedTaskObject = false;
                         selfAnim.PlayAnimation("plucking_end", 1.5f);
@@ -834,10 +567,10 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "choptree_stage2") // Find and begin chopping top of the tree
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
-                        Vector3 stage2GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 5.4f;
-                        float distance = Vector3.Distance(self.transform.position, stage2GameObjectPositionToLookAt + TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f);
+                        Vector3 stage2GameObjectPositionToLookAt = selfLogic.TaskObject.transform.position + selfLogic.TaskObject.transform.forward * 5.4f;
+                        float distance = Vector3.Distance(self.transform.position, stage2GameObjectPositionToLookAt + selfLogic.TaskObject.GetComponent<PinetreeStage2>().TreeRightSide * 1f);
                         if (distance <= 0.4f) // If we reach the tree in stage2 
                         {
                             hasReachedTaskObject = true;
@@ -866,7 +599,7 @@ public class LogicTasks : MonoBehaviour
                             StartCoroutine(Stage2BeginChopping());
                         }
                     }
-                    else if (hasReachedTaskObject && !TaskObject) // When the upper part of the tree has ben cut off.
+                    else if (hasReachedTaskObject && !selfLogic.TaskObject) // When the upper part of the tree has ben cut off.
                     {
                         hasReachedTaskObject = false;
                         isChopping = false;
@@ -883,10 +616,10 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "choptree_stage3") // Find and begin chopping lower section of the tree, in stage 3
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
-                        Vector3 stage3GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 3f;
-                        float distance = Vector3.Distance(self.transform.position, stage3GameObjectPositionToLookAt + TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f);
+                        Vector3 stage3GameObjectPositionToLookAt = selfLogic.TaskObject.transform.position + selfLogic.TaskObject.transform.forward * 3f;
+                        float distance = Vector3.Distance(self.transform.position, stage3GameObjectPositionToLookAt + selfLogic.TaskObject.GetComponent<PinetreeStage3>().TreeRightSide * 1f);
                         if (distance <= 1f) // If we reach the tree in stage3
                         {
                             hasReachedTaskObject = true;
@@ -914,7 +647,7 @@ public class LogicTasks : MonoBehaviour
                             StartCoroutine(Stage3BeginChopping());
                         }
                     }
-                    else if (hasReachedTaskObject && !TaskObject) // When the part of the tree has ben cut off.
+                    else if (hasReachedTaskObject && !selfLogic.TaskObject) // When the part of the tree has ben cut off.
                     {
                         hasReachedTaskObject = false;
                         isChopping = false;
@@ -931,10 +664,10 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "choptree_stage4") // Find and begin chopping lower section of the tree, in stage 4
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
-                        Vector3 stage4GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 1.25f;
-                        float distance = Vector3.Distance(self.transform.position, stage4GameObjectPositionToLookAt + TaskObject.GetComponent<PinetreeStage4>().TreeRightSide * 1f);
+                        Vector3 stage4GameObjectPositionToLookAt = selfLogic.TaskObject.transform.position + selfLogic.TaskObject.transform.forward * 1.25f;
+                        float distance = Vector3.Distance(self.transform.position, stage4GameObjectPositionToLookAt + selfLogic.TaskObject.GetComponent<PinetreeStage4>().TreeRightSide * 1f);
                         if (distance <= 1f) // If we reach the tree in stage4
                         {
                             hasReachedTaskObject = true;
@@ -962,7 +695,7 @@ public class LogicTasks : MonoBehaviour
                             StartCoroutine(Stage3BeginChopping());
                         }
                     }
-                    else if (hasReachedTaskObject && !TaskObject) // When the part of the tree has ben cut off.
+                    else if (hasReachedTaskObject && !selfLogic.TaskObject) // When the part of the tree has ben cut off.
                     {
                         hasReachedTaskObject = false;
                         isChopping = false;
@@ -979,10 +712,10 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "choptree_stage5") // Find and begin chopping lower section of the tree, in stage 5
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
-                        Vector3 stage5GameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 1.5f;
-                        float distance = Vector3.Distance(self.transform.position, stage5GameObjectPositionToLookAt + TaskObject.GetComponent<PinetreeStage5>().TreeRightSide * 1f);
+                        Vector3 stage5GameObjectPositionToLookAt = selfLogic.TaskObject.transform.position + selfLogic.TaskObject.transform.forward * 1.5f;
+                        float distance = Vector3.Distance(self.transform.position, stage5GameObjectPositionToLookAt + selfLogic.TaskObject.GetComponent<PinetreeStage5>().TreeRightSide * 1f);
                         if (distance <= 1f) // If we reach the tree in stage5
                         {
                             hasReachedTaskObject = true;
@@ -1010,7 +743,7 @@ public class LogicTasks : MonoBehaviour
                             StartCoroutine(Stage3BeginChopping());
                         }
                     }
-                    else if (hasReachedTaskObject && !TaskObject) // When the part of the tree has ben cut off.
+                    else if (hasReachedTaskObject && !selfLogic.TaskObject) // When the part of the tree has ben cut off.
                     {
                         hasReachedTaskObject = false;
                         isChopping = false;
@@ -1027,11 +760,11 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "collectwood")
                 {
-                    if (!hasReachedTaskObject && TaskObject) // When we are making our way to a treepart
+                    if (!hasReachedTaskObject && selfLogic.TaskObject) // When we are making our way to a treepart
                     {
-                        if (TaskObject.tag == "treepart")
+                        if (selfLogic.TaskObject.tag == "treepart")
                         {
-                            Vector3 treepartGameObjectPositionToLookAt = TaskObject.transform.position + TaskObject.transform.forward * 1f;
+                            Vector3 treepartGameObjectPositionToLookAt = selfLogic.TaskObject.transform.position + selfLogic.TaskObject.transform.forward * 1f;
                             float distance = Vector3.Distance(self.transform.position, treepartGameObjectPositionToLookAt);
                             print(distance);
                             if (distance <= 2f) // If we reach the treepart
@@ -1064,16 +797,16 @@ public class LogicTasks : MonoBehaviour
 
                             }
                         }
-                        else if (TaskObject.tag == "lumberworkstation") // When we are making our way to the workstation, and reach it.
+                        else if (selfLogic.TaskObject.tag == "lumberworkstation") // When we are making our way to the workstation, and reach it.
                         {
-                            Vector3 gameObjectPositionToLookAt = TaskObject.transform.Find("SawingPos").position;
+                            Vector3 gameObjectPositionToLookAt = selfLogic.TaskObject.transform.Find("SawingPos").position;
                             float distance = Vector3.Distance(self.transform.position, gameObjectPositionToLookAt);
                             print(distance);
                             if (distance <= 0.1f)
                             {
                                 hasReachedTaskObject = true;
-                                UsingWorkstation = TaskObject;
-                                Transform treepartPos = TaskObject.transform.Find("TreepartPos");
+                                selfLogic.UsingWorkstation = selfLogic.TaskObject;
+                                Transform treepartPos = selfLogic.TaskObject.transform.Find("TreepartPos");
                                 self.transform.LookAt(treepartPos);
                                 selfAnim.PlayAnimation("log_idle", 0f);
                                 selfAnim.PlayAnimation("log_drop", 1.25f);
@@ -1081,14 +814,14 @@ public class LogicTasks : MonoBehaviour
                                 {
                                     yield return new WaitForSeconds(2f);
                                     self.transform.LookAt(treepartPos);
-                                    Transform workstationTreepartPos = TaskObject.transform.Find("TreepartPos");
+                                    Transform workstationTreepartPos = selfLogic.TaskObject.transform.Find("TreepartPos");
                                     GameObject treepart = selfLogic.CurrentCarrying;
                                     treepart.transform.SetParent(workstationTreepartPos);
                                     treepart.transform.rotation = workstationTreepartPos.rotation;
                                     treepart.transform.RotateAround(treepart.transform.position, treepart.transform.up, -90);
                                     treepart.transform.position = workstationTreepartPos.position + treepart.transform.right * 0f + treepart.transform.up * 0.05f + treepart.transform.forward * -0.75f;
-                                    IsCarryingResource = false;
-                                    UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS = treepart;
+                                    selfLogic.IsCarryingResource = false;
+                                    selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS = treepart;
                                     
                                     if(treepart.name.Contains("pinetree_level5_part2")) // Adjust treepart's position/rotations each, if the a specific model does not fit as everyone else.
                                     {
@@ -1116,18 +849,18 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "sawtreepart") // When we are going to saw the treepart
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
-                        if (TaskObject.name == "GetSawPos") // Get the saw from the table
+                        if (selfLogic.TaskObject.name == "GetSawPos") // Get the saw from the table
                         {
-                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            float distance = Vector3.Distance(selfLogic.TaskObject.transform.position, self.transform.position);
                             if (distance <= 0.1f)
                             {
                                 hasReachedTaskObject = true;
                                 selfNavigation.Stop();
                                 selfAnim.PlayAnimation("item_pickup_ground", 1f);
 
-                                GameObject saw = UsingWorkstation.transform.Find("carpenter_saw").gameObject;
+                                GameObject saw = selfLogic.UsingWorkstation.transform.Find("carpenter_saw").gameObject;
                                 GameObject rh = selfLogic.RightHand;
                                 Transform sawT = saw.transform;
                                 self.transform.LookAt(saw.transform);
@@ -1162,7 +895,7 @@ public class LogicTasks : MonoBehaviour
                                         sawT.position = rh.transform.position + sawT.transform.right * -0.05f + sawT.transform.up * -0.35f + sawT.transform.forward * -0.035f;
                                     }
                                     StopCoroutine(GrabSaw());
-                                    UsingWorkstation.GetComponent<Lumberworkstation>().SawIsTaken = true;
+                                    selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().SawIsTaken = true;
                                     IEnumerator GrabSaw3()
                                     {
                                         yield return new WaitForSeconds(2f + extratime);
@@ -1174,56 +907,56 @@ public class LogicTasks : MonoBehaviour
                                 StartCoroutine(GrabSaw());
                             }
                         }
-                        else if (TaskObject.name == "AdjustStation") // Adjust the workbench with the right valve
+                        else if (selfLogic.TaskObject.name == "AdjustStation") // Adjust the workbench with the right valve
                         {
-                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            float distance = Vector3.Distance(selfLogic.TaskObject.transform.position, self.transform.position);
                             if (distance <= 0.05f)
                             {
                                 selfNavigation.Stop();
                                 hasReachedTaskObject = true;
-                                self.transform.LookAt(UsingWorkstation.transform);
+                                self.transform.LookAt(selfLogic.UsingWorkstation.transform);
                                 selfAnim.PlayAnimation("workstation_lumber_use_valve1", 1f);
-                                UsingWorkstation.GetComponent<Anim>().PlayAnimation("RValve_close", 2f);
+                                selfLogic.UsingWorkstation.GetComponent<Anim>().PlayAnimation("RValve_close", 2f);
                                 IEnumerator AdjustStation()
                                 {
                                     yield return new WaitForSeconds(6f);
-                                    UsingWorkstation.GetComponent<Lumberworkstation>().RightValveIsAdjusted = true;
+                                    selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().RightValveIsAdjusted = true;
                                     LumberTask("sawtreepart");
                                     StopCoroutine(AdjustStation());
                                 }
                                 StartCoroutine(AdjustStation());
                             }
                         }
-                        else if (TaskObject.name == "AdjustStation2") // Adjust the workbench on the left valve
+                        else if (selfLogic.TaskObject.name == "AdjustStation2") // Adjust the workbench on the left valve
                         {
-                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            float distance = Vector3.Distance(selfLogic.TaskObject.transform.position, self.transform.position);
                             if (distance <= 0.05f)
                             {
                                 selfNavigation.Stop();
                                 hasReachedTaskObject = true;
-                                self.transform.LookAt(UsingWorkstation.transform.Find("AdjustStation2Look"));
+                                self.transform.LookAt(selfLogic.UsingWorkstation.transform.Find("AdjustStation2Look"));
                                 selfAnim.PlayAnimation("workstation_lumber_use_valve2", 1f);
-                                UsingWorkstation.GetComponent<Anim>().PlayAnimation("LValve_close", 4f);
+                                selfLogic.UsingWorkstation.GetComponent<Anim>().PlayAnimation("LValve_close", 4f);
                                 IEnumerator AdjustStation()
                                 {
                                     yield return new WaitForSeconds(8f);
-                                    UsingWorkstation.GetComponent<Lumberworkstation>().LeftValveIsAdjusted = true;
+                                    selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().LeftValveIsAdjusted = true;
                                     LumberTask("sawtreepart");
                                     StopCoroutine(AdjustStation());
                                 }
                                 StartCoroutine(AdjustStation());
                             }
                         }
-                        else if (TaskObject.name == "SawingPos") // Go to the sawing position, and begin sawing 
+                        else if (selfLogic.TaskObject.name == "SawingPos") // Go to the sawing position, and begin sawing 
                         {
-                            float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                            float distance = Vector3.Distance(selfLogic.TaskObject.transform.position, self.transform.position);
                             if (distance <= 0.05f)
                             {
                                 selfNavigation.Stop();
                                 hasReachedTaskObject = true;
-                                self.transform.LookAt(UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS.transform);
+                                self.transform.LookAt(selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS.transform);
                                 selfAnim.PlayAnimation("tools_saw_lumberworkstation_start", 0f);
-                                GameObject treepart = UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS;
+                                GameObject treepart = selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().CurrentHoldingRS;
 
                                 IEnumerator Sawing1()
                                 {
@@ -1274,9 +1007,9 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "gotolumberworkstation") // Go to a lumberworkstation, and work with the treepart
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
-                        Transform gameObject = TaskObject.transform.Find("SawingPos");
+                        Transform gameObject = selfLogic.TaskObject.transform.Find("SawingPos");
                         float distance = Vector3.Distance(self.transform.position, gameObject.position);
                         if (distance <= 0.1f)
                         {
@@ -1289,7 +1022,7 @@ public class LogicTasks : MonoBehaviour
                                 selfLogic.ToggleHolsterTool();
                                 extratime = 1;
                             }
-                            GameObject resource = TaskObject.GetComponent<Lumberworkstation>().CurrentHoldingRS;
+                            GameObject resource = selfLogic.TaskObject.GetComponent<Lumberworkstation>().CurrentHoldingRS;
                             if (resource.tag == "treepart") // Treepart is not sawed completely 
                             {
                                 int logHealth = resource.GetComponent<TreePart>().SawingHealth;
@@ -1314,7 +1047,7 @@ public class LogicTasks : MonoBehaviour
                                 IEnumerator Delay()
                                 {
                                     yield return new WaitForSeconds(2f + extratime);
-                                    GameObject log = UsingWorkstation.GetComponent<Lumberworkstation>().GetResource();
+                                    GameObject log = selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().GetResource();
                                     if(log != null)
                                     {
                                         Transform logT = log.transform;
@@ -1323,9 +1056,9 @@ public class LogicTasks : MonoBehaviour
                                         logT.rotation = selfRH.transform.rotation;
                                         logT.RotateAround(logT.position, logT.forward, 120f);
                                         logT.position = selfRH.transform.position + logT.right * -0.16f + logT.up * -0.17f + logT.forward * -0.75f;
-                                        IsCarryingResource = true;
+                                        selfLogic.IsCarryingResource = true;
                                         selfLogic.CurrentCarrying = log;
-                                        Lumberworkstation workstation = UsingWorkstation.GetComponent<Lumberworkstation>();
+                                        Lumberworkstation workstation = selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>();
                                         if(!workstation.IsLastResource())
                                         {
                                             workstation.RemoveResource(2);
@@ -1336,10 +1069,10 @@ public class LogicTasks : MonoBehaviour
                                             workstation.IsOccupied = false;
                                             workstation.RightValveIsAdjusted = false;
                                             workstation.LeftValveIsAdjusted = false;
-                                            Anim workstationAnim = UsingWorkstation.GetComponent<Anim>();
+                                            Anim workstationAnim = selfLogic.UsingWorkstation.GetComponent<Anim>();
                                             workstationAnim.PlayAnimation("RValve_open", 0f);
                                             workstationAnim.PlayAnimation("LValve_open", 0f);
-                                            UsingWorkstation = null;
+                                            selfLogic.UsingWorkstation = null;
                                         }
                                         
                                         IEnumerator Delay2()
@@ -1359,14 +1092,14 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if (selfLogic.Task == "storetreeparts") // When the wood has been sawed, and we must begin to store it
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
 
-                        float distance = Vector3.Distance(TaskObject.transform.position, self.transform.position);
+                        float distance = Vector3.Distance(selfLogic.TaskObject.transform.position, self.transform.position);
                         if (distance <= 0.1f)
                         {
                             hasReachedTaskObject = true;
-                            Transform HolderPos = UsingWorkstation.transform.Find("SawHolderPos");
+                            Transform HolderPos = selfLogic.UsingWorkstation.transform.Find("SawHolderPos");
                             self.transform.LookAt(HolderPos);
                             selfNavigation.Stop();
                             selfAnim.PlayAnimation("aaa", 0f);
@@ -1375,10 +1108,10 @@ public class LogicTasks : MonoBehaviour
                             {
                                 yield return new WaitForSeconds(2f);
                                 GameObject saw = selfLogic.RightHand.transform.Find("carpenter_saw").gameObject;
-                                saw.transform.SetParent(UsingWorkstation.transform);
+                                saw.transform.SetParent(selfLogic.UsingWorkstation.transform);
                                 saw.transform.position = HolderPos.transform.position;
                                 saw.transform.rotation = HolderPos.transform.rotation;
-                                UsingWorkstation.GetComponent<Lumberworkstation>().SawIsTaken = false;
+                                selfLogic.UsingWorkstation.GetComponent<Lumberworkstation>().SawIsTaken = false;
                                 IEnumerator PlaceSaw1()
                                 {
                                     yield return new WaitForSeconds(2);
@@ -1394,9 +1127,9 @@ public class LogicTasks : MonoBehaviour
                 }
                 else if(selfLogic.Task == "gotostorage") // Make our way to a storage building, with the sawed wood
                 {
-                    if (!hasReachedTaskObject && TaskObject)
+                    if (!hasReachedTaskObject && selfLogic.TaskObject)
                     {
-                        float distance = Vector3.Distance(self.transform.position, TaskObject.transform.Find("UsePosition").transform.position);
+                        float distance = Vector3.Distance(self.transform.position, selfLogic.TaskObject.transform.Find("UsePosition").transform.position);
                         if (distance <= 1f)
                         {
                             hasReachedTaskObject = true;
@@ -1407,12 +1140,12 @@ public class LogicTasks : MonoBehaviour
                                 yield return new WaitForSeconds(2f);
                                 GameObject log = selfLogic.CurrentCarrying;
                                 Destroy(log);
-                                IsCarryingResource = false;
-                                TaskObject.GetComponent<storagetent>().AddResource("wood");
+                                selfLogic.IsCarryingResource = false;
+                                selfLogic.TaskObject.GetComponent<storagetent>().AddResource("wood");
                                 IEnumerator Delay2()
                                 {
                                     yield return new WaitForSeconds(1f);
-                                    if (UsingWorkstation == null)
+                                    if (selfLogic.UsingWorkstation == null)
                                     {
                                         CalcLumberTask();
                                     }
@@ -1431,10 +1164,6 @@ public class LogicTasks : MonoBehaviour
                 }
                 break;
 
-
-            // -- Next Job here --
-            case "nextjobhere":
-            break;
                 
 
 

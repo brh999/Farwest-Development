@@ -98,7 +98,7 @@ public class Tree : MonoBehaviour
 
         IEnumerator DestroyFlakes()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
             Destroy(flake1);
             Destroy(flake2);
             Destroy(flake3);

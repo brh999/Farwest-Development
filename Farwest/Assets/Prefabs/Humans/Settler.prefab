@@ -835,7 +835,6 @@ GameObject:
   - component: {fileID: 3045855630258426141}
   - component: {fileID: 2502565292170832363}
   - component: {fileID: -7011701069447079352}
-  - component: {fileID: -336923292098172972}
   - component: {fileID: 7046635375081014834}
   - component: {fileID: 4162181445327202968}
   - component: {fileID: 1982095324100203256}
@@ -947,22 +946,6 @@ MonoBehaviour:
   isRunning: 0
   isWalking: 0
   isUsingSlerp: 0
---- !u!114 &-336923292098172972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775453631022151841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd42baeed91376478d8fbab5f9a48fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TaskObject: {fileID: 0}
-  UsingWorkstation: {fileID: 0}
-  isChopping: 0
-  IsCarryingResource: 0
 --- !u!114 &7046635375081014834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,14 +958,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a081c202047464349aeb4a4d1a331382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Work: none
-  Task: none
-  HasDestination: 0
-  CurrentToolIsHolstered: 0
   CurrentTool: {fileID: 0}
   CurrentCarrying: {fileID: 0}
   RightHand: {fileID: 0}
   Spine2: {fileID: 0}
+  TaskObject: {fileID: 0}
+  UsingWorkstation: {fileID: 0}
+  Tools:
+  - {fileID: 3252122224464510934, guid: b836ff5a12780134c83b6bcc70a0d3f7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Work: none
+  Task: none
+  HasDestination: 0
+  CurrentToolIsHolstered: 0
+  IsCarryingResource: 0
   ExistingTools:
   - tools_axe
 --- !u!114 &4162181445327202968
@@ -1028,9 +1035,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 25
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1038,23 +1045,50 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.06666667
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -15.005997
+      outSlope: -15.005997
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 0.12976278
+      value: 0.4263153
+      inSlope: -3.7514992
+      outSlope: -3.7514992
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.26309612
+      value: 0.17631531
+      inSlope: -0.9378748
+      outSlope: -0.9378748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5297628
+      value: 0.051315308
+      inSlope: -0.2344687
+      outSlope: -0.2344687
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.99642944
+      value: 0
+      inSlope: -0.06669331
+      outSlope: -0.06669331
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -1063,7 +1097,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

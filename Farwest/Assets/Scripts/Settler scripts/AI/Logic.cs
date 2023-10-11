@@ -23,7 +23,7 @@ public class Logic : MonoBehaviour
 
     private Anim selfAnim;
 
-    public string Work = "none";
+    public string Work = "idle";
     public string Task = "none";
 
     public bool HasDestination = false;
@@ -64,8 +64,7 @@ public class Logic : MonoBehaviour
 
         CurrentToolIsHolstered = true;
 
-        SetWork("idle");
-
+        SetWork(Work);
     }
 
 
